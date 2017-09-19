@@ -1,4 +1,4 @@
-module TTT
+module Games::Shared
   class Player
     attr_accessor :value, :name, :type, :difficulty_level
 

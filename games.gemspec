@@ -1,6 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
+games = File.expand_path('../lib/games', __FILE__)
+mastermind = File.expand_path('../lib/games/mastermind', __FILE__)
+shared = File.expand_path('../lib/games/shared', __FILE__)
+tictactoe = File.expand_path('../lib/games/tictactoe', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$LOAD_PATH.unshift(games) unless $LOAD_PATH.include?(games)
+$LOAD_PATH.unshift(mastermind) unless $LOAD_PATH.include?(mastermind)
+$LOAD_PATH.unshift(shared) unless $LOAD_PATH.include?(shared)
+$LOAD_PATH.unshift(tictactoe) unless $LOAD_PATH.include?(tictactoe)
 require 'games/version'
 
 Gem::Specification.new do |spec|
