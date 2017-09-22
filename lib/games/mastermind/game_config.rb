@@ -29,7 +29,7 @@ module MM
     def set_secret_code
       secret_code = []
       4.times do
-        secret_code.push((1..8).to_a.sample)
+        secret_code.push((1..6).to_a.sample)
       end
       secret_code
     end

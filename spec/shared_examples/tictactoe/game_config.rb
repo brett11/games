@@ -1,4 +1,4 @@
-RSpec.shared_examples "players_factory-able" do
+RSpec.shared_examples "tictactoe players_factory-able" do
   it { is_expected.to respond_to(:player_1_name) }
   it { is_expected.to respond_to(:player_1_value) }
   it { is_expected.to respond_to(:player_2_type) }

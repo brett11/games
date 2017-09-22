@@ -7,7 +7,7 @@ RSpec.describe TTT::GameConfig do
   subject { TTT::GameConfig.new(input_helper)  }
 
   describe "when initialized" do
-    it_behaves_like "players_factory-able"
+    it_behaves_like "tictactoe players_factory-able"
     it_behaves_like "board-builder-able"
   end
 

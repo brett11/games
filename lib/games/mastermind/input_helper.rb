@@ -14,8 +14,8 @@ module MM
     end
 
     def get_secret_code_from_user(name)
-      user_choice = get_user_input("#{name}, please enter a secret code consisting of four numbers that each correspond to a color. Do not separate with punctuation. The computer will try to guess this code.", "Please re-enter a secret code, using only 4 numbers, 1 through 8.") do |input|
-        input =~ /^[1-8]{4}$/
+      user_choice = get_user_input("#{name}, please enter a secret code consisting of four numbers that each correspond to a color. Do not separate with punctuation. The computer will try to guess this code.", "Please re-enter a secret code, using only 4 numbers, 1 through 6.") do |input|
+        input =~ /^[1-6]{4}$/
       end
       user_choice.to_s.chars.map(&:to_i)
     end

@@ -27,11 +27,15 @@ module Games::Shared
       @number_of_turns_taken = 0
     end
 
-    def setup_players_and_board
+    def setup
       #setup gets necessary info from user and stores it in config object
       config.setup
       self.players = players_factory.generate_players(config)
       self.board = board_builder.generate_empty_board(config)
+      local_setup
+    end
+
+    def local_setup
     end
 
     #overriding so that io and input_helper always in harmony

@@ -6,6 +6,6 @@ class TicTacToe
   board_presenter = TTT::BoardPresenterTerminal.new
 
   game = TTT::Game.new(game_module: TTT, io: io, board_presenter: board_presenter)
-  game.setup_players_and_board
+  game.setup
   game.play
 end

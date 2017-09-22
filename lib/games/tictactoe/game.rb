@@ -6,7 +6,7 @@ module TTT
       board.full? || board.won?
     end
 
-    def no_winner?
+    def over_with_no_winner?
       board.full? && !board.won?
     end
 
