@@ -1,21 +1,18 @@
-require_relative "../../../lib/games/tictactoe/player"
+require_relative "../../../lib/games/shared/player"
+require_relative '../../shared_examples/shared/player'
 
 RSpec.describe TTT::Player do
-  context "initialized with no value" do
-    let(:player) { TTT::Player.new}
+  context "initialized" do
+    let(:player) { TTT::Player.new }
 
-    it "is X by default" do
+    it_behaves_like "player interface"
+
+    specify "value is X by default" do
       expect(player.value).to eq("X")
     end
-  end
 
-
-  context "initialized with no name" do
-    let(:player) { TTT::Player.new}
-
-    it "is X by default" do
+    specify "name is \"Player 1\" by default" do
       expect(player.name).to eq("Player 1")
     end
   end
-
 end

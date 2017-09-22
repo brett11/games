@@ -31,7 +31,7 @@ RSpec.describe TTT::Squares do
     end
 
     context "creates full board" do
-      let(:squares) { TTT::SquaresFactory.build_custom_squares(TestConfig.board_config_full) }
+      let(:squares) { TTT::SquaresFactory.build_custom_squares(TTT::TestConfig.board_config_full) }
 
       it "is full" do
         expect(squares).to be_full
@@ -39,7 +39,7 @@ RSpec.describe TTT::Squares do
     end
 
     context "creates partially completed board" do
-      let(:squares) { TTT::SquaresFactory.build_custom_squares(TestConfig.board_config_partial) }
+      let(:squares) { TTT::SquaresFactory.build_custom_squares(TTT::TestConfig.board_config_partial) }
 
       it "is not full" do
         expect(squares).to_not be_full
@@ -49,7 +49,7 @@ RSpec.describe TTT::Squares do
 
   describe "can tell if squares are" do
     context "#any_combination_won" do
-      let(:squares) { TTT::SquaresFactory.build_custom_squares(TestConfig.board_config_full_won) }
+      let(:squares) { TTT::SquaresFactory.build_custom_squares(TTT::TestConfig.board_config_full_won) }
 
       specify do
         expect(squares.any_combination_won?).to be_truthy
@@ -57,7 +57,7 @@ RSpec.describe TTT::Squares do
     end
 
     context "not won" do
-      let(:squares) { TTT::SquaresFactory.build_custom_squares(TestConfig.board_config_full_draw) }
+      let(:squares) { TTT::SquaresFactory.build_custom_squares(TTT::TestConfig.board_config_full_draw) }
 
       specify do
         expect(squares.any_combination_won?).to be_falsy
@@ -66,7 +66,7 @@ RSpec.describe TTT::Squares do
   end
 
   describe "finds available choices" do
-    let(:squares) { TTT::SquaresFactory.build_custom_squares(TestConfig.board_config_partial) }
+    let(:squares) { TTT::SquaresFactory.build_custom_squares(TTT::TestConfig.board_config_partial) }
 
     specify do
       expect(squares.available_choices).to eq([1, 2, 3, 4, 5])

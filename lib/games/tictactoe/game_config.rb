@@ -12,8 +12,6 @@ module TTT
 
     def initialize(input_helper)
       @input_helper = input_helper
-      setup
-
     end
 
     def setup

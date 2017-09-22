@@ -1,4 +1,4 @@
-module TestConfig
+module TTT::TestConfig
   #board_config should be multi dimensional array, 9 elements, 1-9 as first element in subarray, desired value as second element
 
   @board_config_full = [

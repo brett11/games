@@ -25,37 +25,6 @@ module Games::Shared
       user_choice.capitalize
     end
 
-    def get_player_2_name
-      user_choice = get_user_input("Player 2, please enter your name", "Please re-enter your name, using only letters") do |input|
-        input =~ /^[a-zA-Z]+$/
-      end
-      user_choice.capitalize
-    end
-
-    def get_player_2_type
-      user_choice = get_user_input("Please enter \"C\" if you would like to play the Computer. Enter \"H\" if you would like to play the human sitting next to you.", "Invalid character. Please enter either C(Computer) or H(Human).") do |input|
-        input == 'c' || input == 'C' || input == 'h' || input == 'H'
-      end
-      user_choice = user_choice.upcase
-      if user_choice == "C"
-        :computer
-      elsif user_choice == "H"
-        :human
-      end
-    end
-
-    def get_computer_difficulty_level
-      user_choice = get_user_input("Please enter \"E\" if you would like to play an easy Computer. Enter \"D\" if you would like to play an extremely difficult computer.", "Invalid character. Please enter either E (Easy) or D (Difficult).") do |input|
-        input == 'd' || input == 'D' || input == 'e' || input == 'E'
-      end
-      user_choice = user_choice.upcase
-      if user_choice == "D"
-        :difficult
-      elsif user_choice == "E"
-        :easy
-      end
-    end
-
     def get_user_input(prompt, reprompt, &block_validation)
       io.present_with_new_line(prompt)
       user_choice = nil
@@ -94,11 +63,11 @@ module Games::Shared
     end
 
     def marching_dots
-      sleep(0.4)
+      sleep(0.2)
       io.present(".")
-      sleep(0.3)
+      sleep(0.2)
       io.present(".")
-      sleep(0.3)
+      sleep(0.1)
       io.present(".")
     end
   end

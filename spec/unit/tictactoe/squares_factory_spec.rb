@@ -1,0 +1,1 @@
+# see squares_spec, which covers both squares and squares_factory

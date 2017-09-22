@@ -1,9 +1,9 @@
-require_relative '../../../lib/games/tictactoe/io_terminal'
-require_relative '../../shared_examples/io'
+require_relative '../../../lib/games/shared/io_terminal'
+require_relative '../../shared_examples/shared/io'
 
-RSpec.describe TTT::IOTerminal do
+RSpec.describe Games::Shared::IOTerminal do
   it_behaves_like "io_presenter_receiver"
-  let(:io_presenter_receiver) { TTT::IOTerminal.new }
+  let(:io_presenter_receiver) { Games::Shared::IOTerminal.new }
 
   context "terminal" do
     let(:prompt) { "Hello, this is a test" }

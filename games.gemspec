@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Play tic tac toe and mastermind on the command line}
   spec.description   = %q{In order to play, download the gem, and type tictactoe or mastermind at your terminal.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/brett11/games"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
