@@ -1,5 +1,5 @@
 require_relative '../../../lib/games/tictactoe/board_presenter_terminal'
-require_relative '../../shared_examples/tictactoe/board_presenter'
+require_relative '../../shared_examples/shared/board_presenter'
 
 RSpec.describe TTT::BoardPresenterTerminal do
   it_behaves_like "board_presenter"

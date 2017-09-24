@@ -1,3 +1,5 @@
+require_relative '../shared/game'
+
 module MM
   class Game < Games::Shared::Game
     attr_accessor :code_setter, :secret_code, :current_guess

@@ -1,0 +1,16 @@
+require_relative '../../../lib/games/mastermind/board_presenter_terminal'
+require_relative '../../../lib/games/mastermind/pegs_factory'
+require_relative '../../shared_examples/shared/board_presenter'
+
+RSpec.describe MM::BoardPresenterTerminal do
+  it_behaves_like "board_presenter"
+
+  let(:pegs) { MM::PegsFactory.build_empty_pegs(4) }
+  let(:board) { MM::Board.new(rows_and_cols: 4, pegs: pegs) }
+  let(:terminal_board_presenter) { MM::BoardPresenterTerminal.new }
+
+  it "prints board correctly" do
+    # https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/output-matcher
+    expect { terminal_board_presenter.present_board(board)}.to output("   |    |    |   \n____________________\n   |    |    |   \n____________________\n   |    |    |   \n____________________\n   |    |    |   \n").to_stdout
+  end
+end
