@@ -2,15 +2,26 @@ require_relative '../shared/game'
 
 module TTT
   class Game < Games::Shared::Game
+    attr_accessor :won_flag
+
+    def local_setup
+      self.won_flag = false
+    end
+
+
     def over?
-      board.full? || board.won?
+      won? || over_with_no_winner?
     end
 
     def over_with_no_winner?
-      board.full? && !board.won?
+      board.full?
     end
 
     def won?
+      if won_flag
+        return true
+      end
+
       board.won?
     end
 
@@ -20,14 +31,6 @@ module TTT
 
     def current_player_value
       current_player.value
-    end
-
-    def current_player_human?
-      current_player.type == :human
-    end
-
-    def current_player_computer?
-      current_player.type == :computer
     end
 
     def current_player_difficult_computer?

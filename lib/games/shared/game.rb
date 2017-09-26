@@ -26,7 +26,6 @@ require_relative '../tictactoe/players_factory'
 require_relative '../tictactoe/square'
 require_relative '../tictactoe/squares'
 require_relative '../tictactoe/squares_factory'
-require_relative '../tictactoe/version'
 
 
 module Games::Shared
@@ -63,6 +62,7 @@ module Games::Shared
       local_setup
     end
 
+    #to be implemented by subclasses
     def local_setup
     end
 
@@ -85,7 +85,7 @@ module Games::Shared
 
         if won?
           winning_prompt
-        elsif no_winner?
+        elsif over_with_no_winner?
           no_winner_prompt
         end
 
@@ -96,6 +96,18 @@ module Games::Shared
 
     def current_player
       players[current_turn_player_index]
+    end
+
+    def current_player_name
+      current_player.name
+    end
+
+    def current_player_human?
+      current_player.type == :human
+    end
+
+    def current_player_computer?
+      current_player.type == :computer
     end
 
     def move_forward_one_turn
@@ -124,7 +136,7 @@ module Games::Shared
       raise 'Called abstract method: over?'
     end
 
-    def no_winner?
+    def over_with_no_winner?
       raise 'Called abstract method: draw?'
     end
 

@@ -16,10 +16,23 @@ module MM
       end
     end
 
+    def current_row(number_of_turns_taken)
+      collection_of_pegs[number_of_turns_taken]
+    end
+
     def display_values
+      # reversed so that game appears to be filling itself in from top to bottom
       collection_of_pegs.reverse.map do |row|
         row.map do |peg|
           peg.display_value
+        end
+      end
+    end
+
+    def result_values
+      collection_of_pegs.reverse.map do |row|
+        row.map do |peg|
+          peg.result_value
         end
       end
     end

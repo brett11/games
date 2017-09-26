@@ -5,6 +5,8 @@ module MM
     attr_accessor :player_1_name
     attr_accessor :code_setter
     attr_accessor :secret_code
+    attr_accessor :number_of_rows
+    attr_accessor :number_of_cols
 
     def initialize(input_helper)
       @input_helper = input_helper
@@ -12,6 +14,8 @@ module MM
 
     def setup
       self.player_1_name = input_helper.get_player_1_name
+      self.number_of_rows = input_helper.get_number_of_rows
+      self.number_of_cols = input_helper.get_number_of_cols
       self.code_setter = input_helper.computer_or_human_code_setter_inquiry(player_1_name)
       self.secret_code = get_secret_code
     end

@@ -17,6 +17,14 @@ module MM
       return pegs.display_values
     end
 
+    def result_values
+      return pegs.display_values
+    end
+
+    def current_row(number_of_turns_taken)
+      pegs.current_row(number_of_turns_taken)
+    end
+
     private
       def retrieve_peg(row, col)
         return pegs.retrieve_peg(row, col)

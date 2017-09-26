@@ -1,4 +1,4 @@
-module TTT
+module MM
   class GameResetter
     attr_accessor :game
 

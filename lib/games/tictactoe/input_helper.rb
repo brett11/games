@@ -60,7 +60,7 @@ module TTT
     end
 
     def get_player_choice(game)
-      get_user_input("#{game.current_player.name}, please enter the number of the square that you would like to change.", "Invalid entry. Please try again.") do |input|
+      get_user_input("#{game.current_player_name}, please enter the number of the square that you would like to change.", "Invalid entry. Please try again.") do |input|
         game.available_choices.include?(input)
       end
     end
@@ -71,6 +71,10 @@ module TTT
 
     def winning_prompt(current_player_name)
       io.present_with_new_line("#{current_player_name} wins!")
+    end
+
+    def no_winner_prompt
+      io.present_with_new_line("Draw!")
     end
   end
 end

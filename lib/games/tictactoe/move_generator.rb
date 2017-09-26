@@ -12,7 +12,7 @@ module TTT
 
     def get_move
       if human?
-        input_helper.get_player_choice(self)
+        input_helper.get_player_choice(game)
       elsif computer?
         input_helper.computer_choosing_graphic
         if difficult?

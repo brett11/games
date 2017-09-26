@@ -9,10 +9,10 @@ RSpec.describe MM::Peg do
         expect(peg.display_value).to eq(nil)
       end
 
-      context "then value assigned" do
-        it "is full" do
-          peg.display_value = 2
-          expect(peg.display_value).to eq(2)
+      describe "#change_value" do
+        it "changes display_value" do
+          peg.change_value(5)
+          expect(peg.display_value).to eq(5)
         end
       end
     end
