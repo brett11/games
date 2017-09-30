@@ -6,12 +6,9 @@ module MM
     attr_accessor :guess
     attr_accessor :result
 
-    def initialize(secret_code)
-      @secret_code = secret_code
-    end
-
-    def evaluate_guess(guess)
-      @guess = guess
+    def evaluate_guess(secret_code, guess)
+      @secret_code = Marshal.load(Marshal.dump(secret_code))
+      @guess = Marshal.load(Marshal.dump(guess))
       #default when game starts is to have empty current_guess array
       if guess.empty?
         return []
@@ -46,6 +43,7 @@ module MM
 
     def find_partial_matches
       resO = []
+      return resO if secret_code.empty? || guess.empty?
       secret_code.sort!
       guess.sort!
 

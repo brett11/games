@@ -1,4 +1,5 @@
 require_relative '../../../lib/games/tictactoe/board_presenter_terminal'
+require_relative '../../../lib/games/tictactoe/game'
 require_relative '../../shared_examples/shared/board_presenter'
 
 RSpec.describe TTT::BoardPresenterTerminal do
@@ -7,6 +8,7 @@ RSpec.describe TTT::BoardPresenterTerminal do
   let(:squares) { TTT::SquaresFactory.build_empty_squares(3) }
   let(:board) { TTT::Board.new(rows_and_cols: 3, squares: squares) }
   let(:terminal_board_presenter) { TTT::BoardPresenterTerminal.new }
+
 
   it "prints board correctly" do
     # https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/output-matcher

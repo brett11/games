@@ -4,7 +4,6 @@ module MM
 
     def initialize(args)
       @display_value = args.fetch(:display_value, nil)
-      @result_value = nil
       @row = args[:row]
       @col = args[:col]
     end

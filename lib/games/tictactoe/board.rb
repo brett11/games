@@ -28,6 +28,10 @@ module TTT
       return squares.available_choices
     end
 
+    def number_of_rows
+      rows_and_cols
+    end
+
     private
     def retrieve_square(display_value)
       return squares.retrieve_square(display_value)

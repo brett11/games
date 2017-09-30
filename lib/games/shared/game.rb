@@ -130,6 +130,10 @@ module Games::Shared
       current_player
     end
 
+    def display_values
+      board.display_values
+    end
+
     private
 
     def over?

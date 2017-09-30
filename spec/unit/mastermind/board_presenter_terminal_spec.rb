@@ -6,7 +6,7 @@ RSpec.describe MM::BoardPresenterTerminal do
   it_behaves_like "board_presenter"
 
   let(:pegs) { MM::PegsFactory.build_empty_pegs(4) }
-  let(:board) { MM::Board.new(rows_and_cols: 4, pegs: pegs) }
+  let(:board) { MM::Board.new(number_of_rows: 4, number_of_cols: 4, pegs: pegs) }
   let(:terminal_board_presenter) { MM::BoardPresenterTerminal.new }
 
   it "prints board correctly" do

@@ -16,8 +16,8 @@ RSpec.describe MM::GameConfig do
   describe "user input"  do
     before do
       expect(input_helper).to receive(:get_player_1_name).and_return("Brett")
-      expect(input_helper).to receive(:get_number_of_rows).and_return(12)
-      expect(input_helper).to receive(:get_number_of_cols).and_return(4)
+      # expect(input_helper).to receive(:get_number_of_rows).and_return(12)
+      # expect(input_helper).to receive(:get_number_of_cols).and_return(4)
     end
 
     context "indicates computer chooses secret code" do

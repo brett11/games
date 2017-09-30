@@ -2,14 +2,16 @@ require_relative '../shared/game'
 
 module MM
   class Game < Games::Shared::Game
-    attr_accessor :code_setter, :secret_code, :guess_evaluator, :current_guess, :won_flag
+    attr_accessor :code_setter, :secret_code, :guess_evaluator, :current_guess, :current_result, :won_flag
 
     def local_setup
       self.code_setter = config.code_setter
       self.secret_code = config.secret_code
-      puts secret_code
-      self.guess_evaluator = MM::GuessEvaluator.new(secret_code.clone)
+      print secret_code
+      print "\n"
+      self.guess_evaluator = MM::GuessEvaluator.new
       self.current_guess = []
+      self.current_result = []
       self.won_flag = false
     end
 
@@ -27,7 +29,7 @@ module MM
         return true
       end
 
-      if evaluate_guess(current_guess) == ("X" * number_of_cols).chars
+      if current_result == ("X" * number_of_cols).chars
         self.won_flag = true
         true
       else
@@ -39,8 +41,8 @@ module MM
       board.change_peg(row, col, new_value)
     end
 
-    def evaluate_guess(guess)
-      guess_evaluator.evaluate_guess(guess)
+    def evaluate_guess(secret_code, guess)
+      guess_evaluator.evaluate_guess(secret_code, guess)
     end
 
     def current_row
@@ -51,5 +53,8 @@ module MM
       board.number_of_cols
     end
 
+    def set_secret_code
+      config.set_secret_code
+    end
   end
 end

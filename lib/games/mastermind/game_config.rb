@@ -10,12 +10,16 @@ module MM
 
     def initialize(input_helper)
       @input_helper = input_helper
+      @number_of_rows = 12
+      @number_of_cols = 4
+
     end
 
     def setup
       self.player_1_name = input_helper.get_player_1_name
-      self.number_of_rows = input_helper.get_number_of_rows
-      self.number_of_cols = input_helper.get_number_of_cols
+      #defaults set above. uncomment to ask the player to choose
+      # self.number_of_rows = input_helper.get_number_of_rows
+      # self.number_of_cols = input_helper.get_number_of_cols
       self.code_setter = input_helper.computer_or_human_code_setter_inquiry(player_1_name)
       self.secret_code = get_secret_code
     end
