@@ -1,11 +1,12 @@
 module MM
   class Board
-    attr_accessor :number_of_rows, :number_of_cols, :pegs
+    attr_accessor :number_of_rows, :number_of_cols, :pegs, :result_pegs
 
     def initialize(args = {})
       @number_of_rows = args[:number_of_rows]
       @number_of_cols = args[:number_of_cols]
       @pegs = args[:pegs]
+      @result_pegs = args[:result_pegs]
     end
 
     def change_peg(row, col, new_value)
@@ -14,20 +15,29 @@ module MM
     end
 
     def display_values
-      return pegs.display_values
+      pegs.display_values
     end
 
     def result_values
-      return pegs.display_values
+      result_pegs.display_values
     end
 
-    def current_row(number_of_turns_taken)
+    def pegs_current_row(number_of_turns_taken)
       pegs.current_row(number_of_turns_taken)
+    end
+
+    def result_pegs_current_row(number_of_turns_taken)
+      result_pegs.current_row(number_of_turns_taken)
     end
 
     private
       def retrieve_peg(row, col)
         return pegs.retrieve_peg(row, col)
+      end
+
+      #result_pegs is an instance of pegs
+      def retrieve_result_peg(row, col)
+        return result_pegs.retrieve_peg(row,col)
       end
   end
 end

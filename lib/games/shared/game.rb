@@ -149,7 +149,7 @@ module Games::Shared
     end
 
     def print_board
-      board_presenter.present_board(board)
+      board_presenter.present_board_and_results(board)
     end
 
     def number_of_players

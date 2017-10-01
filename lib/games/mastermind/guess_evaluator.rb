@@ -6,6 +6,7 @@ module MM
     attr_accessor :guess
     attr_accessor :result
 
+    # returns "XXXX" if perfect guess. returns XXO, for example, if two perfect guesses and one right digit but wrong place
     def evaluate_guess(secret_code, guess)
       @secret_code = Marshal.load(Marshal.dump(secret_code))
       @guess = Marshal.load(Marshal.dump(guess))
@@ -14,7 +15,6 @@ module MM
         return []
       end
       @result = find_result
-      return result
     end
 
     def find_result
@@ -55,7 +55,7 @@ module MM
       guess_element = guess_iterator.next_item
 
 
-      while secret_code_iterator.has_next? || guess_iterator.has_next?
+      while true
         if guess_element == code_element
           resO.push("O")
           if secret_code_iterator.has_next? && guess_iterator.has_next?

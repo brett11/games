@@ -45,8 +45,12 @@ module MM
       guess_evaluator.evaluate_guess(secret_code, guess)
     end
 
-    def current_row
-      board.current_row(number_of_turns_taken)
+    def pegs_current_row
+      board.pegs_current_row(number_of_turns_taken)
+    end
+
+    def result_pegs_current_row
+      board.result_pegs_current_row(number_of_turns_taken)
     end
 
     def number_of_cols

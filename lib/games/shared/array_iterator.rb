@@ -14,6 +14,10 @@ class ArrayIterator
     @array[@index]
   end
 
+  def peek
+    @array[@index]
+  end
+
   def next_item
     value = @array[@index]
     @index += 1
