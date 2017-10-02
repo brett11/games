@@ -15,11 +15,14 @@ module MM
 
     end
 
-    def setup
+    def one_time_setup
       self.player_1_name = input_helper.get_player_1_name
       #defaults set above. uncomment to ask the player to choose
       # self.number_of_rows = input_helper.get_number_of_rows
       # self.number_of_cols = input_helper.get_number_of_cols
+    end
+
+    def every_time_setup
       self.code_setter = input_helper.computer_or_human_code_setter_inquiry(player_1_name)
       self.secret_code = get_secret_code
     end

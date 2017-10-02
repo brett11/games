@@ -27,7 +27,8 @@ RSpec.describe MM::GameConfig do
       end
 
       it "proper config values set" do
-        config.setup
+        config.one_time_setup
+        config.every_time_setup
         expect(config.player_1_name).to eq("Brett")
         expect(config.number_of_rows).to eq(12)
         expect(config.number_of_cols).to eq(4)
@@ -43,7 +44,8 @@ RSpec.describe MM::GameConfig do
       end
 
       it "proper config values set" do
-        config.setup
+        config.one_time_setup
+        config.every_time_setup
         expect(config.player_1_name).to eq("Brett")
         expect(config.number_of_rows).to eq(12)
         expect(config.number_of_cols).to eq(4)

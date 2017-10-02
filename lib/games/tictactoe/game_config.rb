@@ -14,10 +14,14 @@ module TTT
       @input_helper = input_helper
     end
 
-    def setup
+    def one_time_setup
       set_player_1_values
       set_player_2_values
       set_board_rows_cols
+    end
+
+    def every_time_setup
+
     end
 
     def set_player_1_values
@@ -59,7 +63,7 @@ module TTT
     end
 
     def get_computer_value
-      if player_2_value != "O"
+      if player_1_value != "O"
         "O"
       else
         "X"

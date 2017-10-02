@@ -3,10 +3,15 @@ Dir[File.join(File.dirname(__FILE__), '*.rb')].each {|file| require file }
 # Dir[File.join(File.expand_path("..", File.dirname(__FILE__)), 'mastermind', '*.rb')].each {|file| require file }
 
 require_relative '../mastermind/board'
+require_relative '../mastermind/board_builder'
 require_relative '../mastermind/board_presenter_terminal'
 require_relative '../mastermind/colors'
 require_relative '../mastermind/game_config'
+require_relative '../mastermind/game_resetter'
+require_relative '../mastermind/game_state_changer'
+require_relative '../mastermind/guess_evaluator'
 require_relative '../mastermind/input_helper'
+require_relative '../mastermind/move_generator'
 require_relative '../mastermind/peg'
 require_relative '../mastermind/pegs'
 require_relative '../mastermind/pegs_factory'
@@ -54,9 +59,13 @@ module Games::Shared
       @number_of_turns_taken = 0
     end
 
-    def setup
+    def one_time_setup
       #setup gets necessary info from user and stores it in config object
-      config.setup
+      config.one_time_setup
+    end
+
+    def every_time_setup
+      config.every_time_setup
       self.players = players_factory.generate_players(config)
       self.board = board_builder.generate_empty_board(config)
       local_setup
@@ -73,7 +82,9 @@ module Games::Shared
     end
 
     def play
+      one_time_setup
       while true
+        every_time_setup
         while !over?
           print_board
           move = move_generator.get_player_choice(self)
@@ -149,7 +160,7 @@ module Games::Shared
     end
 
     def print_board
-      board_presenter.present_board_and_results(board)
+      board_presenter.present_board(board)
     end
 
     def number_of_players

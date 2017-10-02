@@ -4,6 +4,10 @@ module MM
 
     def present_board(board)
       @board = board
+      present_board_and_results(self.board)
+    end
+
+    def present_board_only(board)
       #board.display_values will return multidimensional array
       display_values.each_with_index do |row, row_number|
         row.each_with_index do |display_value, index|

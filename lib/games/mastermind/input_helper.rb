@@ -3,7 +3,7 @@ require_relative '../shared/input_helper'
 module MM
   class InputHelper < Games::Shared::InputHelper
     def computer_or_human_code_setter_inquiry(name)
-      user_choice = get_user_input("#{name}, please enter \"1\" if you would like to be the code-guesser. Enter \"2\" if you would like set the code and have the computer guess.", "Invalid entry. Please enter either 1(computer picks code) or 2 (you pick code)") do |input|
+      user_choice = get_user_input("#{name}, please enter \"1\" if you would like to be the code-guesser. Enter \"2\" if you would like to set the code and have the computer guess.", "Invalid entry. Please enter either 1(computer picks code) or 2 (you pick code)") do |input|
         input == 1 || input == 2
       end
       if user_choice == 1

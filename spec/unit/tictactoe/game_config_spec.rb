@@ -25,7 +25,8 @@ RSpec.describe TTT::GameConfig do
       end
 
       it "sets proper config values for player 2 when difficult computer" do
-        config.setup
+        config.one_time_setup
+        config.every_time_setup
         expect(config.player_1_name).to eq("Brett")
         expect(config.player_1_value).to eq("X")
         expect(config.player_2_name).to eq("Computer")
@@ -43,7 +44,8 @@ RSpec.describe TTT::GameConfig do
       end
 
       it "sets proper config values for player 2 when easy computer" do
-        config.setup
+        config.one_time_setup
+        config.every_time_setup
         expect(config.player_1_name).to eq("Brett")
         expect(config.player_1_value).to eq("X")
         expect(config.player_2_name).to eq("Computer")
@@ -62,7 +64,8 @@ RSpec.describe TTT::GameConfig do
       end
 
       it "sets proper config values for player 2 when human" do
-        config.setup
+        config.one_time_setup
+        config.every_time_setup
         expect(config.player_1_name).to eq("Brett")
         expect(config.player_1_value).to eq("X")
         expect(config.player_2_name).to eq("Bob")

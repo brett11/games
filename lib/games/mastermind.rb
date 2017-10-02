@@ -6,6 +6,6 @@ class Mastermind
   board_presenter = MM::BoardPresenterTerminal.new
 
   game = MM::Game.new(game_module: MM, io: io, board_presenter: board_presenter)
-  game.setup
+  # game.setup
   game.play
 end

@@ -10,7 +10,7 @@ module TTT
 
 
     def over?
-      won? || over_with_no_winner?
+      won_flag || over_with_no_winner?
     end
 
     def over_with_no_winner?
@@ -22,11 +22,23 @@ module TTT
         return true
       end
 
-      board.won?
+      if board.won?
+        self.won_flag = true
+      else
+        false
+      end
     end
 
     def available_choices
       board.available_choices
+    end
+
+    def player_1_value
+      players[0].value
+    end
+
+    def player_2_value
+      players[1].value
     end
 
     def current_player_value

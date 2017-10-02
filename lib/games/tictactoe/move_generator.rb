@@ -24,7 +24,7 @@ module TTT
     end
 
     def perfect_move
-      minimax = game_module::Minimax.new(game)
+      minimax = game_module::Minimax.new(game.board, game.number_of_turns_taken, game.player_1_value, game.player_2_value)
       minimax.run_minimax
       minimax.choice
     end

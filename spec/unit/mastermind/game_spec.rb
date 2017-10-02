@@ -9,7 +9,7 @@ RSpec.describe MM::Game do
   let(:game) { MM::Game.new(game_module: MM, io: io, board_presenter: board_presenter) }
   subject { MM::Game.new(game_module: MM, io: io, board_presenter: board_presenter) }
 
-  describe "when initialized", :pending do
+  describe "when initialized" do
 
     #first test below maskes sure that this subclass does not violate Liskov substitution principle
     it_behaves_like "game interface"

@@ -8,12 +8,15 @@ RSpec.describe MM::PlayersFactory do
 
     before do
       expect(config).to receive(:player_1_name).and_return("Brett")
+      expect(config).to receive(:code_setter).and_return(:human)
     end
 
     it "#generates_players returns an array of players with correct values" do
       players = players_factory.generate_players(config)
       player_1 = players[0]
       expect(player_1.name).to eq("Brett")
+      #player is computer because human in the code setter
+      expect(player_1.type).to eq(:computer)
     end
   end
 end
