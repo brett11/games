@@ -1,4 +1,5 @@
 require_relative "../../../lib/games/shared/player"
+require_relative "../../../lib/games/tictactoe/player"
 require_relative '../../shared_examples/shared/player'
 
 RSpec.describe TTT::Player do

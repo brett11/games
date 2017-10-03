@@ -1,4 +1,5 @@
 require_relative '../shared/array_iterator'
+require 'set.rb'
 
 module MM
   class GuessEvaluator
@@ -47,8 +48,8 @@ module MM
       secret_code.sort!
       guess.sort!
 
-      secret_code_iterator = ArrayIterator.new(secret_code)
-      guess_iterator = ArrayIterator.new(guess)
+      secret_code_iterator = Shared::ArrayIterator.new(secret_code)
+      guess_iterator = Shared::ArrayIterator.new(guess)
 
       #get first elements from enums
       code_element = secret_code_iterator.next_item

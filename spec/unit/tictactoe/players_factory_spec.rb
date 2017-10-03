@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/mastermind/players_factory'
-require_relative '../../../lib/games/mastermind/game_config'
+require_relative '../../../lib/games/tictactoe/players_factory'
+require_relative '../../../lib/games/tictactoe/game_config'
 
 RSpec.describe TTT::PlayersFactory do
   describe "factory" do
