@@ -1,3 +1,3 @@
-module Games::Shared
+module Shared
   VERSION = "0.3.0"
 end

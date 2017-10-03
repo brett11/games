@@ -1,5 +1,5 @@
 #from Design Patterns by Russ Olsen pg 128-129
-module Games::Shared
+module Shared
   class ArrayIterator
     def initialize(array)
       @array = array

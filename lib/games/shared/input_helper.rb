@@ -1,4 +1,4 @@
-module Games::Shared
+module Shared
   class InputHelper
     attr_accessor :io
 

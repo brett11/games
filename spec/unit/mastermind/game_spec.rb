@@ -3,7 +3,7 @@ require_relative '../../shared_examples/shared/game'
 require_relative '../../shared_examples/tictactoe/game'
 
 RSpec.describe MM::Game do
-  let(:io) { double("Games::Shared::IOTerminal").as_null_object }
+  let(:io) { double("Shared::IOTerminal").as_null_object }
   let(:board_presenter) { instance_double("MM::BoardPresenter") }
 
   let(:game) { MM::Game.new(game_module: MM, io: io, board_presenter: board_presenter) }

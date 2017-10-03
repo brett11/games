@@ -1,9 +1,9 @@
 require_relative '../../../lib/games/tictactoe/input_helper'
 require_relative '../../../lib/games/shared/io_terminal'
 
-RSpec.describe Games::Shared::InputHelper do
+RSpec.describe Shared::InputHelper do
   describe "#get_user_input" do
-    let(:io_presenter_receiver) { Games::Shared::IOTerminal.new }
+    let(:io_presenter_receiver) { Shared::IOTerminal.new }
     let(:input_helper) { TTT::InputHelper.new(io_presenter_receiver)}
 
     describe "all examples" do

@@ -1,4 +1,4 @@
-module Games::Shared
+module Shared
   class Game
     attr_accessor :board, :board_presenter, :board_builder
     attr_accessor :players, :players_factory

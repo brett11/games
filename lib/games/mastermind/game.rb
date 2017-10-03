@@ -1,7 +1,7 @@
 require_relative '../shared/game'
 
 module MM
-  class Game < Games::Shared::Game
+  class Game < Shared::Game
     attr_accessor :code_setter, :secret_code, :guess_evaluator, :current_guess, :current_result, :won_flag
 
     def local_setup

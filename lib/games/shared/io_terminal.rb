@@ -1,4 +1,4 @@
-module Games::Shared
+module Shared
   class IOTerminal
     def present(prompt)
       print prompt

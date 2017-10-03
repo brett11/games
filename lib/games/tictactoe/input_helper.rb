@@ -1,7 +1,7 @@
 require_relative '../shared/input_helper'
 
 module TTT
-  class InputHelper < Games::Shared::InputHelper
+  class InputHelper < Shared::InputHelper
     def get_number_of_rows_cols_max_3
       get_user_input("Please choose how many squares you would like in each row.", "Please choose number between 2 and 3.") do |input|
         input.to_i >=2 && input.to_i <=3

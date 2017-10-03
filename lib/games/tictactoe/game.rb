@@ -1,7 +1,7 @@
 require_relative '../shared/game'
 
 module TTT
-  class Game < Games::Shared::Game
+  class Game < Shared::Game
     attr_accessor :won_flag
 
     def local_setup

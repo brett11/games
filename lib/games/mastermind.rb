@@ -3,7 +3,7 @@ Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'mastermind', '*.rb')].e
 
 class Mastermind
   def self.run
-    io = Games::Shared::IOTerminal.new
+    io = Shared::IOTerminal.new
     board_presenter = MM::BoardPresenterTerminal.new
 
     game = MM::Game.new(game_module: MM, io: io, board_presenter: board_presenter)
