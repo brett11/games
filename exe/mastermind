@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-#below line requires tictactoe which runs program
+#below line requires mastermind which runs program
 require "games/mastermind"
 
 Mastermind.run
