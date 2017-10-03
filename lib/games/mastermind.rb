@@ -2,10 +2,12 @@ Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'mastermind', '*.rb')].e
 Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'shared', '*.rb')].each {|file| require file }
 
 class Mastermind
-  io = Games::Shared::IOTerminal.new
-  board_presenter = MM::BoardPresenterTerminal.new
+  def self.run
+    io = Games::Shared::IOTerminal.new
+    board_presenter = MM::BoardPresenterTerminal.new
 
-  game = MM::Game.new(game_module: MM, io: io, board_presenter: board_presenter)
-  # game.setup
-  game.play
+    game = MM::Game.new(game_module: MM, io: io, board_presenter: board_presenter)
+    # game.setup
+    game.play
+  end
 end
