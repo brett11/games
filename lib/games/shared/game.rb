@@ -1,36 +1,36 @@
-Dir[File.join(File.dirname(__FILE__), '*.rb')].each {|file| require file }
-# Dir[File.join(File.expand_path("..", File.dirname(__FILE__)), 'tictactoe', '*.rb')].each {|file| require file }
-# Dir[File.join(File.expand_path("..", File.dirname(__FILE__)), 'mastermind', '*.rb')].each {|file| require file }
-
-require_relative '../mastermind/board'
-require_relative '../mastermind/board_builder'
-require_relative '../mastermind/board_presenter_terminal'
-require_relative '../mastermind/colors'
-require_relative '../mastermind/game_config'
-require_relative '../mastermind/game_resetter'
-require_relative '../mastermind/game_state_changer'
-require_relative '../mastermind/guess_evaluator'
-require_relative '../mastermind/input_helper'
-require_relative '../mastermind/move_generator'
-require_relative '../mastermind/peg'
-require_relative '../mastermind/pegs'
-require_relative '../mastermind/pegs_factory'
-require_relative '../mastermind/players_factory'
-
-require_relative '../tictactoe/board'
-require_relative '../tictactoe/board_builder'
-require_relative '../tictactoe/board_presenter_terminal'
-require_relative '../tictactoe/game_config'
-require_relative '../tictactoe/game_resetter'
-require_relative '../tictactoe/game_state_changer'
-require_relative '../tictactoe/input_helper'
-require_relative '../tictactoe/minimax'
-require_relative '../tictactoe/move_generator'
-require_relative '../tictactoe/player'
-require_relative '../tictactoe/players_factory'
-require_relative '../tictactoe/square'
-require_relative '../tictactoe/squares'
-require_relative '../tictactoe/squares_factory'
+# Dir[File.join(File.dirname(__FILE__), '*.rb')].each {|file| require file }
+# # Dir[File.join(File.expand_path("..", File.dirname(__FILE__)), 'tictactoe', '*.rb')].each {|file| require file }
+# # Dir[File.join(File.expand_path("..", File.dirname(__FILE__)), 'mastermind', '*.rb')].each {|file| require file }
+#
+# require_relative '../mastermind/board'
+# require_relative '../mastermind/board_builder'
+# require_relative '../mastermind/board_presenter_terminal'
+# require_relative '../mastermind/colors'
+# require_relative '../mastermind/game_config'
+# require_relative '../mastermind/game_resetter'
+# require_relative '../mastermind/game_state_changer'
+# require_relative '../mastermind/guess_evaluator'
+# require_relative '../mastermind/input_helper'
+# require_relative '../mastermind/move_generator'
+# require_relative '../mastermind/peg'
+# require_relative '../mastermind/pegs'
+# require_relative '../mastermind/pegs_factory'
+# require_relative '../mastermind/players_factory'
+#
+# require_relative '../tictactoe/board'
+# require_relative '../tictactoe/board_builder'
+# require_relative '../tictactoe/board_presenter_terminal'
+# require_relative '../tictactoe/game_config'
+# require_relative '../tictactoe/game_resetter'
+# require_relative '../tictactoe/game_state_changer'
+# require_relative '../tictactoe/input_helper'
+# require_relative '../tictactoe/minimax'
+# require_relative '../tictactoe/move_generator'
+# require_relative '../tictactoe/player'
+# require_relative '../tictactoe/players_factory'
+# require_relative '../tictactoe/square'
+# require_relative '../tictactoe/squares'
+# require_relative '../tictactoe/squares_factory'
 
 
 module Games::Shared
