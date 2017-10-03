@@ -9,10 +9,6 @@ module TTT
       @number_of_turns_taken = number_of_turns_taken
       @human_value = human_value
       @computer_value = computer_value
-
-      # @logger = Logging.logger[self]
-      # @logger.level = :debug
-      # @logger.add_appenders(Logging.appenders.stdout, Logging.appenders.file('logfile.log'))
     end
 
     def run_minimax
