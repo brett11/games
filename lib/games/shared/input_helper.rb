@@ -70,5 +70,9 @@ module Shared
       sleep(0.1)
       io.present(".")
     end
+
+    def custom_final_message(game)
+
+    end
   end
 end

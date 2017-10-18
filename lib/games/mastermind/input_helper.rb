@@ -31,12 +31,25 @@ module MM
       io.present_with_new_line("No such luck! Please try again.")
     end
 
+    def initial_instructions
+      io.present_with_new_line("MASTERMIND")
+      io.present_with_new_line("__________")
+      io.present_with_new_line("Game Instructions: Try to guess a 4 digit code that contains a collection of numbers 1-6 (\"6241\", for example).")
+      io.present_with_new_line("After each guess, the \"Result\" section will generate an \"X\" for each digit in the guess that is perfect(correct number and correct spot) and an \"O\" for each digit that is the correct number but in the wrong spot.")
+      io.present_with_new_line("Type \"Exit\" to quit the game.")
+      io.present_with_new_line("___________")
+    end
+
     def winning_prompt(current_player_name)
       io.present_with_new_line("#{current_player_name} wins!")
     end
 
     def no_winner_prompt
       io.present_with_new_line("Game over!")
+    end
+
+    def custom_final_message(game)
+      io.present_with_new_line("The secret code was #{game.secret_code.join(",")}")
     end
 
     def get_number_of_rows

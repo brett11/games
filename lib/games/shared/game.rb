@@ -34,6 +34,7 @@ module Shared
     end
 
     def every_time_setup
+      #setup gets necessary info from user and stores it in config object
       config.every_time_setup
       self.players = players_factory.generate_players(config)
       self.board = board_builder.generate_empty_board(config)
@@ -51,6 +52,7 @@ module Shared
     end
 
     def play
+      initial_instructions
       one_time_setup
       while true
         every_time_setup
@@ -67,6 +69,7 @@ module Shared
           winning_prompt
         elsif over_with_no_winner?
           no_winner_prompt
+          custom_final_message(self)
         end
 
         game_resetter.reset_game(self)
@@ -128,6 +131,10 @@ module Shared
       raise 'Called abstract method: won?'
     end
 
+    def custom_final_message(game)
+      input_helper.custom_final_message(game)
+    end
+
     def print_board
       board_presenter.present_board(board)
     end
@@ -140,8 +147,12 @@ module Shared
       (number_of_turns_taken % number_of_players)
     end
 
+    def initial_instructions
+      input_helper.initial_instructions
+    end
+
     def winning_prompt
-      input_helper.winning_prompt(current_player.name)
+      input_helper.winning_prompt(current_player_name)
     end
 
     def no_winner_prompt

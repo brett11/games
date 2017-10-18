@@ -65,6 +65,13 @@ module TTT
       end
     end
 
+    def initial_instructions
+      io.present_with_new_line("TIC TAC TOE")
+      io.present_with_new_line("___________")
+      io.present_with_new_line("Type \"Exit\" to quit the game.")
+      io.present_with_new_line("___________")
+    end
+
     def draw_prompt
       io.present_with_new_line("Draw! Please try again.")
     end

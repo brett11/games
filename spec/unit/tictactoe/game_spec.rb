@@ -16,6 +16,5 @@ RSpec.describe TTT::Game do
     it_behaves_like "tictactoe move_generator-able"
     it_behaves_like "tictactoe game_state_changer-able"
     it_behaves_like "tictactoe game_resetter-able"
-    it_behaves_like "tictactoe minimax-able"
   end
 end

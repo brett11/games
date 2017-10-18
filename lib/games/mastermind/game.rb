@@ -1,4 +1,5 @@
 require_relative '../shared/game'
+require 'logger'
 
 module MM
   class Game < Shared::Game
@@ -7,8 +8,9 @@ module MM
     def local_setup
       self.code_setter = config.code_setter
       self.secret_code = config.secret_code
-      print secret_code
-      print "\n"
+      logger = Logger.new(STDOUT)
+      logger.level = Logger::DEBUG
+      logger.debug("The secret code is #{secret_code.join(",")}.")
       self.guess_evaluator = MM::GuessEvaluator.new
       self.current_guess = []
       self.current_result = []

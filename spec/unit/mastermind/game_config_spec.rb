@@ -1,6 +1,7 @@
 require_relative '../../../lib/games/mastermind/game_config'
 require_relative '../../../lib/games/mastermind/input_helper'
 require_relative '../../shared_examples/mastermind/game_config'
+require_relative '../../shared_examples/shared/game_config'
 
 RSpec.describe MM::GameConfig do
   let(:input_helper) { instance_double("MM::InputHelper") }
@@ -11,6 +12,8 @@ RSpec.describe MM::GameConfig do
   describe "when initialized" do
     it_behaves_like "mastermind players_factory-able"
     it_behaves_like "mastermind board builder-able"
+    it_behaves_like "setup-able"
+    it_behaves_like "game local_setup-able"
   end
 
   describe "user input"  do

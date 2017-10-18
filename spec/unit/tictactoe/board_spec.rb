@@ -1,6 +1,6 @@
 require_relative '../../../lib/games/tictactoe/board'
 require_relative '../../support/test_config'
-require_relative '../../shared_examples/shared/board'
+require_relative '../../shared_examples/tictactoe/board'
 
 RSpec.describe TTT::Board do
   let(:board) { TTT::Board.new(rows_and_cols: 3) }

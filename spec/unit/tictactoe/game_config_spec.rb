@@ -1,5 +1,6 @@
 require_relative '../../../lib/games/tictactoe/game_config'
 require_relative '../../shared_examples/tictactoe/game_config'
+require_relative '../../shared_examples/shared/game_config'
 
 RSpec.describe TTT::GameConfig do
   let(:input_helper) { instance_double("TTT::InputHelper") }
@@ -9,6 +10,7 @@ RSpec.describe TTT::GameConfig do
   describe "when initialized" do
     it_behaves_like "tictactoe players_factory-able"
     it_behaves_like "board-builder-able"
+    it_behaves_like "setup-able"
   end
 
   describe "player 1 set" do
