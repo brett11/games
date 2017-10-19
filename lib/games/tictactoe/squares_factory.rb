@@ -2,7 +2,7 @@ require_relative 'squares'
 require_relative 'square'
 
 module TTT
-  module SquaresFactory
+  class SquaresFactory
     def self.build_custom_squares(config, squares_class = Squares)
 
       rows_and_cols = config.length
