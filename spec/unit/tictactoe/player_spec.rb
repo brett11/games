@@ -6,7 +6,7 @@ RSpec.describe TTT::Player do
   context "initialized" do
     let(:player) { TTT::Player.new }
 
-    it_behaves_like "player interface"
+    it_behaves_like "player subclass"
 
     specify "value is X by default" do
       expect(player.value).to eq("X")

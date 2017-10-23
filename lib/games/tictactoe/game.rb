@@ -45,14 +45,6 @@ module TTT
       current_player.value
     end
 
-    def current_player_difficult_computer?
-      current_player_computer? && current_player.difficulty_level == :difficult
-    end
-
-    def current_player_easy_computer?
-      current_player_computer? && current_player.difficulty_level == :easy
-    end
-
     def change_square(display_value, current_player_value)
       board.change_square(display_value, current_player_value)
     end

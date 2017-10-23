@@ -15,8 +15,7 @@ RSpec.describe MM::PlayersFactory do
       players = players_factory.generate_players(config)
       player_1 = players[0]
       expect(player_1.name).to eq("Brett")
-      #player is computer because human in the code setter
-      expect(player_1.type).to eq(:computer)
+      #player is computer because human is the code setter
     end
   end
 end

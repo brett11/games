@@ -7,7 +7,7 @@ module TTT
     attr_accessor :player_2_type
     attr_accessor :player_2_name
     attr_accessor :player_2_value
-    attr_accessor :computer_difficulty_level
+    attr_accessor :computer_knowledge_level
     attr_accessor :number_of_rows_cols
 
     def initialize(input_helper)
@@ -37,13 +37,13 @@ module TTT
       elsif player_2_computer?
         self.player_2_name = "Computer"
         self.player_2_value = get_computer_value
-        self.computer_difficulty_level = input_helper.get_computer_difficulty_level
+        self.computer_knowledge_level = input_helper.get_computer_knowledge_level
       end
     end
 
     def set_board_rows_cols
       #need this if else logic because if computer is difficult, it runs minimax, which is too slow to allow for more than 3 rows/cols
-      if computer_difficult?
+      if computer_expert?
         self.number_of_rows_cols = input_helper.get_number_of_rows_cols_max_3
       else
         self.number_of_rows_cols = input_helper.get_number_of_rows_cols_max_9
@@ -58,8 +58,8 @@ module TTT
       player_2_type == :computer
     end
 
-    def computer_difficult?
-      computer_difficulty_level == :difficult
+    def computer_expert?
+      computer_knowledge_level == :expert
     end
 
     def get_computer_value

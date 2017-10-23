@@ -79,8 +79,8 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns difficult" do
-            level = input_helper.get_computer_difficulty_level
-            expect(level).to eq(:difficult)
+            level = input_helper.get_computer_knowledge_level
+            expect(level).to eq(:expert)
           end
         end
 
@@ -90,8 +90,8 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns easy" do
-            level = input_helper.get_computer_difficulty_level
-            expect(level).to eq(:easy)
+            level = input_helper.get_computer_knowledge_level
+            expect(level).to eq(:novice)
           end
         end
       end

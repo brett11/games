@@ -10,7 +10,6 @@ module Shared
     attr_accessor :config, :game_state_changer
     attr_accessor :number_of_turns_taken
     attr_accessor :game_resetter
-    attr_accessor :move_generator
     attr_reader :io, :input_helper,  :game_module
 
     def initialize(args = {})
@@ -22,7 +21,6 @@ module Shared
       @board_builder = game_module::BoardBuilder.new
       @game_state_changer = game_module::GameStateChanger.new
       @game_resetter = game_module::GameResetter.new
-      @move_generator = game_module::MoveGenerator.new
       @players_factory = game_module::PlayersFactory.new
       @config = game_module::GameConfig.new(@input_helper)
 
@@ -59,7 +57,7 @@ module Shared
         every_time_setup
         while !over?
           print_board
-          move = move_generator.get_player_choice(self)
+          move = current_player.make_move(self)
           game_state_changer.change_game_state(move, self)
         end
 
@@ -84,14 +82,6 @@ module Shared
 
     def current_player_name
       current_player.name
-    end
-
-    def current_player_human?
-      current_player.type == :human
-    end
-
-    def current_player_computer?
-      current_player.type == :computer
     end
 
     def move_forward_one_turn

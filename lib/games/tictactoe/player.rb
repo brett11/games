@@ -7,5 +7,9 @@ module TTT
     def post_initialize(args = {})
       @value = args.fetch(:value, "X")
     end
+
+    def make_move
+      raise 'Called abstract method: make_move'
+    end
   end
 end

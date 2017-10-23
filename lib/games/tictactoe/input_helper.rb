@@ -40,15 +40,15 @@ module TTT
       end
     end
 
-    def get_computer_difficulty_level
+    def get_computer_knowledge_level
       user_choice = get_user_input("Please enter \"E\" if you would like to play an easy Computer. Enter \"D\" if you would like to play an extremely difficult computer.", "Invalid character. Please enter either E (Easy) or D (Difficult).") do |input|
         input == 'd' || input == 'D' || input == 'e' || input == 'E'
       end
       user_choice = user_choice.upcase
       if user_choice == "D"
-        :difficult
+        :expert
       elsif user_choice == "E"
-        :easy
+        :novice
       end
     end
 

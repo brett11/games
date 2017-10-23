@@ -22,7 +22,7 @@ RSpec.describe TTT::GameConfig do
     context "opponent a difficult computer" do
       before do
         expect(input_helper).to receive(:get_player_2_type).and_return(:computer)
-        expect(input_helper).to receive(:get_computer_difficulty_level).and_return(:difficult)
+        expect(input_helper).to receive(:get_computer_knowledge_level).and_return(:expert)
         expect(input_helper).to receive(:get_number_of_rows_cols_max_3).and_return(3)
       end
 
@@ -33,7 +33,7 @@ RSpec.describe TTT::GameConfig do
         expect(config.player_1_value).to eq("X")
         expect(config.player_2_name).to eq("Computer")
         expect(config.player_2_value).to eq("O")
-        expect(config.computer_difficulty_level).to eq(:difficult)
+        expect(config.computer_knowledge_level).to eq(:expert)
         expect(config.number_of_rows_cols).to eq(3)
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe TTT::GameConfig do
     context "opponent an easy computer" do
       before do
         expect(input_helper).to receive(:get_player_2_type).and_return(:computer)
-        expect(input_helper).to receive(:get_computer_difficulty_level).and_return(:easy)
+        expect(input_helper).to receive(:get_computer_knowledge_level).and_return(:novice)
         expect(input_helper).to receive(:get_number_of_rows_cols_max_9).and_return(9)
       end
 
@@ -52,7 +52,7 @@ RSpec.describe TTT::GameConfig do
         expect(config.player_1_value).to eq("X")
         expect(config.player_2_name).to eq("Computer")
         expect(config.player_2_value).to eq("O")
-        expect(config.computer_difficulty_level).to eq(:easy)
+        expect(config.computer_knowledge_level).to eq(:novice)
         expect(config.number_of_rows_cols).to eq(9)
       end
     end
@@ -72,7 +72,7 @@ RSpec.describe TTT::GameConfig do
         expect(config.player_1_value).to eq("X")
         expect(config.player_2_name).to eq("Bob")
         expect(config.player_2_value).to eq("O")
-        expect(config.computer_difficulty_level).to be_nil
+        expect(config.computer_knowledge_level).to be_nil
         expect(config.number_of_rows_cols).to eq(9)
       end
     end
