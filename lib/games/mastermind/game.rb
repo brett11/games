@@ -17,6 +17,25 @@ module MM
       self.won_flag = false
     end
 
+    def change_game_state(move)
+      self.current_guess = move
+      self.current_result = evaluate_guess(secret_code, current_guess)
+      change_pegs(move)
+      if !won?
+        move_forward_one_turn
+      end
+    end
+
+    def change_pegs(guess)
+      pegs_current_row.each_with_index do |peg, index|
+        peg.change_value(guess[index])
+      end
+
+      result_pegs_current_row.each_with_index do |result_peg, index|
+        result_peg.change_value(current_result[index])
+      end
+    end
+
     def over?
       won? || over_with_no_winner?
     end

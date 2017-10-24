@@ -4,6 +4,13 @@ module TTT
   class Game < Shared::Game
     attr_accessor :won_flag
 
+    def change_game_state(move)
+      change_square(move, current_player_value)
+      if !won?
+        move_forward_one_turn
+      end
+    end
+
     def local_setup
       self.won_flag = false
     end

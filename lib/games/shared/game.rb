@@ -19,7 +19,6 @@ module Shared
 
       @input_helper = game_module::InputHelper.new(@io)
       @board_builder = game_module::BoardBuilder.new
-      @game_state_changer = game_module::GameStateChanger.new
       @game_resetter = game_module::GameResetter.new
       @players_factory = game_module::PlayersFactory.new
       @config = game_module::GameConfig.new(@input_helper)
@@ -58,7 +57,7 @@ module Shared
         while !over?
           print_board
           move = current_player.make_move(self)
-          game_state_changer.change_game_state(move, self)
+          change_game_state(move)
         end
 
         #need to print_final_iteration of board
@@ -92,10 +91,6 @@ module Shared
       board_builder.generate_empty_board(config)
     end
 
-    def change_game_state(available_choice, game)
-      game_state_changer.change_game_state(available_choice, game)
-    end
-
     def winner
       #each move is immediately proceeded by an increment to number_of_selections_made; therefore, need to rewind won to find winner
       if !won?
@@ -120,6 +115,10 @@ module Shared
 
     def won?
       raise 'Called abstract method: won?'
+    end
+
+    def change_game_state(move)
+      raise 'Called abstract method: change_game_state'
     end
 
     def custom_final_message(game)
