@@ -34,8 +34,9 @@ module MM
     def initial_instructions
       io.present_with_new_line("MASTERMIND")
       io.present_with_new_line("__________")
-      io.present_with_new_line("Game Instructions: Try to guess a 4 digit code that contains a collection of numbers 1-6 (\"6241\", for example).")
-      io.present_with_new_line("After each guess, the \"Result\" section will generate an \"X\" for each digit in the guess that is perfect(correct number and correct spot) and an \"O\" for each digit that is the correct number but in the wrong spot.")
+      io.present_with_new_line("INSTRUCTIONS: Try to guess a 4 digit code \nthat contains a collection of numbers 1-6 \n(\"6241\", for example).")
+      io.present_with_new_line("After each guess, the \"Result\" section will generate \nan \"X\" for each digit in the guess that \nis perfect(correct number and correct spot) and \nan \"O\" for each digit that is the correct \nnumber but in the wrong spot.")
+      io.present_with_new_line("___________")
       io.present_with_new_line("Type \"Exit\" to quit the game.")
       io.present_with_new_line("___________")
     end
