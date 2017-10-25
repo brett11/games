@@ -40,10 +40,6 @@ module MM
       won? || over_with_no_winner?
     end
 
-    def over_with_no_winner?
-      number_of_turns_taken >= 12
-    end
-
     def won?
       #depends on evaluate_guess returning an array of all "X"s for perfect guess
       if won_flag
@@ -56,6 +52,10 @@ module MM
       else
         false
       end
+    end
+
+    def over_with_no_winner?
+      number_of_turns_taken >= 12
     end
 
     def change_peg(row, col, new_value)

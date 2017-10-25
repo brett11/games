@@ -121,10 +121,6 @@ module Shared
       raise 'Called abstract method: change_game_state'
     end
 
-    def custom_final_message(game)
-      input_helper.custom_final_message(game)
-    end
-
     def print_board
       board_presenter.present_board(board)
     end
@@ -135,6 +131,10 @@ module Shared
 
     def current_turn_player_index
       (number_of_turns_taken % number_of_players)
+    end
+
+    def custom_final_message(game)
+      input_helper.custom_final_message(game)
     end
 
     def initial_instructions

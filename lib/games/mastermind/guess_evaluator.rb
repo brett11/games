@@ -20,7 +20,7 @@ module MM
 
     def find_result
       resX = find_exact_matches
-      resO = find_partial_matches
+      resO = sort_and_find_partial_matches
       resX.concat resO
     end
 
@@ -42,44 +42,25 @@ module MM
       guess.delete_if.with_index { |_, index| set_of_matched_indexes.include? index }
     end
 
-    def find_partial_matches
-      resO = []
-      return resO if secret_code.empty? || guess.empty?
+    def sort_and_find_partial_matches
       secret_code.sort!
       guess.sort!
+      find_partial_matches(secret_code, guess, [])
+    end
 
-      secret_code_iterator = Shared::ArrayIterator.new(secret_code)
-      guess_iterator = Shared::ArrayIterator.new(guess)
+    def find_partial_matches(secret_code, guess, accum)
+      return accum if secret_code.empty? || guess.empty?
 
-      #get first elements from enums
-      code_element = secret_code_iterator.next_item
-      guess_element = guess_iterator.next_item
+      head_code, *tail_code = secret_code
+      head_guess, *tail_guess = guess
 
-
-      while true
-        if guess_element == code_element
-          resO.push("O")
-          if secret_code_iterator.has_next? && guess_iterator.has_next?
-            code_element = secret_code_iterator.next_item
-            guess_element = guess_iterator.next_item
-          else
-            break
-          end
-        elsif guess_element > code_element
-          if secret_code_iterator.has_next?
-            code_element = secret_code_iterator.next_item
-          else
-            break
-          end
-        else
-          if guess_iterator.has_next?
-            guess_element = guess_iterator.next_item
-          else
-            break
-          end
-        end
+      if head_code == head_guess
+        find_partial_matches(tail_code, tail_guess, accum.push("O"))
+      elsif head_code > head_guess
+        find_partial_matches(secret_code, tail_guess, accum)
+      elsif head_code < head_guess
+        find_partial_matches(tail_code, guess, accum)
       end
-      resO
     end
   end
 end
