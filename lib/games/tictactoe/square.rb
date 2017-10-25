@@ -1,13 +1,10 @@
 module TTT
   class Square
     attr_accessor :value, :display_value
-    attr_reader :row, :col
 
     def initialize(args)
       @value = args[:value]
       @display_value = args[:display_value]
-      @row = args[:row]
-      @col = args[:col]
     end
 
     def change_value(new_value)

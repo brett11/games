@@ -14,7 +14,7 @@ module TTT
 
       squares.each_with_index do |element, row|
         element.each_index do |col|
-          squares[row][col] = create_custom_square(config[row][col][0],config[row][col][1], row, col)
+          squares[row][col] = create_custom_square(config[row][col][0],config[row][col][1])
         end
       end
 
@@ -23,11 +23,9 @@ module TTT
     end
 
 
-    def self.create_custom_square(display_value, value, row, col, square_class = Square)
+    def self.create_custom_square(display_value, value, square_class = Square)
       square_class.new(display_value: display_value,
-                       value: value,
-                       row: row,
-                       col: col )
+                       value: value)
     end
 
     def self.build_empty_squares(rows_and_cols, squares_class = Squares)
@@ -38,7 +36,7 @@ module TTT
       i = 1
       squares.each_with_index do |element, row|
         element.each_index do |col|
-          squares[row][col] = create_empty_square(i, row, col)
+          squares[row][col] = create_empty_square(i)
           i += 1
         end
       end
@@ -46,11 +44,9 @@ module TTT
       squares_class.new(collection_of_squares: squares)
     end
 
-    def self.create_empty_square(display_value, row, col, square_class = Square)
+    def self.create_empty_square(display_value, square_class = Square)
       square_class.new(display_value: display_value,
-                       value: nil,
-                       row: row,
-                       col: col )
+                       value: nil)
     end
   end
 end
