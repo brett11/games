@@ -1,65 +1,73 @@
-require_relative '../shared/array_iterator'
 require 'set.rb'
 
 module MM
   class GuessEvaluator
-    attr_accessor :secret_code
-    attr_accessor :guess
-    attr_accessor :result
-
     # returns "XXXX" if perfect guess. returns XXO, for example, if two perfect guesses and one right digit but wrong place
-    def evaluate_guess(secret_code, guess)
-      @secret_code = Marshal.load(Marshal.dump(secret_code))
-      @guess = Marshal.load(Marshal.dump(guess))
-      #default when game starts is to have empty current_guess array
-      if guess.empty?
-        return []
-      end
-      @result = find_result
-    end
-
-    def find_result
-      resX = find_exact_matches
-      resO = sort_and_find_partial_matches
+    def self.evaluate_guess(secret_code, guess)
+      #make arguments immutable
+      secret_code.freeze
+      guess.freeze
+      resX = generate_Xs_for_exact_matches(secret_code, guess, [])
+      secret_code_remaining = trim_exact_matches_from_secret_code(secret_code, guess, [])
+      guess_remaining = trim_exact_matches_from_guess(secret_code, guess, [])
+      resO = generate_Os_for_partial_matches(secret_code_remaining, guess_remaining)
       resX.concat resO
     end
 
-    def find_exact_matches
-      resX = []
-      set_of_matched_indexes = Set.new
-      guess.each_with_index do |element, index|
-        if element == secret_code[index]
-          resX.push ("X")
-          set_of_matched_indexes.add(index)
-        end
+    def self.generate_Xs_for_exact_matches(secret_code, guess, accum)
+      return accum if secret_code.empty? || guess.empty?
+      head_code, *tail_code = secret_code
+      head_guess, *tail_guess = guess
+
+      if head_code == head_guess
+        generate_Xs_for_exact_matches(tail_code, tail_guess, accum.push("X"))
+      else
+        generate_Xs_for_exact_matches(tail_code, tail_guess, accum)
       end
-      delete_elements_already_matched(set_of_matched_indexes)
-      resX
     end
 
-    def delete_elements_already_matched(set_of_matched_indexes)
-      secret_code.delete_if.with_index { |_, index| set_of_matched_indexes.include? index }
-      guess.delete_if.with_index { |_, index| set_of_matched_indexes.include? index }
+    def self.trim_exact_matches_from_secret_code(secret_code, guess, accum)
+      return accum if secret_code.empty? || guess.empty?
+      head_code, *tail_code = secret_code
+      head_guess, *tail_guess = guess
+
+      if head_code == head_guess
+        trim_exact_matches_from_secret_code(tail_code, tail_guess, accum)
+      else
+        trim_exact_matches_from_secret_code(tail_code, tail_guess, accum.push(head_code))
+      end
     end
 
-    def sort_and_find_partial_matches
+    def self.trim_exact_matches_from_guess(secret_code, guess, accum)
+      return accum if secret_code.empty? || guess.empty?
+      head_code, *tail_code = secret_code
+      head_guess, *tail_guess = guess
+
+      if head_code == head_guess
+        trim_exact_matches_from_guess(tail_code, tail_guess, accum)
+      else
+        trim_exact_matches_from_guess(tail_code, tail_guess, accum.push(head_guess))
+      end
+    end
+
+    def self.generate_Os_for_partial_matches(secret_code, guess)
       secret_code.sort!
       guess.sort!
-      find_partial_matches(secret_code, guess, [])
+      find_partial_matches_helper(secret_code, guess, [])
     end
 
-    def find_partial_matches(secret_code, guess, accum)
+    def self.find_partial_matches_helper(secret_code, guess, accum)
       return accum if secret_code.empty? || guess.empty?
 
       head_code, *tail_code = secret_code
       head_guess, *tail_guess = guess
 
       if head_code == head_guess
-        find_partial_matches(tail_code, tail_guess, accum.push("O"))
+        find_partial_matches_helper(tail_code, tail_guess, accum.push("O"))
       elsif head_code > head_guess
-        find_partial_matches(secret_code, tail_guess, accum)
+        find_partial_matches_helper(secret_code, tail_guess, accum)
       elsif head_code < head_guess
-        find_partial_matches(tail_code, guess, accum)
+        find_partial_matches_helper(tail_code, guess, accum)
       end
     end
   end

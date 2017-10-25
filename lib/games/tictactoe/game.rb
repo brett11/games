@@ -2,8 +2,6 @@ require_relative '../shared/game'
 
 module TTT
   class Game < Shared::Game
-    attr_accessor :won_flag
-
     def change_game_state(move)
       change_square(move, current_player_value)
       if !won?
@@ -34,6 +32,16 @@ module TTT
       else
         false
       end
+    end
+
+    def reset_game
+      reset_board
+      self.number_of_turns_taken = 0
+      self.won_flag = false
+    end
+
+    def reset_board
+      self.board = generate_empty_board(config)
     end
 
     def available_choices

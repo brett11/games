@@ -3,11 +3,29 @@ require_relative '../../shared_examples/shared/game'
 require_relative '../../shared_examples/tictactoe/game'
 
 RSpec.describe TTT::Game do
-  let(:io) { double("Shared::IOTerminal").as_null_object }
-  let(:board_presenter) { instance_double("TTT::BoardPresenter") }
+  let(:io) { instance_double "Shared::IOTerminal" }
+  let(:input_helper) { instance_double "TTT::InputHelper" }
+  let(:config) { instance_double "TTT::GameConfig" }
+  let(:board_presenter) { instance_double "TTT::BoardPresenterTerminal" }
+  let(:board_builder) {instance_double "TTT::BoardBuilder" }
+  let(:players_factory) { instance_double "TTT::PlayersFactory" }
 
-  let(:game) { TTT::Game.new(game_module: TTT, io: io, board_presenter: board_presenter) }
-  subject { TTT::Game.new(game_module: TTT, io: io, board_presenter: board_presenter) }
+  let(:game) { TTT::Game.new(game_module: TTT,
+                            io: io,
+                            input_helper: input_helper,
+                            board_presenter: board_presenter,
+                            board_builder: board_builder,
+                            players_factory: players_factory,
+                            config: config
+  )}
+  subject { TTT::Game.new(game_module: TTT,
+                         io: io,
+                         input_helper: input_helper,
+                         board_presenter: board_presenter,
+                         board_builder: board_builder,
+                         players_factory: players_factory,
+                         config: config
+  )}
 
   describe "when initialized" do
     #first test below maskes sure that this subclass does not violate Liskov substitution principle

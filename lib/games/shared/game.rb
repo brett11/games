@@ -7,21 +7,20 @@ module Shared
   class Game
     attr_accessor :board, :board_presenter, :board_builder
     attr_accessor :players, :players_factory
-    attr_accessor :config, :game_state_changer
-    attr_accessor :number_of_turns_taken
-    attr_accessor :game_resetter
+    attr_accessor :config
+    attr_accessor :number_of_turns_taken, :won_flag
     attr_reader :io, :input_helper,  :game_module
 
-    def initialize(args = {})
-      @game_module = args.fetch(:game_module, nil)
-      @io = args.fetch(:io, IOTerminal.new)
-      @board_presenter = args.fetch(:board_presenter, nil)
 
-      @input_helper = game_module::InputHelper.new(@io)
-      @board_builder = game_module::BoardBuilder.new
-      @game_resetter = game_module::GameResetter.new
-      @players_factory = game_module::PlayersFactory.new
-      @config = game_module::GameConfig.new(@input_helper)
+    def initialize(args = {})
+      @game_module = args.fetch(:game_module)
+      @io = args.fetch(:io)
+      @board_presenter = args.fetch(:board_presenter)
+
+      @input_helper = args.fetch(:input_helper)
+      @board_builder = args.fetch(:board_builder)
+      @players_factory = args.fetch(:players_factory)
+      @config = args.fetch(:config)
 
       @number_of_turns_taken = 0
     end
@@ -70,7 +69,7 @@ module Shared
           custom_final_message(self)
         end
 
-        game_resetter.reset_game(self)
+        reset_game
         new_game_starting_graphic
       end
     end
@@ -119,6 +118,10 @@ module Shared
 
     def change_game_state(move)
       raise 'Called abstract method: change_game_state'
+    end
+
+    def reset_game
+      raise 'Called abstract method: reset_game'
     end
 
     def print_board

@@ -3,15 +3,13 @@ require 'logger'
 
 module MM
   class Game < Shared::Game
-    attr_accessor :code_setter, :secret_code, :guess_evaluator, :current_guess, :current_result, :won_flag
+    attr_accessor :secret_code, :current_guess, :current_result
 
     def local_setup
-      self.code_setter = config.code_setter
       self.secret_code = config.secret_code
       logger = Logger.new(STDOUT)
       logger.level = Logger::DEBUG
       logger.debug("The secret code is #{secret_code.join(",")}.")
-      self.guess_evaluator = MM::GuessEvaluator.new
       self.current_guess = []
       self.current_result = []
       self.won_flag = false
@@ -24,6 +22,19 @@ module MM
       if !won?
         move_forward_one_turn
       end
+    end
+
+    def reset_game
+      reset_board
+      self.number_of_turns_taken = 0
+      self.won_flag = false
+      self.secret_code = set_secret_code
+      self.current_guess = []
+      self.current_result = []
+    end
+
+    def reset_board
+      self.board = generate_empty_board(config)
     end
 
     def change_pegs(guess)
@@ -54,6 +65,7 @@ module MM
       end
     end
 
+    #only gets evaluated if won is false
     def over_with_no_winner?
       number_of_turns_taken >= 12
     end
@@ -63,7 +75,7 @@ module MM
     end
 
     def evaluate_guess(secret_code, guess)
-      guess_evaluator.evaluate_guess(secret_code, guess)
+      MM::GuessEvaluator.evaluate_guess(secret_code, guess)
     end
 
     def pegs_current_row
