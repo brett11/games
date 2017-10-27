@@ -1,7 +1,7 @@
-require_relative '../shared/input_helper'
+require_relative '../shared/io_helpers'
 
 module TTT
-  class InputHelper < Shared::InputHelper
+  class IOHelpers < Shared::IOHelpers
     def get_number_of_rows_cols_max_3
       get_user_input("Please choose how many squares you would like in each row.", "Please choose number between 2 and 3.") do |input|
         input.to_i >=2 && input.to_i <=3
@@ -59,8 +59,8 @@ module TTT
       user_choice.upcase
     end
 
-    def get_player_choice(game)
-      get_user_input("#{game.current_player_name}, please enter the number of the square that you would like to change.", "Invalid entry. Please try again.") do |input|
+    def get_player_choice(current_player_name)
+      get_user_input("#{current_player_name}, please enter the number of the square that you would like to change.", "Invalid entry. Please try again.") do |input|
         game.available_choices.include?(input)
       end
     end

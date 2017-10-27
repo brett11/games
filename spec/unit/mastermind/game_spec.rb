@@ -7,7 +7,7 @@ RSpec.describe MM::Game do
   # let(:board_presenter) { instance_double("MM::BoardPresenter") }
 
   let(:io) { double("Shared::IOTerminal").as_null_object }
-  let(:input_helper) { instance_double("MM::InputHelper") }
+  let(:io_helpers) { instance_double("MM::IOHelpers") }
   let(:config) { instance_double "MM::GameConfig" }
   let(:board_presenter) { double("MM::BoardPresenterTerminal").as_null_object }
   let(:board_builder) { MM::BoardBuilder.new }
@@ -15,7 +15,7 @@ RSpec.describe MM::Game do
 
   let(:game) { MM::Game.new(game_module: MM,
                             io: io,
-                            input_helper: input_helper,
+                            io_helpers: io_helpers,
                             board_presenter: board_presenter,
                             board_builder: board_builder,
                             players_factory: players_factory,
@@ -23,7 +23,7 @@ RSpec.describe MM::Game do
                             )}
   subject { MM::Game.new(game_module: MM,
                          io: io,
-                         input_helper: input_helper,
+                         io_helpers: io_helpers,
                          board_presenter: board_presenter,
                          board_builder: board_builder,
                          players_factory: players_factory,
@@ -38,7 +38,7 @@ RSpec.describe MM::Game do
 
   describe "game simulation" do
     before do
-      expect(input_helper).to receive(:initial_instructions)
+      expect(io_helpers).to receive(:initial_instructions)
       expect(config).to receive(:one_time_setup)
       expect(config).to receive(:every_time_setup)
 
@@ -49,9 +49,9 @@ RSpec.describe MM::Game do
       expect(config).to receive(:code_guesser).and_return(:computer)
       expect(config).to receive(:secret_code).and_return([5,1,6,2])
 
-      expect(input_helper).to receive(:get_player_choice).and_return([5,1,6,2])
-      expect(input_helper).to receive(:winning_prompt).with("Brett")
-      expect(input_helper).to receive(:new_game_starting_graphic)
+      expect(io_helpers).to receive(:get_player_choice).and_return([5,1,6,2])
+      expect(io_helpers).to receive(:winning_prompt).with("Brett")
+      expect(io_helpers).to receive(:new_game_starting_graphic)
     end
 
     it "plays the game" do

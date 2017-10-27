@@ -1,9 +1,8 @@
 module TTT
   class Board
-    attr_accessor :rows_and_cols, :squares
+    attr_accessor :squares
 
     def initialize(args = {})
-      @rows_and_cols = args[:rows_and_cols]
       @squares = args[:squares]
     end
 
@@ -28,8 +27,8 @@ module TTT
       return squares.available_choices
     end
 
-    def number_of_rows
-      rows_and_cols
+    def number_of_rows_cols
+      squares.number_of_rows_cols
     end
 
     private

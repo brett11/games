@@ -19,7 +19,7 @@ module MM
 
     def change_game_state(move)
       self.current_guess = move
-      result = find_result
+      result = calculate_result
       self.current_result = get_result_key(result)
       self.current_result_partial_match_values = get_partial_match_values(result)
       self.current_result_exact_match_values = get_exact_match_values(result)
@@ -72,7 +72,7 @@ module MM
     end
 
     #only gets evaluated if won is false
-    def find_result
+    def calculate_result
       evaluate_guess(secret_code, current_guess)
     end
 

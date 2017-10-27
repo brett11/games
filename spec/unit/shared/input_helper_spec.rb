@@ -1,10 +1,10 @@
-require_relative '../../../lib/games/tictactoe/input_helper'
+require_relative '../../../lib/games/tictactoe/io_helpers'
 require_relative '../../../lib/games/shared/io_terminal'
 
-RSpec.describe Shared::InputHelper do
+RSpec.describe Shared::IOHelpers do
   describe "#get_user_input" do
     let(:io_presenter_receiver) { Shared::IOTerminal.new }
-    let(:input_helper) { TTT::InputHelper.new(io_presenter_receiver)}
+    let(:io_helpers) { TTT::IOHelpers.new(io_presenter_receiver)}
 
     describe "all examples" do
       after do
@@ -20,7 +20,7 @@ RSpec.describe Shared::InputHelper do
         it "if valid user input, returns that input" do
           #https://stackoverflow.com/questions/17709317/how-to-test-puts-in-rspec
           expect(STDOUT).to receive(:puts).with('Please give me input')
-          result = input_helper.get_user_input("Please give me input", "Input must be greater than 5") do |input|
+          result = io_helpers.get_user_input("Please give me input", "Input must be greater than 5") do |input|
             input > 5
           end
           expect(result).to eq(7)
@@ -34,7 +34,7 @@ RSpec.describe Shared::InputHelper do
           end
 
           it "returns mastermind" do
-            game = input_helper.get_game
+            game = io_helpers.get_game
             expect(game).to eq(:mastermind)
           end
         end
@@ -45,7 +45,7 @@ RSpec.describe Shared::InputHelper do
           end
 
           it "returns tic tac toe" do
-            game = input_helper.get_game
+            game = io_helpers.get_game
             expect(game).to eq(:tictactoe)
           end
         end
@@ -57,7 +57,7 @@ RSpec.describe Shared::InputHelper do
         end
 
         it "capitalizes name" do
-          name = input_helper.get_player_1_name
+          name = io_helpers.get_player_1_name
           expect(name).to eq("Brett")
         end
       end

@@ -6,7 +6,7 @@ RSpec.describe TTT::BoardPresenterTerminal do
   it_behaves_like "board_presenter"
 
   let(:squares) { TTT::SquaresFactory.build_empty_squares(3) }
-  let(:board) { TTT::Board.new(rows_and_cols: 3, squares: squares) }
+  let(:board) { TTT::Board.new(squares: squares) }
   let(:terminal_board_presenter) { TTT::BoardPresenterTerminal.new }
 
 

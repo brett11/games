@@ -1,10 +1,10 @@
-require_relative '../../../lib/games/tictactoe/input_helper'
+require_relative '../../../lib/games/tictactoe/io_helpers'
 require_relative '../../../lib/games/shared/io_terminal'
 
-RSpec.describe TTT::InputHelper do
+RSpec.describe TTT::IOHelpers do
   describe "#get_user_input" do
     let(:io_presenter_receiver) { Shared::IOTerminal.new }
-    let(:input_helper) { TTT::InputHelper.new(io_presenter_receiver)}
+    let(:io_helpers) { TTT::IOHelpers.new(io_presenter_receiver)}
 
     describe "all examples" do
       after do
@@ -18,7 +18,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns O" do
-            value = input_helper.get_player_1_value
+            value = io_helpers.get_player_1_value
             expect(value).to eq("O")
           end
         end
@@ -30,7 +30,7 @@ RSpec.describe TTT::InputHelper do
         end
 
         it "capitalizes name" do
-          name = input_helper.get_player_2_name
+          name = io_helpers.get_player_2_name
           expect(name).to eq("Brett")
         end
       end
@@ -42,7 +42,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns difficult" do
-            value = input_helper.get_player_2_value("X")
+            value = io_helpers.get_player_2_value("X")
             expect(value).to eq("O")
           end
         end
@@ -55,7 +55,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns computer" do
-            type = input_helper.get_player_2_type
+            type = io_helpers.get_player_2_type
             expect(type).to eq(:computer)
           end
         end
@@ -66,7 +66,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns tic tac toe" do
-            type = input_helper.get_player_2_type
+            type = io_helpers.get_player_2_type
             expect(type).to eq(:human)
           end
         end
@@ -79,7 +79,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns difficult" do
-            level = input_helper.get_computer_knowledge_level
+            level = io_helpers.get_computer_knowledge_level
             expect(level).to eq(:expert)
           end
         end
@@ -90,7 +90,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns easy" do
-            level = input_helper.get_computer_knowledge_level
+            level = io_helpers.get_computer_knowledge_level
             expect(level).to eq(:novice)
           end
         end
@@ -103,7 +103,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns 3" do
-            number_rows_cols = input_helper.get_number_of_rows_cols_max_3
+            number_rows_cols = io_helpers.get_number_of_rows_cols_max_3
             expect(number_rows_cols).to eq(3)
           end
         end
@@ -116,7 +116,7 @@ RSpec.describe TTT::InputHelper do
           end
 
           it "returns 9" do
-            number_rows_cols = input_helper.get_number_of_rows_cols_max_9
+            number_rows_cols = io_helpers.get_number_of_rows_cols_max_9
             expect(number_rows_cols).to eq(9)
           end
         end

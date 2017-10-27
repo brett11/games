@@ -1,11 +1,9 @@
 module MM
   class Peg
-    attr_accessor :display_value, :row, :col
+    attr_accessor :display_value
 
-    def initialize(args)
+    def initialize(args = {})
       @display_value = args.fetch(:display_value, nil)
-      @row = args[:row]
-      @col = args[:col]
     end
 
     def change_value(new_value)

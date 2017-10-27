@@ -1,6 +1,6 @@
 RSpec.shared_examples "mastermind move_generator-able" do
   it { is_expected.to respond_to(:current_player) }
-  it { is_expected.to respond_to(:input_helper) }
+  it { is_expected.to respond_to(:io_helpers) }
   it { is_expected.to respond_to(:current_player_human?) }
   it { is_expected.to respond_to(:number_of_rows) }
 end

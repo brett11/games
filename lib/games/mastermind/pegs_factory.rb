@@ -10,17 +10,15 @@ module MM
 
       pegs.each_with_index do |element, row|
         element.each_index do |col|
-          pegs[row][col] = create_empty_peg(row, col)
+          pegs[row][col] = create_empty_peg
         end
       end
 
       pegs_class.new(collection_of_pegs: pegs)
     end
 
-    def self.create_empty_peg(row, col, display_value = nil, peg_class = Peg)
-      peg_class.new(display_value: display_value,
-                       row: row,
-                       col: col )
+    def self.create_empty_peg(display_value = nil, peg_class = Peg)
+      peg_class.new(display_value: display_value )
     end
   end
 end

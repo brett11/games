@@ -5,7 +5,7 @@ RSpec.shared_examples "game interface" do
   it { is_expected.to respond_to(:players) }
   it { is_expected.to respond_to(:config) }
   it { is_expected.to respond_to(:io) }
-  it { is_expected.to respond_to(:input_helper) }
+  it { is_expected.to respond_to(:io_helpers) }
   it { is_expected.to respond_to(:game_module) }
 
   it { is_expected.to respond_to(:play) }

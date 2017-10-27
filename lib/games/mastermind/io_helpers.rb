@@ -1,7 +1,7 @@
-require_relative '../shared/input_helper'
+require_relative '../shared/io_helpers'
 
 module MM
-  class InputHelper < Shared::InputHelper
+  class IOHelpers < Shared::IOHelpers
     def computer_or_human_guesser_inquiry
       user_choice = get_user_input("Please enter \"1\" if you would like to be the code-guesser. Enter \"2\" if you would like to set the code and have the computer guess.", "Invalid entry. Please enter either 1(computer picks code) or 2 (you pick code)") do |input|
         input == 1 || input == 2
@@ -20,8 +20,8 @@ module MM
       user_choice.to_s.chars.map(&:to_i)
     end
 
-    def get_player_choice(game)
-      user_choice = get_user_input("#{game.current_player_name}, please enter a secret code consisting of 4 numbers that correspond to the color of your guess. Do not separate with punctuation.", "Please re-enter a secret code guess, using exactly 4 numbers, each being a digit 1 through 6.") do |input|
+    def get_player_choice(current_player_name)
+      user_choice = get_user_input("#{current_player_name}, please enter a secret code consisting of 4 numbers that correspond to the color of your guess. Do not separate with punctuation.", "Please re-enter a secret code guess, using exactly 4 numbers, each being a digit 1 through 6.") do |input|
         input.to_s =~ /^[1-6]{4}$/
       end
       user_choice.to_s.chars.map(&:to_i)

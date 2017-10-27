@@ -9,7 +9,7 @@ module Shared
     attr_accessor :players, :players_factory
     attr_accessor :config
     attr_accessor :number_of_turns_taken, :won_flag
-    attr_reader :io, :input_helper,  :game_module
+    attr_reader :io, :io_helpers,  :game_module
 
 
     def initialize(args = {})
@@ -17,7 +17,7 @@ module Shared
       @io = args.fetch(:io)
       @board_presenter = args.fetch(:board_presenter)
 
-      @input_helper = args.fetch(:input_helper)
+      @io_helpers = args.fetch(:io_helpers)
       @board_builder = args.fetch(:board_builder)
       @players_factory = args.fetch(:players_factory)
       @config = args.fetch(:config)
@@ -98,10 +98,10 @@ module Shared
     def local_setup
     end
 
-    #overriding so that io and input_helper always in harmony
+    #overriding so that io and io_helpers always in harmony
     def io=(new_io)
       @io = new_io
-      self.input_helper = game_module::InputHelper.new(new_io)
+      self.io_helpers = game_module::IOHelpers.new(new_io)
     end
 
     def over?
@@ -137,23 +137,23 @@ module Shared
     end
 
     def custom_final_message(game)
-      input_helper.custom_final_message(game)
+      io_helpers.custom_final_message(game)
     end
 
     def initial_instructions
-      input_helper.initial_instructions
+      io_helpers.initial_instructions
     end
 
     def winning_prompt
-      input_helper.winning_prompt(current_player_name)
+      io_helpers.winning_prompt(current_player_name)
     end
 
     def no_winner_prompt
-      input_helper.no_winner_prompt
+      io_helpers.no_winner_prompt
     end
 
     def new_game_starting_graphic
-      input_helper.new_game_starting_graphic
+      io_helpers.new_game_starting_graphic
     end
   end
 end

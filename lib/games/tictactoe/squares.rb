@@ -40,7 +40,7 @@ module TTT
 
     def full?
       collection_of_squares.each do |row|
-        return false if row.all? { |square| square.full? } == false
+        return false if !(row.all? { |square| square.full? })
       end
       return true
     end

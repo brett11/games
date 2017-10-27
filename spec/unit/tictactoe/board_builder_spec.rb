@@ -21,6 +21,6 @@ RSpec.describe TTT::BoardBuilder do
     # https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/output-matcher
     board = board_builder.generate_empty_board(config)
     expect(board).to be_a_kind_of(TTT::Board)
-    expect(board.rows_and_cols).to eq(3)
+    expect(board.number_of_rows_cols).to eq(3)
   end
 end

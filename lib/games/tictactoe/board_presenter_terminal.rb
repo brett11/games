@@ -13,7 +13,7 @@ module TTT
         end
         print "\n"
         #row_number starts at 0
-        puts "_"*(row.size * 5) unless row_number.equal? (number_of_rows - 1)
+        puts "_"*(row.size * 5) unless row_number.equal? (number_of_rows_cols - 1)
       end
     end
 
@@ -21,8 +21,8 @@ module TTT
       board.display_values
     end
 
-    def number_of_rows
-      board.number_of_rows
+    def number_of_rows_cols
+      board.number_of_rows_cols
     end
   end
 end

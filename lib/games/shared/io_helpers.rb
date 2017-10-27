@@ -1,5 +1,5 @@
 module Shared
-  class InputHelper
+  class IOHelpers
     attr_accessor :io
 
     def initialize(io)
@@ -73,6 +73,10 @@ module Shared
 
     def winning_prompt(current_player_name)
       io.present_with_new_line("#{current_player_name} wins!")
+    end
+
+    def custom_final_message(game)
+      #hook
     end
 
   end
