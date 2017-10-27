@@ -2,14 +2,14 @@ require_relative '../shared/input_helper'
 
 module MM
   class InputHelper < Shared::InputHelper
-    def computer_or_human_code_setter_inquiry(name)
-      user_choice = get_user_input("#{name}, please enter \"1\" if you would like to be the code-guesser. Enter \"2\" if you would like to set the code and have the computer guess.", "Invalid entry. Please enter either 1(computer picks code) or 2 (you pick code)") do |input|
+    def computer_or_human_guesser_inquiry
+      user_choice = get_user_input("Please enter \"1\" if you would like to be the code-guesser. Enter \"2\" if you would like to set the code and have the computer guess.", "Invalid entry. Please enter either 1(computer picks code) or 2 (you pick code)") do |input|
         input == 1 || input == 2
       end
       if user_choice == 1
-        return :computer
-      elsif user_choice == 2
         return :human
+      elsif user_choice == 2
+        return :computer
       end
     end
 
@@ -27,10 +27,6 @@ module MM
       user_choice.to_s.chars.map(&:to_i)
     end
 
-    def draw_prompt
-      io.present_with_new_line("No such luck! Please try again.")
-    end
-
     def initial_instructions
       io.present_with_new_line("MASTERMIND")
       io.present_with_new_line("__________")
@@ -41,12 +37,20 @@ module MM
       io.present_with_new_line("___________")
     end
 
-    def winning_prompt(current_player_name)
-      io.present_with_new_line("#{current_player_name} wins!")
+    def get_computer_knowledge_level
+      user_choice = get_user_input("Please enter \"D\" if you would like the computer to be kinda dumb. Enter \"S\" if you would like the computer to be pretty smart.", "Invalid character. Please enter either D (dumb) or S (Smart).") do |input|
+        input == 's' || input == 'S' || input == 'd' || input == 'D'
+      end
+      user_choice = user_choice.upcase
+      if user_choice == "S"
+        :expert
+      elsif user_choice == "D"
+        :novice
+      end
     end
 
     def no_winner_prompt
-      io.present_with_new_line("Game over!")
+      io.present_with_new_line("No such luck! Please try again.")
     end
 
     def custom_final_message(game)

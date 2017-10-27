@@ -25,29 +25,6 @@ module Shared
       @number_of_turns_taken = 0
     end
 
-    def one_time_setup
-      #setup gets necessary info from user and stores it in config object
-      config.one_time_setup
-    end
-
-    def every_time_setup
-      #setup gets necessary info from user and stores it in config object
-      config.every_time_setup
-      self.players = players_factory.generate_players(config)
-      self.board = board_builder.generate_empty_board(config)
-      local_setup
-    end
-
-    #to be implemented by subclasses
-    def local_setup
-    end
-
-    #overriding so that io and input_helper always in harmony
-    def io=(new_io)
-      @io = new_io
-      self.input_helper = game_module::InputHelper.new(new_io)
-    end
-
     def play
       initial_instructions
       one_time_setup
@@ -103,6 +80,29 @@ module Shared
     end
 
     private
+
+    def one_time_setup
+      #setup gets necessary info from user and stores it in config object
+      config.one_time_setup
+    end
+
+    def every_time_setup
+      #setup gets necessary info from user and stores it in config object
+      config.every_time_setup
+      self.players = players_factory.generate_players(config)
+      self.board = board_builder.generate_empty_board(config)
+      local_setup
+    end
+
+    #to be implemented by subclasses
+    def local_setup
+    end
+
+    #overriding so that io and input_helper always in harmony
+    def io=(new_io)
+      @io = new_io
+      self.input_helper = game_module::InputHelper.new(new_io)
+    end
 
     def over?
       raise 'Called abstract method: over?'

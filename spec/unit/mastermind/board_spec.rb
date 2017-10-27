@@ -6,7 +6,7 @@ RSpec.describe MM::Board do
   subject { board }
 
   describe "when initialized" do
-    it_behaves_like "board presenter-able"
+    it_behaves_like "mastermind board presenter-able"
 
     it "holds the number of rows & cols" do
       expect(board.number_of_rows).to eq(12)

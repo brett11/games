@@ -72,16 +72,8 @@ module TTT
       io.present_with_new_line("___________")
     end
 
-    def draw_prompt
-      io.present_with_new_line("Draw! Please try again.")
-    end
-
-    def winning_prompt(current_player_name)
-      io.present_with_new_line("#{current_player_name} wins!")
-    end
-
     def no_winner_prompt
-      io.present_with_new_line("Draw!")
+      io.present_with_new_line("Draw! Please try again.")
     end
   end
 end

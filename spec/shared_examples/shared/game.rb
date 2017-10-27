@@ -8,8 +8,6 @@ RSpec.shared_examples "game interface" do
   it { is_expected.to respond_to(:input_helper) }
   it { is_expected.to respond_to(:game_module) }
 
-  it { is_expected.to respond_to(:one_time_setup) }
-  it { is_expected.to respond_to(:every_time_setup) }
   it { is_expected.to respond_to(:play) }
 end
 

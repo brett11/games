@@ -6,12 +6,12 @@ RSpec.describe MM::Game do
   # let(:io) { double("Shared::IOTerminal").as_null_object }
   # let(:board_presenter) { instance_double("MM::BoardPresenter") }
 
-  let(:io) { instance_double "Shared::IOTerminal" }
-  let(:input_helper) { instance_double "MM::InputHelper" }
+  let(:io) { double("Shared::IOTerminal").as_null_object }
+  let(:input_helper) { instance_double("MM::InputHelper") }
   let(:config) { instance_double "MM::GameConfig" }
-  let(:board_presenter) { instance_double "MM::BoardPresenterTerminal" }
-  let(:board_builder) {instance_double "MM::BoardBuilder" }
-  let(:players_factory) { instance_double "MM::PlayersFactory" }
+  let(:board_presenter) { double("MM::BoardPresenterTerminal").as_null_object }
+  let(:board_builder) { MM::BoardBuilder.new }
+  let(:players_factory) { MM::PlayersFactory.new }
 
   let(:game) { MM::Game.new(game_module: MM,
                             io: io,
@@ -37,6 +37,26 @@ RSpec.describe MM::Game do
   end
 
   describe "game simulation" do
+    before do
+      expect(input_helper).to receive(:initial_instructions)
+      expect(config).to receive(:one_time_setup)
+      expect(config).to receive(:every_time_setup)
 
+
+      expect(config).to receive(:player_1_name).and_return("Brett")
+      expect(config).to receive(:number_of_rows).and_return(12)
+      expect(config).to receive(:number_of_cols).and_return(4)
+      expect(config).to receive(:code_guesser).and_return(:computer)
+      expect(config).to receive(:secret_code).and_return([5,1,6,2])
+
+      expect(input_helper).to receive(:get_player_choice).and_return([5,1,6,2])
+      expect(input_helper).to receive(:winning_prompt).with("Brett")
+      expect(input_helper).to receive(:new_game_starting_graphic)
+    end
+
+    it "plays the game" do
+      pending "need to figure out how to deal with game loop"
+      game.play
+    end
   end
 end

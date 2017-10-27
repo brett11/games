@@ -3,7 +3,7 @@ require 'logger'
 
 module MM
   class Game < Shared::Game
-    attr_accessor :secret_code, :current_guess, :current_result
+    attr_accessor :secret_code, :current_guess, :current_result, :current_result_partial_match_values, :current_result_exact_match_values
 
     def local_setup
       self.secret_code = config.secret_code
@@ -12,12 +12,17 @@ module MM
       logger.debug("The secret code is #{secret_code.join(",")}.")
       self.current_guess = []
       self.current_result = []
+      self.current_result_partial_match_values = []
+      self.current_result_exact_match_values = []
       self.won_flag = false
     end
 
     def change_game_state(move)
       self.current_guess = move
-      self.current_result = evaluate_guess(secret_code, current_guess)
+      result = find_result
+      self.current_result = get_result_key(result)
+      self.current_result_partial_match_values = get_partial_match_values(result)
+      self.current_result_exact_match_values = get_exact_match_values(result)
       change_pegs(move)
       if !won?
         move_forward_one_turn
@@ -31,6 +36,7 @@ module MM
       self.secret_code = set_secret_code
       self.current_guess = []
       self.current_result = []
+      self.current_result_partial_match_values = []
     end
 
     def reset_board
@@ -66,6 +72,22 @@ module MM
     end
 
     #only gets evaluated if won is false
+    def find_result
+      evaluate_guess(secret_code, current_guess)
+    end
+
+    def get_result_key(result)
+      result.xo_key
+    end
+
+    def get_partial_match_values(result)
+      result.partial_match_values
+    end
+
+    def get_exact_match_values(result)
+      result.exact_match_values
+    end
+
     def over_with_no_winner?
       number_of_turns_taken >= 12
     end

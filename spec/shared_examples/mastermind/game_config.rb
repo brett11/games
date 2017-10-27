@@ -3,7 +3,7 @@ RSpec.shared_examples "mastermind players_factory-able" do
 end
 
 RSpec.shared_examples "game local_setup-able" do
-  it { is_expected.to respond_to(:code_setter) }
+  it { is_expected.to respond_to(:code_guesser) }
   it { is_expected.to respond_to(:secret_code) }
 end
 

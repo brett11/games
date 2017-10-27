@@ -71,8 +71,9 @@ module Shared
       io.present(".")
     end
 
-    def custom_final_message(game)
-
+    def winning_prompt(current_player_name)
+      io.present_with_new_line("#{current_player_name} wins!")
     end
+
   end
 end
