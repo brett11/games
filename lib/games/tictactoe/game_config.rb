@@ -21,8 +21,9 @@ module TTT
     end
 
     def every_time_setup
-
     end
+
+    private
 
     def set_player_1_values
       self.player_1_name = io_helpers.get_player_1_name

@@ -39,20 +39,6 @@ module MM
       self.current_result_partial_match_values = []
     end
 
-    def reset_board
-      self.board = generate_empty_board(config)
-    end
-
-    def change_pegs(guess)
-      pegs_current_row.each_with_index do |peg, index|
-        peg.change_value(guess[index])
-      end
-
-      result_pegs_current_row.each_with_index do |result_peg, index|
-        result_peg.change_value(current_result[index])
-      end
-    end
-
     def over?
       won? || over_with_no_winner?
     end
@@ -71,6 +57,25 @@ module MM
       end
     end
 
+    def over_with_no_winner?
+      number_of_turns_taken >= 12
+    end
+
+    def change_pegs(guess)
+      pegs_current_row.each_with_index do |peg, index|
+        peg.change_value(guess[index])
+      end
+
+      result_pegs_current_row.each_with_index do |result_peg, index|
+        result_peg.change_value(current_result[index])
+      end
+    end
+
+
+    def change_peg(row, col, new_value)
+      board.change_peg(row, col, new_value)
+    end
+
     #only gets evaluated if won is false
     def calculate_result
       evaluate_guess(secret_code, current_guess)
@@ -86,14 +91,6 @@ module MM
 
     def get_exact_match_values(result)
       result.exact_match_values
-    end
-
-    def over_with_no_winner?
-      number_of_turns_taken >= 12
-    end
-
-    def change_peg(row, col, new_value)
-      board.change_peg(row, col, new_value)
     end
 
     def evaluate_guess(secret_code, guess)

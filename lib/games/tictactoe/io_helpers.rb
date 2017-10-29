@@ -2,6 +2,18 @@ require_relative '../shared/io_helpers'
 
 module TTT
   class IOHelpers < Shared::IOHelpers
+    def initial_instructions
+      io.present_with_new_line(Paint["-" * 60 + "TIC TAC TOE" + "-" * 60, :blue, :bold, :bright, :underline])
+      io.present_with_new_line(Paint["INSTRUCTIONS: ", :green] + "Try to fill a row, a column, or a diagonal with only your token value.")
+      io.present_with_new_line("-" * 131)
+      io.present_with_new_line(Paint["Type ",:red] + Paint["\"Exit\" ", :red, :bold] + Paint["to quit the game.", :red])
+      io.present_with_new_line("_" * 131)
+    end
+
+    def no_winner_prompt(game)
+      io.present_with_new_line("Draw! Please try again.")
+    end
+
     def get_number_of_rows_cols_max_3
       get_user_input("Please choose how many squares you would like in each row.", "Please choose number between 2 and 3.") do |input|
         input.to_i >=2 && input.to_i <=3
@@ -59,21 +71,10 @@ module TTT
       user_choice.upcase
     end
 
-    def get_player_choice(current_player_name)
+    def get_player_choice(current_player_name, available_choices)
       get_user_input("#{current_player_name}, please enter the number of the square that you would like to change.", "Invalid entry. Please try again.") do |input|
-        game.available_choices.include?(input)
+        available_choices.include?(input)
       end
-    end
-
-    def initial_instructions
-      io.present_with_new_line("TIC TAC TOE")
-      io.present_with_new_line("___________")
-      io.present_with_new_line("Type \"Exit\" to quit the game.")
-      io.present_with_new_line("___________")
-    end
-
-    def no_winner_prompt
-      io.present_with_new_line("Draw! Please try again.")
     end
   end
 end

@@ -19,7 +19,7 @@ module Shared
     end
 
     def get_player_1_name
-      user_choice = get_user_input("Player 1, please enter your name", "Please re-enter your name, using only letters") do |input|
+      user_choice = get_user_input("Player 1, please enter your name:", "Please re-enter your name, using only letters") do |input|
         input =~ /^[a-zA-Z]+$/
       end
       user_choice.capitalize

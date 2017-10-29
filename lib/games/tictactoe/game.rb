@@ -40,10 +40,6 @@ module TTT
       self.won_flag = false
     end
 
-    def reset_board
-      self.board = generate_empty_board(config)
-    end
-
     def available_choices
       board.available_choices
     end

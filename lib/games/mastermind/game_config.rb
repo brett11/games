@@ -36,7 +36,7 @@ module MM
     def get_secret_code
       code = nil
       if code_guesser == :computer
-        code = io_helpers.get_secret_code_from_user(player_1_name)
+        code = io_helpers.get_secret_code_from_user
       elsif code_guesser == :human
         code = set_secret_code
       end

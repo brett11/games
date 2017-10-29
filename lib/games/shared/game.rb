@@ -42,7 +42,7 @@ module Shared
         if won?
           winning_prompt
         elsif over_with_no_winner?
-          no_winner_prompt
+          no_winner_prompt(self)
           custom_final_message(self)
         end
 
@@ -124,6 +124,10 @@ module Shared
       raise 'Called abstract method: reset_game'
     end
 
+    def reset_board
+      self.board = generate_empty_board(config)
+    end
+
     def print_board
       board_presenter.present_board(board)
     end
@@ -148,8 +152,8 @@ module Shared
       io_helpers.winning_prompt(current_player_name)
     end
 
-    def no_winner_prompt
-      io_helpers.no_winner_prompt
+    def no_winner_prompt(game)
+      io_helpers.no_winner_prompt(game)
     end
 
     def new_game_starting_graphic
