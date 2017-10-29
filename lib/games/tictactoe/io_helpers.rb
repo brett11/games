@@ -1,4 +1,5 @@
 require_relative '../shared/io_helpers'
+require 'paint'
 
 module TTT
   class IOHelpers < Shared::IOHelpers
@@ -11,7 +12,7 @@ module TTT
     end
 
     def no_winner_prompt(game)
-      io.present_with_new_line("Draw! Please try again.")
+      io.present_with_new_line(Paint["Draw! Please try again.", :red, :bold])
     end
 
     def get_number_of_rows_cols_max_3
@@ -27,7 +28,7 @@ module TTT
     end
 
     def get_player_1_value(player_name = "Player 1")
-      user_choice = get_user_input("#{player_name}, please enter a value of either X or O", "Must be X or O. Please re-enter.") do |input|
+      user_choice = get_user_input("#{player_name}, please enter a value of either " + Paint["\"X\" ", :blue, :bold] + "or " + Paint["\"O\" ", :blue, :bold] + ":", "Must be X or O. Please re-enter.") do |input|
         input == 'x' || input == 'X' || input == 'o' || input == 'O'
       end
       user_choice.upcase
@@ -41,7 +42,7 @@ module TTT
     end
 
     def get_player_2_type
-      user_choice = get_user_input("Please enter \"C\" if you would like to play the Computer. Enter \"H\" if you would like to play the human sitting next to you.", "Invalid character. Please enter either C(Computer) or H(Human).") do |input|
+      user_choice = get_user_input("Please enter " + Paint["\"C\" ", :blue, :bold] +  "if you would like to play the Computer. Enter " + Paint["\"H\" ", :blue, :bold] + "if you would like to play the human sitting next to you:", "Invalid character. Please enter either C(Computer) or H(Human).") do |input|
         input == 'c' || input == 'C' || input == 'h' || input == 'H'
       end
       user_choice = user_choice.upcase
@@ -53,7 +54,7 @@ module TTT
     end
 
     def get_computer_knowledge_level
-      user_choice = get_user_input("Please enter \"E\" if you would like to play an easy Computer. Enter \"D\" if you would like to play an extremely difficult computer.", "Invalid character. Please enter either E (Easy) or D (Difficult).") do |input|
+      user_choice = get_user_input("Please enter " + Paint["\"E\" ", :blue, :bold] + "if you would like to play an easy Computer. Enter " + Paint["\"D\" ", :blue, :bold] +"if you would like to play an extremely difficult computer.", "Invalid character. Please enter either E (Easy) or D (Difficult).") do |input|
         input == 'd' || input == 'D' || input == 'e' || input == 'E'
       end
       user_choice = user_choice.upcase

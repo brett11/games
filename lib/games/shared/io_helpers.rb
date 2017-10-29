@@ -1,3 +1,5 @@
+require 'paint'
+
 module Shared
   class IOHelpers
     attr_accessor :io
@@ -72,7 +74,7 @@ module Shared
     end
 
     def winning_prompt(current_player_name)
-      io.present_with_new_line("#{current_player_name} wins!")
+      io.present_with_new_line(Paint["#{current_player_name} wins!", :green, :bold])
     end
 
     def custom_final_message(game)

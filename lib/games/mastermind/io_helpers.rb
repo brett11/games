@@ -18,15 +18,15 @@ module MM
 
     def no_winner_prompt(game)
       if game.config.code_guesser == :human
-        io.present_with_new_line("No such luck! Please try again.")
+        io.present_with_new_line(Paint["No such luck! Please try again.", :red, :bold])
       else
-        io.present_with_new_line("The computer has been stumped!")
+        io.present_with_new_line(Paint["The computer has been stumped!", :green, :bold])
       end
 
     end
 
     def computer_or_human_guesser_inquiry
-      user_choice = get_user_input("Please enter \"1\" if you would like to be the code-guesser. Enter \"2\" if you would like to set the code and have the computer guess.", "Invalid entry. Please enter either 1(computer picks code) or 2 (you pick code)") do |input|
+      user_choice = get_user_input("Please enter " + Paint["\"1\" ", :blue, :bold] + "if you would like to be the code-guesser. Enter " + Paint["\"2\" ", :blue, :bold] + "if you would like to set the code and have the computer guess.", "Invalid entry. Please enter either 1(computer picks code) or 2 (you pick code)") do |input|
         input == 1 || input == 2
       end
       if user_choice == 1
@@ -51,7 +51,7 @@ module MM
     end
 
     def get_computer_knowledge_level
-      user_choice = get_user_input("Please enter \"D\" if you would like the computer to be kinda dumb. Enter \"S\" if you would like the computer to be pretty smart.", "Invalid character. Please enter either D (dumb) or S (Smart).") do |input|
+      user_choice = get_user_input("Please enter " + Paint["\"D\" ", :blue, :bold] + "if you would like the computer to be kinda dumb. Enter " + Paint["\"S\" ", :blue, :bold] + "if you would like the computer to be pretty smart.", "Invalid character. Please enter either D (dumb) or S (Smart).") do |input|
         input == 's' || input == 'S' || input == 'd' || input == 'D'
       end
       user_choice = user_choice.upcase
