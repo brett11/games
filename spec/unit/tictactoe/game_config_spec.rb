@@ -1,5 +1,3 @@
-require_relative '../../../lib/games/tictactoe/game_config'
-require_relative '../../shared_examples/tictactoe/game_config'
 require_relative '../../shared_examples/shared/game_config'
 
 RSpec.describe TTT::GameConfig do

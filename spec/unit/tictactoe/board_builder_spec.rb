@@ -2,7 +2,6 @@ require_relative '../../../lib/games/tictactoe/board_builder'
 require_relative '../../../lib/games/tictactoe/board'
 require_relative '../../../lib/games/tictactoe/squares_factory'
 require_relative '../../../lib/games/tictactoe/squares'
-require_relative '../../../lib/games/tictactoe/game_config'
 
 RSpec.describe TTT::BoardBuilder do
   let(:config) { instance_double("TTT::GameConfig") }

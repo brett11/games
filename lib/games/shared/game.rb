@@ -7,7 +7,6 @@ module Shared
   class Game
     attr_accessor :board, :board_presenter, :board_builder
     attr_accessor :players, :players_factory
-    attr_accessor :config
     attr_accessor :number_of_turns_taken, :won_flag
     attr_reader :io, :io_helpers,  :game_module
 
@@ -20,7 +19,6 @@ module Shared
       @io_helpers = args.fetch(:io_helpers)
       @board_builder = args.fetch(:board_builder)
       @players_factory = args.fetch(:players_factory)
-      @config = args.fetch(:config)
 
       @number_of_turns_taken = 0
     end
@@ -63,10 +61,6 @@ module Shared
       self.number_of_turns_taken += 1
     end
 
-    def generate_empty_board(config)
-      board_builder.generate_empty_board(config)
-    end
-
     def winner
       #each move is immediately proceeded by an increment to number_of_selections_made; therefore, need to rewind won to find winner
       if !won?
@@ -82,16 +76,14 @@ module Shared
     private
 
     def one_time_setup
-      #setup gets necessary info from user and stores it in config object
-      config.one_time_setup
     end
 
     def every_time_setup
-      #setup gets necessary info from user and stores it in config object
-      config.every_time_setup
-      self.players = players_factory.generate_players(config)
-      self.board = board_builder.generate_empty_board(config)
-      local_setup
+    end
+
+
+    def second_player_expert_computer?
+      players[1].kind_of?(TTT::ComputerPlayerExpert)
     end
 
     #to be implemented by subclasses
@@ -125,7 +117,7 @@ module Shared
     end
 
     def reset_board
-      self.board = generate_empty_board(config)
+      raise 'Called abstract method: reset_board'
     end
 
     def print_board

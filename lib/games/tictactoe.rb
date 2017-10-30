@@ -5,10 +5,9 @@ class TicTacToe
   def self.run
     io = Shared::IOTerminal.new
     io_helpers = TTT::IOHelpers.new(io)
-    config = TTT::GameConfig.new(io_helpers)
     board_presenter = TTT::BoardPresenterTerminal.new
     board_builder = TTT::BoardBuilder.new
-    players_factory = TTT::PlayersFactory.new
+    players_factory = TTT::PlayersFactory.new(io_helpers)
 
     game = TTT::Game.new(game_module: TTT,
                          io: io,
@@ -16,7 +15,6 @@ class TicTacToe
                          board_presenter: board_presenter,
                          board_builder: board_builder,
                          players_factory: players_factory,
-                         config: config
     )
     game.play
   end

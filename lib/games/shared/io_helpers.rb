@@ -20,6 +20,13 @@ module Shared
       end
     end
 
+    def is_player_1_saved?
+      user_choice = get_user_input("Would you like to play with your saved profile? Please enter either Y(yes) or N(no).", "Invalid entry. Please enter either Y(yes) or N(no).") do |input|
+        input == 'y' || input == 'Y' || input == 'n' || input == 'N'
+      end
+      user_choice.capitalize == "Y"
+    end
+
     def get_player_1_name
       user_choice = get_user_input("Player 1, please enter your name:", "Please re-enter your name, using only letters") do |input|
         input =~ /^[a-zA-Z]+$/

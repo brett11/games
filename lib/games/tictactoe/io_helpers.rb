@@ -27,19 +27,33 @@ module TTT
       end
     end
 
-    def get_player_1_value(player_name = "Player 1")
-      user_choice = get_user_input("#{player_name}, please enter a value of either " + Paint["\"X\" ", :blue, :bold] + "or " + Paint["\"O\" ", :blue, :bold] + ":", "Must be X or O. Please re-enter.") do |input|
-        input == 'x' || input == 'X' || input == 'o' || input == 'O'
+    def is_player_2_saved?
+      user_choice = get_user_input("Is Player 2 saved? Please enter either Y(yes) or N(no).", "Invalid entry. Please enter either Y(yes) or N(no).") do |input|
+        input == 'y' || input == 'Y' || input == 'n' || input == 'N'
       end
-      user_choice.upcase
+      user_choice.capitalize == "Y"
     end
 
-    def get_player_2_name
-      user_choice = get_user_input("Player 2, please enter your name", "Please re-enter your name, using only letters") do |input|
+    def get_opponent_name
+      user_choice = get_user_input("Player 2, please enter your name:", "Please re-enter your name, using only letters") do |input|
         input =~ /^[a-zA-Z]+$/
       end
       user_choice.capitalize
     end
+
+    def get_player_value(player_name = "Player 1", taken_value = " ")
+      user_choice = get_user_input("#{player_name}, please enter your preferred token value, consisting of one letter only. For example, " + Paint["\"X\" ", :blue, :bold] + "and " + Paint["\"O\" ", :blue, :bold] + " are the most common token values in Tic Tac Toe.", "Invalid entry. Must be one letter. Please re-enter.") do |input|
+        (input =~ /^[a-zA-Z]$/  && input.upcase != taken_value.upcase)
+      end
+      user_choice.upcase
+    end
+
+    # def get_player_2_name
+    #   user_choice = get_user_input("Player 2, please enter your name", "Please re-enter your name, using only letters") do |input|
+    #     input =~ /^[a-zA-Z]+$/
+    #   end
+    #   user_choice.capitalize
+    # end
 
     def get_player_2_type
       user_choice = get_user_input("Please enter " + Paint["\"C\" ", :blue, :bold] +  "if you would like to play the Computer. Enter " + Paint["\"H\" ", :blue, :bold] + "if you would like to play the human sitting next to you:", "Invalid character. Please enter either C(Computer) or H(Human).") do |input|
@@ -63,13 +77,6 @@ module TTT
       elsif user_choice == "E"
         :novice
       end
-    end
-
-    def get_player_2_value(taken_value)
-      user_choice = get_user_input("Player 2, please enter your value", "Must not be #{taken_value}, please re-enter") do |input|
-        input.upcase != taken_value.upcase
-      end
-      user_choice.upcase
     end
 
     def get_player_choice(current_player_name, available_choices)

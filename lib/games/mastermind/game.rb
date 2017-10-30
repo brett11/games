@@ -39,6 +39,14 @@ module MM
       self.current_result_partial_match_values = []
     end
 
+    def reset_board
+      self.board = generate_empty_board
+    end
+
+    def generate_empty_board
+      board_builder.generate_empty_board(number_of_rows, number_of_cols)
+    end
+
     def over?
       won? || over_with_no_winner?
     end
@@ -103,6 +111,10 @@ module MM
 
     def result_pegs_current_row
       board.result_pegs_current_row(number_of_turns_taken)
+    end
+
+    def number_of_rows
+      board.number_of_rows
     end
 
     def number_of_cols

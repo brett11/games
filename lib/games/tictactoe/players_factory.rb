@@ -1,32 +1,60 @@
-require_relative 'player'
+require_relative 'player_factory_computer_expert'
+require_relative 'player_factory_computer_novice'
+require_relative 'player_factory_human_new'
+require_relative 'player_factory_human_saved'
 
 module TTT
   class PlayersFactory
-    def generate_players(config)
-      @config = config
-      player_1 = TTT::HumanPlayer.new(value: config.player_1_value, name: config.player_1_name)
-      if human_player_opponent?
-        player_2 = TTT::HumanPlayer.new(value: config.player_2_value, name: config.player_2_name)
-      else #computer player
-        if expert?
-        player_2 = TTT::ComputerPlayerExpert.new(value: config.player_2_value, name: config.player_2_name)
-        else #novice
-          player_2 = TTT::ComputerPlayerNovice.new(value: config.player_2_value, name: config.player_2_name)
-        end
-      end
+    attr_accessor :io_helpers
+
+    def initialize(io_helpers)
+      @io_helpers = io_helpers
+    end
+
+    def generate_players
+      player_1_factory = find_appropriate_player_1_factory
+      player_1 = player_1_factory.generate_player(true)
+      player_2_factory = find_appropriate_player_2_factory
+      player_2 = player_2_factory.generate_player(false, player_1.value)
       [player_1, player_2]
     end
 
-    def human_player_opponent?
-      @config.player_2_type == :human
+    def find_appropriate_player_1_factory
+      is_player_1_saved = io_helpers.is_player_1_saved?
+      if is_player_1_saved
+        TTT::PlayerFactoryHumanSaved.new(io_helpers)
+      else
+        TTT::PlayerFactoryHumanNew.new(io_helpers)
+      end
     end
 
-    def expert?
-      @config.computer_knowledge_level == :expert
+    def find_appropriate_player_2_factory
+      player_2_type = io_helpers.get_player_2_type
+      if player_2_human?(player_2_type)
+        is_player_2_saved = io_helpers.is_player_2_saved?
+        if is_player_2_saved
+          TTT::PlayerFactoryHumanSaved.new(io_helpers)
+        else
+          TTT::PlayerFactoryHumanNew.new(io_helpers)
+        end
+      else #player_2_computer?
+        computer_knowledge_level = io_helpers.get_computer_knowledge_level
+        if computer_player_novice?(computer_knowledge_level)
+          TTT::PlayerFactoryComputerNovice.new(io_helpers)
+        else
+          TTT::PlayerFactoryComputerExpert.new(io_helpers)
+        end
+      end
     end
 
-    def computer_player_novice?
-      @config.computer_knowledge_level == :novice
+
+    def player_2_human?(type)
+      type == :human
+    end
+
+
+    def computer_player_novice?(computer_knowledge_level)
+      computer_knowledge_level == :novice
     end
   end
 end
