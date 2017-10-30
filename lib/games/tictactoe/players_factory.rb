@@ -2,9 +2,10 @@ require_relative 'player_factory_computer_expert'
 require_relative 'player_factory_computer_novice'
 require_relative 'player_factory_human_new'
 require_relative 'player_factory_human_saved'
+require_relative '../shared/players_factory'
 
 module TTT
-  class PlayersFactory
+  class PlayersFactory < Shared::PlayersFactory
     attr_accessor :io_helpers
 
     def initialize(io_helpers)

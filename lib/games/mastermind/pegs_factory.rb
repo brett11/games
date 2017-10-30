@@ -17,8 +17,8 @@ module MM
       pegs_class.new(collection_of_pegs: pegs)
     end
 
-    def self.create_empty_peg(display_value = nil, peg_class = Peg)
-      peg_class.new(display_value: display_value )
+    def self.create_empty_peg( peg_class = Peg)
+      peg_class.new
     end
   end
 end

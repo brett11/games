@@ -3,40 +3,49 @@ require 'logger'
 
 module MM
   class Game < Shared::Game
-    attr_accessor :secret_code, :current_guess, :current_result, :current_result_partial_match_values, :current_result_exact_match_values
+    attr_accessor :secret_code, :current_result
 
-    def local_setup
-      self.secret_code = config.secret_code
+    def one_time_setup
+      self.players = players_factory.generate_players
+      self.board = board_builder.generate_empty_board
+    end
+
+    def every_time_setup
+      self.secret_code = set_secret_code
+      self.number_of_turns_taken = 0
       logger = Logger.new(STDOUT)
       logger.level = Logger::DEBUG
       logger.debug("The secret code is #{secret_code.join(",")}.")
-      self.current_guess = []
-      self.current_result = []
-      self.current_result_partial_match_values = []
-      self.current_result_exact_match_values = []
       self.won_flag = false
+      self.current_result = MM::Result.new
+    end
+
+
+    def set_secret_code
+      is_code_guesser_human = (players[0].kind_of?(MM::HumanPlayer))
+      MM::SecretCode.generate(io_helpers, is_code_guesser_human)
     end
 
     def change_game_state(move)
-      self.current_guess = move
-      result = calculate_result
-      self.current_result = get_result_key(result)
-      self.current_result_partial_match_values = get_partial_match_values(result)
-      self.current_result_exact_match_values = get_exact_match_values(result)
+      self.current_result = evaluate_guess(secret_code, move)
       change_pegs(move)
       if !won?
         move_forward_one_turn
       end
     end
 
+    def current_result_partial_match_values
+      current_result.partial_match_values
+    end
+
+    def current_result_exact_match_values
+      current_result.exact_match_values
+    end
+
     def reset_game
       reset_board
       self.number_of_turns_taken = 0
       self.won_flag = false
-      self.secret_code = set_secret_code
-      self.current_guess = []
-      self.current_result = []
-      self.current_result_partial_match_values = []
     end
 
     def reset_board
@@ -44,11 +53,11 @@ module MM
     end
 
     def generate_empty_board
-      board_builder.generate_empty_board(number_of_rows, number_of_cols)
+      board_builder.generate_empty_board
     end
 
     def over?
-      won? || over_with_no_winner?
+      won? || no_more_turns?
     end
 
     def won?
@@ -57,7 +66,7 @@ module MM
         return true
       end
 
-      if current_result == ("X" * number_of_cols).chars
+      if self.current_result.is_won
         self.won_flag = true
         true
       else
@@ -65,7 +74,7 @@ module MM
       end
     end
 
-    def over_with_no_winner?
+    def no_more_turns?
       number_of_turns_taken >= 12
     end
 
@@ -75,7 +84,7 @@ module MM
       end
 
       result_pegs_current_row.each_with_index do |result_peg, index|
-        result_peg.change_value(current_result[index])
+        result_peg.change_value(current_result.xo_key[index])
       end
     end
 
@@ -84,23 +93,7 @@ module MM
       board.change_peg(row, col, new_value)
     end
 
-    #only gets evaluated if won is false
-    def calculate_result
-      evaluate_guess(secret_code, current_guess)
-    end
-
-    def get_result_key(result)
-      result.xo_key
-    end
-
-    def get_partial_match_values(result)
-      result.partial_match_values
-    end
-
-    def get_exact_match_values(result)
-      result.exact_match_values
-    end
-
+    #below returns result object
     def evaluate_guess(secret_code, guess)
       MM::GuessEvaluator.evaluate_guess(secret_code, guess)
     end
@@ -119,10 +112,6 @@ module MM
 
     def number_of_cols
       board.number_of_cols
-    end
-
-    def set_secret_code
-      config.set_secret_code
     end
   end
 end

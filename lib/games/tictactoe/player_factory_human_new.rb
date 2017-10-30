@@ -1,7 +1,8 @@
-require_relative '../tictactoe/player_factory'
+require_relative '../shared/player_factory'
+require_relative '../tictactoe/human_player'
 
 module TTT
-  class PlayerFactoryHumanNew < TTT::PlayerFactory
+  class PlayerFactoryHumanNew < Shared::PlayerFactory
     def generate_player(is_first_player, taken = "")
       if is_first_player
         player_name = io_helpers.get_player_1_name

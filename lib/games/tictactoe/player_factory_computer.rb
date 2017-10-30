@@ -1,7 +1,7 @@
-require_relative '../tictactoe/player_factory'
+require_relative '../shared/player_factory'
 
 module TTT
-  class PlayerFactoryComputer < TTT::PlayerFactory
+  class PlayerFactoryComputer < Shared::PlayerFactory
     def computer_value(taken)
       if taken != "O"
         "O"

@@ -1,7 +1,7 @@
-require_relative '../tictactoe/player_factory'
+require_relative '../shared/player_factory'
 
 module TTT
-  class PlayerFactoryHumanSaved < TTT::PlayerFactory
+  class PlayerFactoryHumanSaved < Shared::PlayerFactory
     def generate_player
 
     end

@@ -1,4 +1,4 @@
-require_relative '../tictactoe/player_factory'
+require_relative '../tictactoe/computer_player_expert'
 
 module TTT
   class PlayerFactoryComputerExpert < TTT::PlayerFactoryComputer

@@ -5,7 +5,7 @@ module MM
     #collection_of_pegs is a multi-dimensional array
 
     def initialize(args)
-      @collection_of_pegs = args[:collection_of_pegs]
+      @collection_of_pegs = args.fetch(:collection_of_pegs)
     end
 
     def retrieve_peg(row, col)

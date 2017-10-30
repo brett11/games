@@ -1,4 +1,4 @@
-module TTT
+module Shared
   class PlayerFactory
     attr_accessor :io_helpers
 

@@ -1,4 +1,3 @@
-require_relative '../../../lib/games/mastermind/game_config'
 require_relative '../../../lib/games/mastermind/io_helpers'
 require_relative '../../shared_examples/mastermind/game_config'
 require_relative '../../shared_examples/shared/game_config'
