@@ -20,5 +20,4 @@ RSpec.shared_examples "tictactoe game_resetter-able" do
   it { is_expected.to respond_to(:number_of_turns_taken) }
   it { is_expected.to respond_to(:board) }
   it { is_expected.to respond_to(:generate_empty_board) }
-  it { is_expected.to respond_to(:config) }
 end

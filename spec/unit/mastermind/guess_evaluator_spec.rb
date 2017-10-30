@@ -9,6 +9,7 @@ RSpec.describe MM::GuessEvaluator do
       expect(result.xo_key).to eq(["X", "X", "O"])
       expect(result.partial_match_values).to eq([3])
       expect(result.exact_match_values).to eq([4, 1])
+      expect(result.is_won).to eq(false)
     end
 
     it "returns correct result 2 " do
@@ -18,6 +19,7 @@ RSpec.describe MM::GuessEvaluator do
       expect(result.xo_key).to eq(["X", "X", "X", "O", "O"])
       expect(result.partial_match_values).to eq([3,5])
       expect(result.exact_match_values).to eq([4,1,8])
+      expect(result.is_won).to eq(false)
     end
 
     it "returns correct result 3 " do
@@ -27,6 +29,17 @@ RSpec.describe MM::GuessEvaluator do
       expect(result.xo_key).to eq(["X", "X", "O", "O"])
       expect(result.partial_match_values).to eq([4,5])
       expect(result.exact_match_values).to eq([5,5])
+      expect(result.is_won).to eq(false)
+    end
+
+    it "returns correct result 4" do
+      secret_code = [3, 5, 2, 6]
+      guess =       [3, 5, 2, 6]
+      result = MM::GuessEvaluator.evaluate_guess(secret_code, guess)
+      expect(result.xo_key).to eq(["X", "X", "X", "X"])
+      expect(result.partial_match_values).to eq([])
+      expect(result.exact_match_values).to eq([3, 5, 2, 6])
+      expect(result.is_won).to eq(true)
     end
   end
 end

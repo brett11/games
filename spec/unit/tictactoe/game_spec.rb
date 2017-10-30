@@ -5,7 +5,6 @@ require_relative '../../shared_examples/tictactoe/game'
 RSpec.describe TTT::Game do
   let(:io) { instance_double "Shared::IOTerminal" }
   let(:io_helpers) { instance_double "TTT::IOHelpers" }
-  let(:config) { instance_double "TTT::GameConfig" }
   let(:board_presenter) { instance_double "TTT::BoardPresenterTerminal" }
   let(:board_builder) {instance_double "TTT::BoardBuilder" }
   let(:players_factory) { instance_double "TTT::PlayersFactory" }
@@ -16,7 +15,6 @@ RSpec.describe TTT::Game do
                             board_presenter: board_presenter,
                             board_builder: board_builder,
                             players_factory: players_factory,
-                            config: config
   )}
   subject { TTT::Game.new(game_module: TTT,
                          io: io,
@@ -24,7 +22,6 @@ RSpec.describe TTT::Game do
                          board_presenter: board_presenter,
                          board_builder: board_builder,
                          players_factory: players_factory,
-                         config: config
   )}
 
   describe "when initialized" do

@@ -17,7 +17,7 @@ module MM
     end
 
     def no_winner_prompt(game)
-      if game.config.code_guesser == :human
+      if game.players[0].kind_of?(MM::HumanPlayer)
         io.present_with_new_line(Paint["No such luck! Please try again.", :red, :bold])
       else
         io.present_with_new_line(Paint["The computer has been stumped!", :green, :bold])

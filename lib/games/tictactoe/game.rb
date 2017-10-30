@@ -35,10 +35,10 @@ module TTT
 
 
     def over?
-      won_flag || over_with_no_winner?
+      won_flag || no_more_turns?
     end
 
-    def over_with_no_winner?
+    def no_more_turns?
       board.full?
     end
 

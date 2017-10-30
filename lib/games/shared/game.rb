@@ -39,7 +39,7 @@ module Shared
 
         if won?
           winning_prompt
-        elsif over_with_no_winner?
+        elsif no_more_turns?
           no_winner_prompt(self)
           custom_final_message(self)
         end
@@ -100,8 +100,8 @@ module Shared
       raise 'Called abstract method: over?'
     end
 
-    def over_with_no_winner?
-      raise 'Called abstract method: draw?'
+    def no_more_turns?
+      raise 'Called abstract method: no_more_turns?'
     end
 
     def won?

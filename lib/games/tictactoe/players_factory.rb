@@ -1,3 +1,4 @@
+require_relative 'player_factory_computer'
 require_relative 'player_factory_computer_expert'
 require_relative 'player_factory_computer_novice'
 require_relative 'player_factory_human_new'
@@ -14,9 +15,9 @@ module TTT
 
     def generate_players
       player_1_factory = find_appropriate_player_1_factory
-      player_1 = player_1_factory.generate_player(true)
+      player_1 = player_1_factory.generate_player(is_first_player: true)
       player_2_factory = find_appropriate_player_2_factory
-      player_2 = player_2_factory.generate_player(false, player_1.value)
+      player_2 = player_2_factory.generate_player(is_first_player: false, taken: player_1.value)
       [player_1, player_2]
     end
 

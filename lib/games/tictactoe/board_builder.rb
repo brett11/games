@@ -1,3 +1,4 @@
+require_relative 'board'
 require_relative 'squares_factory'
 
 module TTT

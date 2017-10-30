@@ -18,7 +18,7 @@ RSpec.describe TTT::IOHelpers do
           end
 
           it "returns O" do
-            value = io_helpers.get_player_1_value
+            value = io_helpers.get_player_value
             expect(value).to eq("O")
           end
         end
@@ -30,7 +30,7 @@ RSpec.describe TTT::IOHelpers do
         end
 
         it "capitalizes name" do
-          name = io_helpers.get_player_2_name
+          name = io_helpers.get_opponent_name
           expect(name).to eq("Brett")
         end
       end
@@ -42,7 +42,7 @@ RSpec.describe TTT::IOHelpers do
           end
 
           it "returns difficult" do
-            value = io_helpers.get_player_2_value("X")
+            value = io_helpers.get_player_value("Brett", "X")
             expect(value).to eq("O")
           end
         end

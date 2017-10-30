@@ -41,7 +41,7 @@ module TTT
       user_choice.capitalize
     end
 
-    def get_player_value(player_name = "Player 1", taken_value = " ")
+    def get_player_value(player_name = "Player 1", taken_value = "")
       user_choice = get_user_input("#{player_name}, please enter your preferred token value, consisting of one letter only. For example, " + Paint["\"X\" ", :blue, :bold] + "and " + Paint["\"O\" ", :blue, :bold] + " are the most common token values in Tic Tac Toe.", "Invalid entry. Must be one letter. Please re-enter.") do |input|
         (input =~ /^[a-zA-Z]$/  && input.upcase != taken_value.upcase)
       end

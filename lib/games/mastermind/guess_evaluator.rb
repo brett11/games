@@ -2,6 +2,7 @@ require_relative "../../../lib/games/mastermind/result"
 
 module MM
   class GuessEvaluator
+    # below returns a Result object that summarizes the XO key, partial matches, exact matches, and if the guess was correct/won
     # xo_key returns "XXXX" if perfect guess. returns XXO, for example, if two perfect guesses and one right digit but wrong place
     def self.evaluate_guess(secret_code, guess)
       #make arguments immutable

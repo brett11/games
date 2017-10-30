@@ -11,13 +11,13 @@ module MM
     end
 
     def every_time_setup
-      self.secret_code = set_secret_code
       self.number_of_turns_taken = 0
+      self.won_flag = false
+      self.secret_code = set_secret_code
+      self.current_result = MM::Result.new
       logger = Logger.new(STDOUT)
       logger.level = Logger::DEBUG
       logger.debug("The secret code is #{secret_code.join(",")}.")
-      self.won_flag = false
-      self.current_result = MM::Result.new
     end
 
 
