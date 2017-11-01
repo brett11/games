@@ -12,6 +12,6 @@ end
 
 RSpec.shared_examples "game subclass" do
   it { is_expected.to respond_to(:over?) }
-  it { is_expected.to respond_to(:over_with_no_winner?) }
+  it { is_expected.to respond_to(:no_more_turns?) }
   it { is_expected.to respond_to(:won?) }
 end

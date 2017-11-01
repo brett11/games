@@ -62,16 +62,16 @@ module MM
       end
     end
 
-    def get_number_of_rows
-      get_user_input("Please choose how many rows of pegs you would like, from 4 to 12.", "Please choose a number between 4 and 12.") do |input|
-        input.to_i >=4 && input.to_i <=12
-      end
-    end
-
-    def get_number_of_cols
-      get_user_input("Please choose how many pegs you would like in each row, from 4 to 6.", "Please choose a number between 4 and 6.") do |input|
-        input.to_i >=4 && input.to_i <=6
-      end
-    end
+    # def get_number_of_rows
+    #   get_user_input("Please choose how many rows of pegs you would like, from 4 to 12.", "Please choose a number between 4 and 12.") do |input|
+    #     input.to_i >=4 && input.to_i <=12
+    #   end
+    # end
+    #
+    # def get_number_of_cols
+    #   get_user_input("Please choose how many pegs you would like in each row, from 4 to 6.", "Please choose a number between 4 and 6.") do |input|
+    #     input.to_i >=4 && input.to_i <=6
+    #   end
+    # end
   end
 end

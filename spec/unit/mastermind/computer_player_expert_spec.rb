@@ -1,4 +1,3 @@
-require_relative "../../../lib/games/shared/player"
 require_relative "../../../lib/games/mastermind/computer_player_expert"
 require_relative '../../shared_examples/shared/player'
 

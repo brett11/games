@@ -1,62 +1,69 @@
-require_relative 'player_factory_computer'
-require_relative 'player_factory_computer_expert'
-require_relative 'player_factory_computer_novice'
-require_relative 'player_factory_human_new'
-require_relative 'player_factory_human_saved'
-require_relative '../shared/players_factory'
+require_relative 'human_player'
+require_relative 'computer_player_expert'
+require_relative 'computer_player_novice'
 
 module TTT
   class PlayersFactory < Shared::PlayersFactory
-    attr_accessor :io_helpers
-
-    def initialize(io_helpers)
-      @io_helpers = io_helpers
-    end
-
     def generate_players
-      player_1_factory = find_appropriate_player_1_factory
-      player_1 = player_1_factory.generate_player(is_first_player: true)
-      player_2_factory = find_appropriate_player_2_factory
-      player_2 = player_2_factory.generate_player(is_first_player: false, taken: player_1.value)
+      player_1 = generate_player_1
+      player_2 = generate_player_2(player_1.value)
       [player_1, player_2]
     end
 
-    def find_appropriate_player_1_factory
+    def generate_player_1
       is_player_1_saved = io_helpers.is_player_1_saved?
       if is_player_1_saved
-        TTT::PlayerFactoryHumanSaved.new(io_helpers)
+        #TODO
       else
-        TTT::PlayerFactoryHumanNew.new(io_helpers)
+        generate_player_1_new
       end
     end
 
-    def find_appropriate_player_2_factory
+    def generate_player_2(player_value_taken)
       player_2_type = io_helpers.get_player_2_type
-      if player_2_human?(player_2_type)
-        is_player_2_saved = io_helpers.is_player_2_saved?
-        if is_player_2_saved
-          TTT::PlayerFactoryHumanSaved.new(io_helpers)
-        else
-          TTT::PlayerFactoryHumanNew.new(io_helpers)
-        end
-      else #player_2_computer?
+      if player_2_type == :human
+        generate_player_2_human(player_value_taken)
+      else #second_player_computer
         computer_knowledge_level = io_helpers.get_computer_knowledge_level
-        if computer_player_novice?(computer_knowledge_level)
-          TTT::PlayerFactoryComputerNovice.new(io_helpers)
+        if computer_knowledge_level == :novice
+          generate_player_2_computer_novice(player_value_taken)
         else
-          TTT::PlayerFactoryComputerExpert.new(io_helpers)
+          generate_player_2_computer_expert(player_value_taken)
         end
       end
     end
 
-
-    def player_2_human?(type)
-      type == :human
+    def generate_player_1_new
+      player_name = io_helpers.get_player_1_name
+      player_value = io_helpers.get_player_value(player_name, "")
+      TTT::HumanPlayer.new(name: player_name, value: player_value)
     end
 
+    def generate_player_2_human(player_value_taken)
+      is_player_2_saved = io_helpers.is_player_2_saved?
+      if is_player_2_saved
+        #TODO
+      else
+        player_name = io_helpers.get_opponent_name
+        player_value = io_helpers.get_player_value(player_name, player_value_taken )
+        TTT::HumanPlayer.new(name: player_name, value: player_value)
+      end
+    end
 
-    def computer_player_novice?(computer_knowledge_level)
-      computer_knowledge_level == :novice
+    def generate_player_2_computer_novice(player_value_taken)
+      TTT::ComputerPlayerNovice.new(name: "Computer", value: computer_value(player_value_taken))
+    end
+
+    def generate_player_2_computer_expert(player_value_taken)
+      TTT::ComputerPlayerExpert.new(name: "Computer", value: computer_value(player_value_taken))
+    end
+
+    def computer_value(taken)
+      if taken != "O"
+        "O"
+      else
+        "X"
+      end
     end
   end
 end

@@ -1,0 +1,5 @@
+#not used. Figaro appears to rely on Rails
+#https://github.com/laserlemon/figaro/issues/77
+
+#POSTGRES_USERNAME: "Brett"
+#POSTGRES_PASSWORD:

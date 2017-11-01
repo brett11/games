@@ -1,33 +1,44 @@
-require_relative '../shared/players_factory'
-require_relative '../mastermind/human_player'
-require_relative '../mastermind/computer_player_novice'
+require_relative 'human_player'
+require_relative 'computer_player_expert'
+require_relative 'computer_player_novice'
 
 module MM
-  class PlayersFactory < Shared::PlayerFactory
-    #returns an array in case we would like to extend the game to allow for multiple players
+  class PlayersFactory < Shared::PlayersFactory
     def generate_players
-      player_1_factory = find_appropriate_player_1_factory
-      player_1 = player_1_factory.generate_player
+      player_1 = generate_player_1
       [player_1]
     end
 
-    def find_appropriate_player_1_factory
+    def generate_player_1
       code_guesser = io_helpers.computer_or_human_guesser_inquiry
       if code_guesser == :human
         is_player_1_saved = io_helpers.is_player_1_saved?
         if is_player_1_saved
-          MM::PlayerFactoryHumanSaved.new(io_helpers)
+          #TODO
         else
-          MM::PlayerFactoryHumanNew.new(io_helpers)
+          generate_player_1_new
         end
       else
         computer_knowledge_level = io_helpers.get_computer_knowledge_level
         if computer_knowledge_level == :novice
-          MM::PlayerFactoryComputerNovice.new(io_helpers)
+          generate_player_1_computer_novice
         else
-          MM::PlayerFactoryComputerExpert.new(io_helpers)
+          generate_player_1_computer_expert
         end
       end
+    end
+
+    def generate_player_1_new
+      player_name = io_helpers.get_player_1_name
+      MM::HumanPlayer.new(name: player_name)
+    end
+
+    def generate_player_1_computer_novice
+      MM::ComputerPlayerNovice.new(name: "Computer")
+    end
+
+    def generate_player_1_computer_expert
+      MM::ComputerPlayerExpert.new(name: "Computer")
     end
   end
 end

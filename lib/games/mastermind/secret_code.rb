@@ -1,6 +1,5 @@
 module MM
   class SecretCode
-
     def self.generate(io_helpers, is_code_guesser_human)
       if is_code_guesser_human
         set_secret_code
