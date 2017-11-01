@@ -88,7 +88,6 @@ module MM
       end
     end
 
-
     def change_peg(row, col, new_value)
       board.change_peg(row, col, new_value)
     end

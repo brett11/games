@@ -81,7 +81,11 @@ module Shared
     end
 
     def winning_prompt(current_player_name)
-      io.present_with_new_line(Paint["#{current_player_name} wins!", :green, :bold])
+      if current_player_name == "Computer"
+        io.present_with_new_line(Paint["#{current_player_name} wins!", :red, :bold])
+      else
+        io.present_with_new_line(Paint["#{current_player_name} wins!", :green, :bold])
+      end
     end
 
     def custom_final_message(game)

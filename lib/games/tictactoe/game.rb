@@ -6,11 +6,10 @@ module TTT
       self.players = players_factory.generate_players
       number_of_rows_cols = get_board_rows
       self.board = board_builder.generate_empty_board(number_of_rows_cols)
-      local_setup
     end
 
     def every_time_setup
-
+      self.won_flag = false
     end
 
     def get_board_rows
@@ -28,11 +27,6 @@ module TTT
         move_forward_one_turn
       end
     end
-
-    def local_setup
-      self.won_flag = false
-    end
-
 
     def over?
       won_flag || no_more_turns?

@@ -26,7 +26,7 @@ module Shared
     def play
       initial_instructions
       one_time_setup
-      while true
+      loop do
         every_time_setup
         while !over?
           print_board
@@ -75,19 +75,17 @@ module Shared
 
     private
 
+    #hook
     def one_time_setup
     end
 
+    #hook
     def every_time_setup
     end
 
 
     def second_player_expert_computer?
       players[1].kind_of?(TTT::ComputerPlayerExpert)
-    end
-
-    #to be implemented by subclasses
-    def local_setup
     end
 
     #overriding so that io and io_helpers always in harmony
