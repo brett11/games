@@ -4,8 +4,6 @@ RSpec.shared_examples "TTTIOHelpers game-able" do
   it { is_expected.to respond_to(:no_winner_prompt) }
   it { is_expected.to respond_to(:custom_final_message) }
   it { is_expected.to respond_to(:new_game_starting_graphic) }
-  it { is_expected.to respond_to(:is_player_1_saved?) }
-  it { is_expected.to respond_to(:is_player_2_saved?) }
   it { is_expected.to respond_to(:get_player_1_name) }
   it { is_expected.to respond_to(:get_player_2_name) }
   it { is_expected.to respond_to(:get_player_2_type) }
@@ -19,8 +17,6 @@ RSpec.shared_examples "TTTIOHelpers game-able" do
 end
 
 RSpec.shared_examples "TTTIOHelpers PlayersFactory-able" do
-  it { is_expected.to respond_to(:is_player_1_saved?) }
-  it { is_expected.to respond_to(:is_player_2_saved?) }
   it { is_expected.to respond_to(:get_player_1_name) }
   it { is_expected.to respond_to(:get_player_2_name) }
   it { is_expected.to respond_to(:get_player_2_type) }

@@ -5,18 +5,9 @@ require_relative 'computer_player_novice'
 module TTT
   class PlayersFactory < Shared::PlayersFactory
     def generate_players
-      player_1 = generate_player_1
+      player_1 = generate_player_1_new
       player_2 = generate_player_2(player_1.value)
       [player_1, player_2]
-    end
-
-    def generate_player_1
-      is_player_1_saved = io_helpers.is_player_1_saved?
-      if is_player_1_saved
-        #TODO
-      else
-        generate_player_1_new
-      end
     end
 
     def generate_player_2(player_value_taken)
@@ -40,14 +31,9 @@ module TTT
     end
 
     def generate_player_2_human(player_value_taken)
-      is_player_2_saved = io_helpers.is_player_2_saved?
-      if is_player_2_saved
-        #TODO
-      else
-        player_name = io_helpers.get_player_2_name
-        player_value = io_helpers.get_player_value(player_name, player_value_taken )
-        TTT::HumanPlayer.new(name: player_name, value: player_value)
-      end
+      player_name = io_helpers.get_player_2_name
+      player_value = io_helpers.get_player_value(player_name, player_value_taken )
+      TTT::HumanPlayer.new(name: player_name, value: player_value)
     end
 
     def generate_player_2_computer_novice(player_value_taken)

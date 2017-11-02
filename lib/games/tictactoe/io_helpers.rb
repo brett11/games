@@ -27,13 +27,6 @@ module TTT
       end
     end
 
-    def is_player_2_saved?
-      user_choice = get_user_input("Is Player 2 saved? Please enter either Y(yes) or N(no).", "Invalid entry. Please enter either Y(yes) or N(no).") do |input|
-        input == 'y' || input == 'Y' || input == 'n' || input == 'N'
-      end
-      user_choice.capitalize == "Y"
-    end
-
     def get_player_2_name
       user_choice = get_user_input("Player 2, please enter your name:", "Please re-enter your name, using only letters") do |input|
         input =~ /^[a-zA-Z]+$/

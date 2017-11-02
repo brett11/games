@@ -11,11 +11,9 @@ RSpec.describe TTT::PlayersFactory do
 
     describe "two human new players " do
       before do
-        expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
         expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
         expect(io_helpers).to receive(:get_player_value).and_return("R")
         expect(io_helpers).to receive(:get_player_2_type).and_return(:human)
-        expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
         expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
         expect(io_helpers).to receive(:get_player_value).and_return("D")
       end
@@ -33,36 +31,8 @@ RSpec.describe TTT::PlayersFactory do
       end
     end
 
-    describe "two human saved players " do
-      before do
-        expect(io_helpers).to receive(:is_player_1_saved?).and_return(true)
-        expect(io_helpers).to receive(:get_player_value).and_return("R")
-        expect(io_helpers).to receive(:is_player_2_saved?).and_return(true)
-        expect(io_helpers).to receive(:get_player_value).and_return("D")
-      end
-
-      it "#generate_players" do
-        pending "saved player functionality not implemented yet"
-      end
-    end
-
-    describe "one human saved player and one human new player" do
-      before do
-        expect(io_helpers).to receive(:is_player_1_saved?).and_return(true)
-        expect(io_helpers).to receive(:get_player_value).and_return("R")
-        expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
-        expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
-        expect(io_helpers).to receive(:get_player_value).and_return("D")
-      end
-
-      it "#generate_players" do
-        pending "saved player functionality not implemented yet"
-      end
-    end
-
     describe "one human new player and one computer novice" do
       before do
-        expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
         expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
         expect(io_helpers).to receive(:get_player_value).and_return("R")
         expect(io_helpers).to receive(:get_player_2_type).and_return(:computer)
@@ -85,7 +55,6 @@ RSpec.describe TTT::PlayersFactory do
 
     describe "one human new player and one computer expert" do
       before do
-        expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
         expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
         expect(io_helpers).to receive(:get_player_value).and_return("R")
         expect(io_helpers).to receive(:get_player_2_type).and_return(:computer)

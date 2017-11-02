@@ -35,11 +35,9 @@ RSpec.describe TTT::Game do
     before do
       #in this game iteration, two humans play eachother, and the first human fills top row, winning the game
       expect(io_helpers).to receive(:initial_instructions)
-      expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
       expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
       expect(io_helpers).to receive(:get_player_value).and_return("R")
       expect(io_helpers).to receive(:get_player_2_type).and_return(:human)
-      expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
       expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
       expect(io_helpers).to receive(:get_player_value).and_return("D")
       expect(io_helpers).to receive(:get_number_of_rows_cols_max_9).and_return(3)
@@ -63,11 +61,9 @@ RSpec.describe TTT::Game do
     before do
       #in this game iteration, two humans play eachother, and the first human fills second row, winning the game
       expect(io_helpers).to receive(:initial_instructions)
-      expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
       expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
       expect(io_helpers).to receive(:get_player_value).and_return("R")
       expect(io_helpers).to receive(:get_player_2_type).and_return(:human)
-      expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
       expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
       expect(io_helpers).to receive(:get_player_value).and_return("D")
       expect(io_helpers).to receive(:get_number_of_rows_cols_max_9).and_return(3)
@@ -91,7 +87,6 @@ RSpec.describe TTT::Game do
     before do
       #in this game iteration, two humans play eachother, and the first human fills second row, winning the game
       expect(io_helpers).to receive(:initial_instructions)
-      expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
       expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
       expect(io_helpers).to receive(:get_player_value).and_return("R")
       expect(io_helpers).to receive(:get_player_2_type).and_return(:computer)

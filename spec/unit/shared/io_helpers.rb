@@ -61,30 +61,6 @@ RSpec.describe Shared::IOHelpers do
           expect(name).to eq("Brett")
         end
       end
-
-      describe "#is_player_1_saved?" do
-        describe "Y entered" do
-          before do
-            $stdin = StringIO.new("Y")
-          end
-
-          it "capitalizes name" do
-            is_saved = io_helpers.is_player_1_saved
-            expect(is_saved).to_not eq(true)
-          end
-        end
-
-        describe "N entered" do
-          before do
-            $stdin = StringIO.new("N")
-          end
-
-          it "capitalizes name" do
-            is_saved = io_helpers.is_player_1_saved
-            expect(is_saved).to eq(false)
-          end
-        end
-      end
     end
   end
 end

@@ -12,12 +12,7 @@ module MM
     def generate_player_1
       code_guesser = io_helpers.computer_or_human_guesser_inquiry
       if code_guesser == :human
-        is_player_1_saved = io_helpers.is_player_1_saved?
-        if is_player_1_saved
-          #TODO
-        else
-          generate_player_1_new
-        end
+        generate_player_1_new
       else
         computer_knowledge_level = io_helpers.get_computer_knowledge_level
         if computer_knowledge_level == :novice

@@ -13,7 +13,6 @@ RSpec.describe TTT::PlayersFactory do
     describe "one human new player" do
       before do
         expect(io_helpers).to receive(:computer_or_human_guesser_inquiry).and_return(:human)
-        expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
         expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
       end
 
@@ -28,7 +27,6 @@ RSpec.describe TTT::PlayersFactory do
     describe "one human saved player" do
       before do
         expect(io_helpers).to receive(:computer_or_human_guesser_inquiry).and_return(:human)
-        expect(io_helpers).to receive(:is_player_1_saved?).and_return(true)
       end
 
       specify "#generate_player" do

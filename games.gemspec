@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["brettfox11@gmail.com"]
 
   spec.summary       = %q{Play tic tac toe and mastermind on the command line}
-  spec.description   = %q{In order to play, download the gem, and type \"tictactoe\" or \"mastermind\" at your terminal.}
+  spec.description   = %q{In order to play, download the gem, and type "tictactoe" or "mastermind" at your terminal. Type "exit" to quit the game.}
   spec.homepage      = "https://github.com/brett11/games"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

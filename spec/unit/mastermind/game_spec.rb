@@ -39,7 +39,6 @@ RSpec.describe MM::Game do
       #in this game iteration, two humans play eachother, and the first human fills top row, winning the game
       expect(io_helpers).to receive(:initial_instructions)
       expect(io_helpers).to receive(:computer_or_human_guesser_inquiry).and_return(:human)
-      expect(io_helpers).to receive(:is_player_1_saved?).and_return(false)
       expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
       expect(game).to receive(:loop).and_yield
       expect(game).to receive(:set_secret_code).and_return([4,3,5,4])
