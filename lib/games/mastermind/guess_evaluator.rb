@@ -1,4 +1,4 @@
-require_relative "../../../lib/games/mastermind/result"
+require_relative "../../../lib/games/mastermind/guess_evaluator_result"
 
 module MM
   class GuessEvaluator
@@ -9,7 +9,7 @@ module MM
       secret_code.freeze
       guess.freeze
 
-      result = MM::Result.new
+      result = MM::GuessEvaluatorResult.new
 
       resX = generate_Xs_for_exact_matches(secret_code, guess, [])
       result.exact_match_values = find_exact_matches_from_secret_code(secret_code, guess, [])

@@ -3,7 +3,7 @@ require_relative '../tictactoe/player'
 module TTT
   class ComputerPlayerNovice < TTT::Player
     def make_move(game)
-      game.io_helpers.computer_choosing_graphic
+      game.computer_choosing_graphic
       game.available_choices.sample
     end
   end

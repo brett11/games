@@ -14,7 +14,7 @@ module MM
       self.number_of_turns_taken = 0
       self.won_flag = false
       self.secret_code = set_secret_code
-      self.current_result = MM::Result.new
+      self.current_result = MM::GuessEvaluatorResult.new
       logger = Logger.new(STDOUT)
       logger.level = Logger::DEBUG
       logger.debug("The secret code is #{secret_code.join(",")}.")
@@ -111,6 +111,10 @@ module MM
 
     def number_of_cols
       board.number_of_cols
+    end
+
+    def get_player_choice(current_player_name)
+      io_helpers.get_player_choice(current_player_name)
     end
   end
 end

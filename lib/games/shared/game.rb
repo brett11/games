@@ -8,12 +8,10 @@ module Shared
     attr_accessor :board, :board_presenter, :board_builder
     attr_accessor :players, :players_factory
     attr_accessor :number_of_turns_taken, :won_flag
-    attr_reader :io, :io_helpers,  :game_module
+    attr_reader :io_helpers
 
 
     def initialize(args = {})
-      @game_module = args.fetch(:game_module)
-      @io = args.fetch(:io)
       @board_presenter = args.fetch(:board_presenter)
 
       @io_helpers = args.fetch(:io_helpers)
@@ -73,6 +71,11 @@ module Shared
       board.display_values
     end
 
+
+    def computer_choosing_graphic
+      io_helpers.computer_choosing_graphic
+    end
+
     private
 
     #hook
@@ -89,10 +92,6 @@ module Shared
     end
 
     #overriding so that io and io_helpers always in harmony
-    def io=(new_io)
-      @io = new_io
-      self.io_helpers = game_module::IOHelpers.new(new_io)
-    end
 
     def over?
       raise 'Called abstract method: over?'

@@ -9,15 +9,13 @@ RSpec.describe TTT::Game do
   let(:board_builder) {TTT::BoardBuilder.new }
   let(:players_factory) { TTT::PlayersFactory.new(io_helpers) }
 
-  let(:game) { TTT::Game.new(game_module: TTT,
-                             io: io,
+  let(:game) { TTT::Game.new(
                              io_helpers: io_helpers,
                              board_presenter: board_presenter,
                              board_builder: board_builder,
                              players_factory: players_factory,
   )}
-  subject { TTT::Game.new(game_module: TTT,
-                          io: io,
+  subject { TTT::Game.new(
                           io_helpers: io_helpers,
                           board_presenter: board_presenter,
                           board_builder: board_builder,
@@ -42,7 +40,7 @@ RSpec.describe TTT::Game do
       expect(io_helpers).to receive(:get_player_value).and_return("R")
       expect(io_helpers).to receive(:get_player_2_type).and_return(:human)
       expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
-      expect(io_helpers).to receive(:get_opponent_name).and_return("Bob")
+      expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
       expect(io_helpers).to receive(:get_player_value).and_return("D")
       expect(io_helpers).to receive(:get_number_of_rows_cols_max_9).and_return(3)
       expect(game).to receive(:loop).and_yield
@@ -70,7 +68,7 @@ RSpec.describe TTT::Game do
       expect(io_helpers).to receive(:get_player_value).and_return("R")
       expect(io_helpers).to receive(:get_player_2_type).and_return(:human)
       expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
-      expect(io_helpers).to receive(:get_opponent_name).and_return("Bob")
+      expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
       expect(io_helpers).to receive(:get_player_value).and_return("D")
       expect(io_helpers).to receive(:get_number_of_rows_cols_max_9).and_return(3)
       expect(game).to receive(:loop).and_yield

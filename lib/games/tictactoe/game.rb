@@ -85,5 +85,9 @@ module TTT
     def change_square(display_value, current_player_value)
       board.change_square(display_value, current_player_value)
     end
+
+    def get_player_choice(current_player_name, available_choices)
+      io_helpers.get_player_choice(current_player_name, available_choices)
+    end
   end
 end

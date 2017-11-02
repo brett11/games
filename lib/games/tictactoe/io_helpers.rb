@@ -34,7 +34,7 @@ module TTT
       user_choice.capitalize == "Y"
     end
 
-    def get_opponent_name
+    def get_player_2_name
       user_choice = get_user_input("Player 2, please enter your name:", "Please re-enter your name, using only letters") do |input|
         input =~ /^[a-zA-Z]+$/
       end

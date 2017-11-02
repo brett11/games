@@ -9,8 +9,7 @@ class TicTacToe
     board_builder = TTT::BoardBuilder.new
     players_factory = TTT::PlayersFactory.new(io_helpers)
 
-    game = TTT::Game.new(game_module: TTT,
-                         io: io,
+    game = TTT::Game.new(
                          io_helpers: io_helpers,
                          board_presenter: board_presenter,
                          board_builder: board_builder,

@@ -13,7 +13,7 @@ RSpec.describe TTT::PlayersFactory do
         expect(io_helpers).to receive(:get_player_1_name).and_return("Brett")
       end
 
-      it "#generate_player" do
+      specify "#generate_player" do
         players = players_factory.generate_players
         player_1 = players[0]
         expect(player_1).to be_kind_of(MM::HumanPlayer)
@@ -27,7 +27,7 @@ RSpec.describe TTT::PlayersFactory do
         expect(io_helpers).to receive(:is_player_1_saved?).and_return(true)
       end
 
-      it "#generate_player" do
+      specify "#generate_player" do
         pending "saved player not implemented yet"
       end
     end
@@ -38,7 +38,7 @@ RSpec.describe TTT::PlayersFactory do
         expect(io_helpers).to receive(:get_computer_knowledge_level).and_return(:novice)
       end
 
-      it "#generate_player" do
+      specify "#generate_player" do
         players = players_factory.generate_players
         player_1 = players[0]
         expect(player_1).to be_kind_of(MM::ComputerPlayerNovice)
@@ -52,7 +52,7 @@ RSpec.describe TTT::PlayersFactory do
         expect(io_helpers).to receive(:get_computer_knowledge_level).and_return(:expert)
       end
 
-      it "#generate_player" do
+      specify "#generate_player" do
         players = players_factory.generate_players
         player_1 = players[0]
         expect(player_1).to be_kind_of(MM::ComputerPlayerExpert)

@@ -1,5 +1,5 @@
 module MM
-  class Result
+  class GuessEvaluatorResult
     attr_accessor :xo_key, :partial_match_values, :exact_match_values, :is_won
     def initialize
       @xo_key = []

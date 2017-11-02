@@ -1,9 +1,9 @@
-require_relative "../../../lib/games/mastermind/result"
+require_relative "../../../lib/games/mastermind/guess_evaluator_result"
 
 
-RSpec.describe MM::Result do
+RSpec.describe MM::GuessEvaluatorResult do
   context "initialized" do
-    let(:result) { MM::Result.new }
+    let(:result) { MM::GuessEvaluatorResult.new }
 
     it "initializes properly" do
       expect(result.xo_key).to eq([])

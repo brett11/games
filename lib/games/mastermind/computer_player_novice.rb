@@ -3,7 +3,7 @@ require_relative '../shared/player'
 module MM
   class ComputerPlayerNovice < Shared::Player
     def make_move(game)
-      game.io_helpers.computer_choosing_graphic
+      game.computer_choosing_graphic
       random_move
     end
 

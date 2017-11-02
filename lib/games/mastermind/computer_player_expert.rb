@@ -4,7 +4,7 @@ module MM
   class ComputerPlayerExpert < Shared::Player
     def make_move(game)
       @game = game
-      io_helpers.computer_choosing_graphic
+      computer_choosing_graphic
       smart_move
     end
 
@@ -16,8 +16,8 @@ module MM
       secret_code.shuffle
     end
 
-    def io_helpers
-      @game.io_helpers
+    def computer_choosing_graphic
+      @game.computer_choosing_graphic
     end
 
     def current_result_partial_match_values

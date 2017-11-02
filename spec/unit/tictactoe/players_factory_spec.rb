@@ -12,7 +12,7 @@ RSpec.describe TTT::PlayersFactory do
         expect(io_helpers).to receive(:get_player_value).and_return("R")
         expect(io_helpers).to receive(:get_player_2_type).and_return(:human)
         expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
-        expect(io_helpers).to receive(:get_opponent_name).and_return("Bob")
+        expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
         expect(io_helpers).to receive(:get_player_value).and_return("D")
       end
 
@@ -47,7 +47,7 @@ RSpec.describe TTT::PlayersFactory do
         expect(io_helpers).to receive(:is_player_1_saved?).and_return(true)
         expect(io_helpers).to receive(:get_player_value).and_return("R")
         expect(io_helpers).to receive(:is_player_2_saved?).and_return(false)
-        expect(io_helpers).to receive(:get_opponent_name).and_return("Bob")
+        expect(io_helpers).to receive(:get_player_2_name).and_return("Bob")
         expect(io_helpers).to receive(:get_player_value).and_return("D")
       end
 

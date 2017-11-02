@@ -30,7 +30,7 @@ RSpec.describe TTT::IOHelpers do
         end
 
         it "capitalizes name" do
-          name = io_helpers.get_opponent_name
+          name = io_helpers.get_player_2_name
           expect(name).to eq("Brett")
         end
       end

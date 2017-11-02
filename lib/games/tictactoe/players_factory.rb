@@ -44,7 +44,7 @@ module TTT
       if is_player_2_saved
         #TODO
       else
-        player_name = io_helpers.get_opponent_name
+        player_name = io_helpers.get_player_2_name
         player_value = io_helpers.get_player_value(player_name, player_value_taken )
         TTT::HumanPlayer.new(name: player_name, value: player_value)
       end

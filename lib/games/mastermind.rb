@@ -9,8 +9,7 @@ class Mastermind
     board_builder = MM::BoardBuilder.new
     players_factory = MM::PlayersFactory.new(io_helpers)
 
-    game = MM::Game.new(game_module: MM,
-                         io: io,
+    game = MM::Game.new(
                          io_helpers: io_helpers,
                          board_presenter: board_presenter,
                          board_builder: board_builder,
