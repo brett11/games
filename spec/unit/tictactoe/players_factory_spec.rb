@@ -1,9 +1,13 @@
 require_relative '../../../lib/games/tictactoe/players_factory'
+require_relative '../../../spec/shared_examples/shared/players_factory'
 
 RSpec.describe TTT::PlayersFactory do
   describe "factory" do
     let(:io_helpers) { instance_double "TTT::IOHelpers" }
     let(:players_factory) { TTT::PlayersFactory.new(io_helpers) }
+
+    subject { TTT::PlayersFactory.new(io_helpers) }
+    it_behaves_like "PlayersFactory Game-able"
 
     describe "two human new players " do
       before do

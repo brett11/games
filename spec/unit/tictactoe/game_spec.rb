@@ -26,9 +26,9 @@ RSpec.describe TTT::Game do
     #first test below maskes sure that this subclass does not violate Liskov substitution principle
     it_behaves_like "game interface"
     it_behaves_like "game subclass"
-    it_behaves_like "tictactoe move_generator-able"
-    it_behaves_like "tictactoe game_state_changer-able"
-    it_behaves_like "tictactoe game_resetter-able"
+    it_behaves_like "TTTGame ComputerNoviceMakeMove-able"
+    it_behaves_like "TTTGame ComputerExpertMakeMove-able"
+    it_behaves_like "TTTGame HumanPlayerMakeMove-able"
   end
 
   describe "game flow simulation, two humans, first player wins " do

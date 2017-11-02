@@ -6,6 +6,7 @@ RSpec.describe TTT::ComputerPlayerNovice do
     let(:player) { TTT::ComputerPlayerNovice.new }
 
     it_behaves_like "player subclass"
-    it_behaves_like "tictactoe make_move-able"
+    it_behaves_like  "TTTPlayer subclass"
+    it_behaves_like "TTTPlayer Game-able"
   end
 end

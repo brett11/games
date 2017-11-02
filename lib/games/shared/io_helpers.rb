@@ -8,6 +8,10 @@ module Shared
       @io = io
     end
 
+    def initial_instructions
+      raise 'Called abstract method: initial_instructions'
+    end
+
     def is_player_1_saved?
       user_choice = get_user_input("Would you like to play with your saved profile? Please enter either Y(yes) or N(no).", "Invalid entry. Please enter either Y(yes) or N(no).") do |input|
         input == 'y' || input == 'Y' || input == 'n' || input == 'N'
@@ -49,6 +53,10 @@ module Shared
       else
         io.present_with_new_line(Paint["#{current_player_name} wins!", :green, :bold])
       end
+    end
+
+    def no_winner_prompt
+      raise 'Called abstract method: no_winner_prompt'
     end
 
     def custom_final_message(game)

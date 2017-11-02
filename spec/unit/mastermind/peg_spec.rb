@@ -1,6 +1,9 @@
 require_relative "../../../lib/games/mastermind/peg"
+require_relative "../../../spec/shared_examples/mastermind/peg"
 
 RSpec.describe MM::Peg do
+  it_behaves_like "MMPeg-able"
+
   describe "initialized" do
     context "with no display value" do
       let(:peg) { MM::Peg.new }

@@ -1,3 +1,3 @@
-RSpec.shared_examples "board_presenter" do
+RSpec.shared_examples "PresentBoard-able" do
   it { is_expected.to respond_to(:present_board) }
 end

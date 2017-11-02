@@ -3,7 +3,7 @@ require_relative '../../../lib/games/tictactoe/game'
 require_relative '../../shared_examples/shared/board_presenter'
 
 RSpec.describe TTT::BoardPresenterTerminal do
-  it_behaves_like "board_presenter"
+  it_behaves_like "PresentBoard-able"
 
   let(:squares) { TTT::SquaresFactory.build_empty_squares(3) }
   let(:board) { TTT::Board.new(squares: squares) }

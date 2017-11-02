@@ -1,5 +1,6 @@
 require_relative '../../../lib/games/mastermind/game'
 require_relative '../../shared_examples/shared/game'
+require_relative '../../shared_examples/mastermind/game'
 
 RSpec.describe MM::Game do
   # let(:io) { double("Shared::IOTerminal").as_null_object }
@@ -28,6 +29,9 @@ RSpec.describe MM::Game do
     #first test below maskes sure that this subclass does not violate Liskov substitution principle
     it_behaves_like "game interface"
     it_behaves_like "game subclass"
+    it_behaves_like "MMGame ComputerNoviceMakeMove-able"
+    it_behaves_like "MMGame ComputerExpertMakeMove-able"
+    it_behaves_like "MMGame HumanPlayerMakeMove-able"
   end
 
   describe "game flow simulation, two humans, first player wins " do

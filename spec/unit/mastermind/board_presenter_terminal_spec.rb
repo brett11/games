@@ -3,7 +3,7 @@ require_relative '../../../lib/games/mastermind/pegs_factory'
 require_relative '../../shared_examples/shared/board_presenter'
 
 RSpec.describe MM::BoardPresenterTerminal do
-  it_behaves_like "board_presenter"
+  it_behaves_like "PresentBoard-able"
 
   let(:pegs) { MM::PegsFactory.build_empty_pegs(4) }
   let(:board) { MM::Board.new(number_of_rows: 4, number_of_cols: 4, pegs: pegs) }

@@ -2,7 +2,7 @@ require_relative '../../../lib/games/shared/io_terminal'
 require_relative '../../shared_examples/shared/io'
 
 RSpec.describe Shared::IOTerminal do
-  it_behaves_like "io_presenter_receiver"
+  it_behaves_like "IOHelpers-able"
   let(:io_presenter_receiver) { Shared::IOTerminal.new }
 
   context "terminal" do

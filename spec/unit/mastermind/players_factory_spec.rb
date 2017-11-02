@@ -1,10 +1,14 @@
 require_relative '../../../lib/games/mastermind/players_factory'
 require_relative '../../../lib/games/mastermind/io_helpers'
+require_relative '../../../spec/shared_examples/shared/players_factory'
 
 RSpec.describe TTT::PlayersFactory do
   describe "factory" do
     let(:io_helpers) { instance_double "MM::IOHelpers" }
     let(:players_factory) { MM::PlayersFactory.new(io_helpers) }
+
+    subject { MM::PlayersFactory.new(io_helpers) }
+    it_behaves_like "PlayersFactory Game-able"
 
     describe "one human new player" do
       before do

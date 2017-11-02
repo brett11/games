@@ -1,9 +1,17 @@
 require_relative '../../../lib/games/mastermind/io_helpers'
 require_relative '../../../lib/games/shared/io_terminal'
+require_relative '../../../spec/shared_examples/mastermind/io_helpers'
+require_relative '../../../spec/shared_examples/shared/io_helpers'
 
 RSpec.describe MM::IOHelpers do
   let(:io_terminal) { Shared::IOTerminal.new }
   let(:io_helpers) { MM::IOHelpers.new(io_terminal)}
+  subject { MM::IOHelpers.new(io_terminal)}
+
+  it_behaves_like "MMIOHelpers Game-able"
+  it_behaves_like "MMIOHelpers PlayersFactory-able"
+  it_behaves_like "MMIOHelpers SecretCodeGenerate-able"
+  it_behaves_like "IOHelpers subclass"
 
   describe "all examples" do
     after do

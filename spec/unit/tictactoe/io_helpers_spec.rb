@@ -1,10 +1,18 @@
 require_relative '../../../lib/games/tictactoe/io_helpers'
 require_relative '../../../lib/games/shared/io_terminal'
+require_relative '../../../spec/shared_examples/tictactoe/io_helpers/'
+require_relative '../../../spec/shared_examples/shared/io_helpers'
+
 
 RSpec.describe TTT::IOHelpers do
   describe "#get_user_input" do
     let(:io_presenter_receiver) { Shared::IOTerminal.new }
     let(:io_helpers) { TTT::IOHelpers.new(io_presenter_receiver)}
+    subject { TTT::IOHelpers.new(io_presenter_receiver)}
+
+    it_behaves_like "TTTIOHelpers game-able"
+    it_behaves_like "TTTIOHelpers PlayersFactory-able"
+    it_behaves_like "IOHelpers subclass"
 
     describe "all examples" do
       after do

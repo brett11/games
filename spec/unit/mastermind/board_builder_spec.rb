@@ -1,8 +1,11 @@
 require_relative '../../../lib/games/mastermind/board_builder'
+require_relative '../../../spec/shared_examples/shared/board_builder'
 
-RSpec.describe MM::Board do
+RSpec.describe MM::BoardBuilder do
   let(:board_builder) { MM::BoardBuilder.new }
   let(:board) { board_builder.generate_empty_board }
+
+  it_behaves_like "SharedBoardBuilder Game-able"
 
   it "holds the number of rows & cols" do
     expect(board.number_of_rows).to eq(12)

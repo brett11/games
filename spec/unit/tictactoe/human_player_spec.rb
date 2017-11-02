@@ -6,7 +6,8 @@ RSpec.describe TTT::HumanPlayer do
     let(:player) { TTT::HumanPlayer.new(name: "Brett", value: "R") }
 
     it_behaves_like "player subclass"
-    it_behaves_like "tictactoe make_move-able"
+    it_behaves_like  "TTTPlayer subclass"
+    it_behaves_like "TTTPlayer Game-able"
 
     it "has correct player name and value" do
       expect(player.name).to eq("Brett")

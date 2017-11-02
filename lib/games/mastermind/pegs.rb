@@ -29,14 +29,6 @@ module MM
       end
     end
 
-    def result_values
-      collection_of_pegs.reverse.map do |row|
-        row.map do |peg|
-          peg.result_value
-        end
-      end
-    end
-
     private
       def number_of_rows
         collection_of_pegs.length

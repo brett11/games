@@ -1,9 +1,15 @@
 require_relative "../../../lib/games/tictactoe/square"
+require_relative "../../../spec/shared_examples/tictactoe/square"
 
 RSpec.describe TTT::Square do
+  let(:display_value) { double }
+  let(:value) { double }
+  subject { TTT::Square.new(display_value: display_value, value: value)}
+  it_behaves_like "TTTSquare-able"
+
   describe "initialized" do
     context "with no value" do
-      let(:square) { TTT::Square.new(display_value: 1, row: 0, col: 0)}
+      let(:square) { TTT::Square.new(display_value: 1)}
 
       it "is empty" do
         expect(square).to be_empty
@@ -18,7 +24,7 @@ RSpec.describe TTT::Square do
     end
 
     context "with a value" do
-      let(:square) { TTT::Square.new(value: "X", display_value: 1, row: 0, col: 0)}
+      let(:square) { TTT::Square.new(value: "X", display_value: 1)}
 
       it "is full" do
         expect(square).to be_full

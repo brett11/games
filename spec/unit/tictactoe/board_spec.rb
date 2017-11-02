@@ -6,6 +6,7 @@ RSpec.describe TTT::Board do
   subject { TTT::Board.new }
 
   describe "when initialized" do
-    it_behaves_like "board presenter-able"
+    it_behaves_like "TTTBoardPresenter-able"
+    it_behaves_like "TTTBoardMinimax-able"
   end
 end

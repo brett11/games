@@ -1,9 +1,14 @@
 require_relative "../../../lib/games/tictactoe/square"
 require_relative "../../../lib/games/tictactoe/squares"
 require_relative '../../../lib/games/tictactoe/squares_factory'
+require_relative '../../../spec/shared_examples/tictactoe/squares'
 require_relative '../../support/test_config'
 
 RSpec.describe TTT::Squares do
+  let(:collection_of_squares) { double }
+  subject { TTT::Squares.new(collection_of_squares: collection_of_squares)}
+  it_behaves_like "TTTSquares-able"
+
   describe "factory" do
     context "creates empty board" do
       let(:squares) { TTT::SquaresFactory.build_empty_squares(3)}
