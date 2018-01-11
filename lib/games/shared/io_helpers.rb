@@ -12,6 +12,17 @@ module Shared
       raise 'Called abstract method: initial_instructions'
     end
 
+    def choose_game
+      user_choice = get_user_input("Please enter " + Paint["\"1\" ", :blue, :bold] + "if you would like to play tictactoe. Enter " + Paint["\"2\" ", :blue, :bold] + "if you would like to play mastermind.", "Invalid entry. Please enter either 1(tictactoe) or 2 (mastermind)") do |input|
+        input == 1 || input == 2
+      end
+      if user_choice == 1
+        return :tictactoe
+      elsif user_choice == 2
+        return :mastermind
+      end
+    end
+
     def get_player_1_name
       user_choice = get_user_input("Player 1, please enter your name:", "Please re-enter your name, using only letters") do |input|
         input =~ /^[a-zA-Z]+$/

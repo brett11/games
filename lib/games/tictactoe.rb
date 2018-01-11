@@ -4,7 +4,7 @@
 require File.join('games', 'shared', 'io_terminal')
 require File.join('games', 'tictactoe', 'io_helpers')
 require File.join('games', 'tictactoe', 'board_presenter_terminal')
-require File.join('games' 'tictactoe', 'board_builder')
+require File.join('games', 'tictactoe', 'board_builder')
 require File.join('games', 'tictactoe', 'players_factory')
 require File.join('games', 'tictactoe', 'game')
 
