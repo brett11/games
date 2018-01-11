@@ -1,5 +1,5 @@
-require_relative "../../../lib/games/mastermind/peg"
-require_relative "../../../spec/shared_examples/mastermind/peg"
+require "games/mastermind/peg"
+require "shared_examples/mastermind/peg"
 
 RSpec.describe MM::Peg do
   it_behaves_like "MMPeg-able"

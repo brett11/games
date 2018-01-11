@@ -1,6 +1,6 @@
-require_relative '../../../lib/games/mastermind/game'
-require_relative '../../shared_examples/shared/game'
-require_relative '../../shared_examples/mastermind/game'
+require 'games/mastermind/game'
+require 'shared_examples/shared/game'
+require 'shared_examples/mastermind/game'
 
 RSpec.describe MM::Game do
   # let(:io) { double("Shared::IOTerminal").as_null_object }

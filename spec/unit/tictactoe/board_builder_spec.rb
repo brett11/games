@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/tictactoe/board_builder'
-require_relative '../../../spec/shared_examples/shared/board_builder'
+require 'games/tictactoe/board_builder'
+require 'shared_examples/shared/board_builder'
 
 RSpec.describe TTT::BoardBuilder do
   let(:board_builder) { TTT::BoardBuilder.new }

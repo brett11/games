@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/shared/io_terminal'
-require_relative '../../shared_examples/shared/io'
+require 'games/shared/io_terminal'
+require 'shared_examples/shared/io'
 
 RSpec.describe Shared::IOTerminal do
   it_behaves_like "IOHelpers-able"

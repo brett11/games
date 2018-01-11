@@ -1,7 +1,7 @@
-require_relative "../../../lib/games/mastermind/peg"
-require_relative "../../../lib/games/mastermind/pegs"
-require_relative '../../../lib/games/mastermind/pegs_factory'
-require_relative '../../../spec/shared_examples/mastermind/pegs'
+require "games/mastermind/peg"
+require "games/mastermind/pegs"
+require 'games/mastermind/pegs_factory'
+require 'shared_examples/mastermind/pegs'
 
 RSpec.describe MM::Pegs do
   let(:collection_of_pegs) { double }

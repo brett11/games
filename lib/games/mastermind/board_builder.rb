@@ -1,5 +1,5 @@
-require_relative 'pegs_factory'
-require_relative 'board'
+require 'games/mastermind/board'
+require 'games/mastermind/pegs_factory'
 
 module MM
   class BoardBuilder

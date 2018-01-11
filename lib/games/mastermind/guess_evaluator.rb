@@ -1,4 +1,4 @@
-require_relative "../../../lib/games/mastermind/guess_evaluator_result"
+require "games/mastermind/guess_evaluator_result"
 
 module MM
   class GuessEvaluator

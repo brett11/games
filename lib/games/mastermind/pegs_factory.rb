@@ -1,5 +1,5 @@
-require_relative 'pegs'
-require_relative 'peg'
+require 'games/mastermind/pegs'
+require 'games/mastermind/peg'
 
 module MM
   module PegsFactory

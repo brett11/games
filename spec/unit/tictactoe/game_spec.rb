@@ -1,6 +1,6 @@
-require_relative '../../../lib/games/tictactoe/game'
-require_relative '../../shared_examples/shared/game'
-require_relative '../../shared_examples/tictactoe/game'
+require 'games/tictactoe/game'
+require 'shared_examples/shared/game'
+require 'shared_examples/tictactoe/game'
 
 RSpec.describe TTT::Game do
   let(:io) { double("Shared::IOTerminal").as_null_object }

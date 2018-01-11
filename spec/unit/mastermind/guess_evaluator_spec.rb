@@ -1,4 +1,4 @@
-require_relative '../../../lib/games/mastermind/guess_evaluator'
+require 'games/mastermind/guess_evaluator'
 
 RSpec.describe MM::GuessEvaluator do
   describe "#evaluate_guess" do

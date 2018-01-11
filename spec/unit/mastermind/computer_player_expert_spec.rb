@@ -1,6 +1,6 @@
-require_relative "../../../lib/games/mastermind/computer_player_expert"
-require_relative '../../shared_examples/shared/player'
-require_relative '../../shared_examples/mastermind/player'
+require "games/mastermind/computer_player_expert"
+require 'shared_examples/shared/player'
+require 'shared_examples/mastermind/player'
 
 RSpec.describe MM::ComputerPlayerExpert do
   context "initialized" do

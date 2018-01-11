@@ -1,7 +1,7 @@
-require_relative '../../../lib/games/mastermind/io_helpers'
-require_relative '../../../lib/games/shared/io_terminal'
-require_relative '../../../spec/shared_examples/mastermind/io_helpers'
-require_relative '../../../spec/shared_examples/shared/io_helpers'
+require 'games/mastermind/io_helpers'
+require 'games/shared/io_terminal'
+require 'shared_examples/mastermind/io_helpers'
+require 'shared_examples/shared/io_helpers'
 
 RSpec.describe MM::IOHelpers do
   let(:io_terminal) { Shared::IOTerminal.new }

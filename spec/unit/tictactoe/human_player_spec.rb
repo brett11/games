@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/tictactoe/human_player'
-require_relative '../../shared_examples/shared/player'
+require 'games/tictactoe/human_player'
+require 'shared_examples/shared/player'
 
 RSpec.describe TTT::HumanPlayer do
   context "initialized" do

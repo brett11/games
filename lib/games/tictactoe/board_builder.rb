@@ -1,5 +1,5 @@
-require_relative 'board'
-require_relative 'squares_factory'
+require 'games/tictactoe/board'
+require 'games/tictactoe/squares_factory'
 
 module TTT
   class BoardBuilder

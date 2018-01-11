@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/tictactoe/io_helpers'
-require_relative '../../../lib/games/shared/io_terminal'
+require 'games/tictactoe/io_helpers'
+require 'games/shared/io_terminal'
 
 RSpec.describe Shared::IOHelpers do
   describe "#get_user_input" do

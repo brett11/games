@@ -1,7 +1,4 @@
-Dir[File.join(File.dirname(__FILE__), '*.rb')].each {|file| require file }
-# note the below exclude the game subclasses, because these classes inherit from this class, so if we require these before the parent class is read, an error will be generated.
-Dir[File.join(File.expand_path("..", File.dirname(__FILE__)), 'tictactoe', '*.rb')].each {|file| require file unless file == File.join(File.expand_path("..", File.dirname(__FILE__)), 'tictactoe', 'game.rb')}
-Dir[File.join(File.expand_path("..", File.dirname(__FILE__)), 'mastermind', '*.rb')].each {|file| require file unless file == File.join(File.expand_path("..", File.dirname(__FILE__)), 'mastermind', 'game.rb')}
+require 'games/tictactoe/computer_player_expert'
 
 module Shared
   class Game
@@ -9,7 +6,6 @@ module Shared
     attr_accessor :players, :players_factory
     attr_accessor :number_of_turns_taken, :won_flag
     attr_reader :io_helpers
-
 
     def initialize(args = {})
       @board_presenter = args.fetch(:board_presenter)

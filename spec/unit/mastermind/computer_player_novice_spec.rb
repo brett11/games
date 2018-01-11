@@ -1,7 +1,7 @@
-require_relative "../../../lib/games/shared/player"
-require_relative '../../../lib/games/mastermind/computer_player_novice'
-require_relative '../../shared_examples/shared/player'
-require_relative '../../shared_examples/mastermind/player'
+require "games/shared/player"
+require 'games/mastermind/computer_player_novice'
+require 'shared_examples/shared/player'
+require 'shared_examples/mastermind/player'
 
 RSpec.describe MM::ComputerPlayerNovice do
   context "initialized" do

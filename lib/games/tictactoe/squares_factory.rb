@@ -1,5 +1,5 @@
-require_relative 'squares'
-require_relative 'square'
+require 'games/tictactoe/squares'
+require 'games/tictactoe/square'
 
 module TTT
   class SquaresFactory

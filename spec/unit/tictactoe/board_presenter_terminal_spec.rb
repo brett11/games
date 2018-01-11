@@ -1,6 +1,6 @@
-require_relative '../../../lib/games/tictactoe/board_presenter_terminal'
-require_relative '../../../lib/games/tictactoe/game'
-require_relative '../../shared_examples/shared/board_presenter'
+require 'games/tictactoe/board_presenter_terminal'
+require 'games/tictactoe/game'
+require 'shared_examples/shared/board_presenter'
 
 RSpec.describe TTT::BoardPresenterTerminal do
   it_behaves_like "PresentBoard-able"

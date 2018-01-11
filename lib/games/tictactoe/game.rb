@@ -1,4 +1,4 @@
-require_relative '../shared/game'
+require 'games/shared/game'
 
 module TTT
   class Game < Shared::Game

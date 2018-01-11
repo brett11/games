@@ -1,6 +1,7 @@
-require_relative 'human_player'
-require_relative 'computer_player_expert'
-require_relative 'computer_player_novice'
+require 'games/shared/players_factory'
+require 'games/mastermind/human_player'
+require 'games/mastermind/computer_player_expert'
+require 'games/mastermind/computer_player_novice'
 
 module MM
   class PlayersFactory < Shared::PlayersFactory

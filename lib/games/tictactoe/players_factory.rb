@@ -1,6 +1,7 @@
-require_relative 'human_player'
-require_relative 'computer_player_expert'
-require_relative 'computer_player_novice'
+require 'games/shared/players_factory'
+require 'games/tictactoe/human_player'
+require 'games/tictactoe/computer_player_expert'
+require 'games/tictactoe/computer_player_novice'
 
 module TTT
   class PlayersFactory < Shared::PlayersFactory

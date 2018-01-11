@@ -1,5 +1,5 @@
-require_relative "../../../lib/games/tictactoe/square"
-require_relative "../../../spec/shared_examples/tictactoe/square"
+require "games/tictactoe/square"
+require "shared_examples/tictactoe/square"
 
 RSpec.describe TTT::Square do
   let(:display_value) { double }

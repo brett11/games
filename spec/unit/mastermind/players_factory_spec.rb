@@ -1,8 +1,8 @@
-require_relative '../../../lib/games/mastermind/players_factory'
-require_relative '../../../lib/games/mastermind/io_helpers'
-require_relative '../../../spec/shared_examples/shared/players_factory'
+require 'games/mastermind/players_factory'
+require 'games/mastermind/io_helpers'
+require 'shared_examples/shared/players_factory'
 
-RSpec.describe TTT::PlayersFactory do
+RSpec.describe MM::PlayersFactory do
   describe "factory" do
     let(:io_helpers) { instance_double "MM::IOHelpers" }
     let(:players_factory) { MM::PlayersFactory.new(io_helpers) }

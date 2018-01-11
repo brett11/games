@@ -1,7 +1,5 @@
-require_relative "../../../lib/games/tictactoe/computer_player_expert"
-require_relative "../../../lib/games/tictactoe/computer_player_expert"
-require_relative '../../shared_examples/shared/player'
-require_relative '../../shared_examples/tictactoe/player'
+require "games/tictactoe/computer_player_expert"
+require 'shared_examples/tictactoe/player'
 
 RSpec.describe TTT::ComputerPlayerExpert do
   context "initialized" do

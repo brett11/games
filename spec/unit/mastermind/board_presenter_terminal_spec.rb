@@ -1,6 +1,6 @@
-require_relative '../../../lib/games/mastermind/board_presenter_terminal'
-require_relative '../../../lib/games/mastermind/pegs_factory'
-require_relative '../../shared_examples/shared/board_presenter'
+require 'games/mastermind/board_presenter_terminal'
+require 'games/mastermind/pegs_factory'
+require 'shared_examples/shared/board_presenter'
 
 RSpec.describe MM::BoardPresenterTerminal do
   it_behaves_like "PresentBoard-able"

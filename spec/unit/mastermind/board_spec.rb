@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/mastermind/board'
-require_relative '../../shared_examples/mastermind/board'
+require 'games/mastermind/board'
+require 'shared_examples/mastermind/board'
 
 RSpec.describe MM::Board do
   let(:board) { MM::Board.new(number_of_rows: 12, number_of_cols: 4) }

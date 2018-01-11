@@ -1,8 +1,8 @@
-require_relative "../../../lib/games/tictactoe/square"
-require_relative "../../../lib/games/tictactoe/squares"
-require_relative '../../../lib/games/tictactoe/squares_factory'
-require_relative '../../../spec/shared_examples/tictactoe/squares'
-require_relative '../../support/test_config'
+require "games/tictactoe/square"
+require "games/tictactoe/squares"
+require 'games/tictactoe/squares_factory'
+require 'shared_examples/tictactoe/squares'
+require 'support/test_config'
 
 RSpec.describe TTT::Squares do
   let(:collection_of_squares) { double }

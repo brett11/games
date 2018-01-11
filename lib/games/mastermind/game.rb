@@ -1,4 +1,8 @@
-require_relative '../shared/game'
+require 'games/shared/game'
+require 'games/mastermind/guess_evaluator'
+require 'games/mastermind/guess_evaluator_result'
+require 'games/mastermind/human_player'
+require 'games/mastermind/secret_code'
 require 'logger'
 
 module MM

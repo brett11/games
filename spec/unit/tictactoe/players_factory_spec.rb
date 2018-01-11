@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/tictactoe/players_factory'
-require_relative '../../../spec/shared_examples/shared/players_factory'
+require 'games/tictactoe/players_factory'
+require 'shared_examples/shared/players_factory'
 
 RSpec.describe TTT::PlayersFactory do
   describe "factory" do

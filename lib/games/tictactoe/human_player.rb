@@ -1,4 +1,4 @@
-require_relative '../tictactoe/player'
+require 'games/tictactoe/player'
 
 module TTT
   class HumanPlayer < TTT::Player

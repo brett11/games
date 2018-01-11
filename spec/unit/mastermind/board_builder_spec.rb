@@ -1,5 +1,5 @@
-require_relative '../../../lib/games/mastermind/board_builder'
-require_relative '../../../spec/shared_examples/shared/board_builder'
+require 'games/mastermind/board_builder'
+require 'shared_examples/shared/board_builder'
 
 RSpec.describe MM::BoardBuilder do
   let(:board_builder) { MM::BoardBuilder.new }

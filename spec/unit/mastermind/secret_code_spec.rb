@@ -1,7 +1,7 @@
-require_relative '../../../lib/games/mastermind/secret_code'
-require_relative '../../../lib/games/mastermind/io_helpers'
+require 'games/mastermind/secret_code'
+require 'games/mastermind/io_helpers'
 
-RSpec.describe TTT::PlayersFactory do
+RSpec.describe MM::SecretCode do
   describe "factory" do
     let(:io_helpers) { instance_double "MM::IOHelpers" }
 

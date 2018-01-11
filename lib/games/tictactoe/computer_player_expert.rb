@@ -1,4 +1,5 @@
-require_relative '../tictactoe/player'
+require 'games/tictactoe/player'
+require 'games/tictactoe/minimax'
 
 module TTT
   class ComputerPlayerExpert < TTT::Player

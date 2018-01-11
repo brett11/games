@@ -1,7 +1,7 @@
-require_relative '../../../lib/games/tictactoe/io_helpers'
-require_relative '../../../lib/games/shared/io_terminal'
-require_relative '../../../spec/shared_examples/tictactoe/io_helpers/'
-require_relative '../../../spec/shared_examples/shared/io_helpers'
+require 'games/tictactoe/io_helpers'
+require 'games/shared/io_terminal'
+require 'shared_examples/tictactoe/io_helpers'
+require 'shared_examples/shared/io_helpers'
 
 
 RSpec.describe TTT::IOHelpers do

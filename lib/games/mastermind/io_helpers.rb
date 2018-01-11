@@ -1,4 +1,4 @@
-require_relative '../shared/io_helpers'
+require 'games/shared/io_helpers'
 require 'paint'
 
 module MM

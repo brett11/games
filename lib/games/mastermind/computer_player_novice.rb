@@ -1,4 +1,4 @@
-require_relative '../shared/player'
+require 'games/shared/player'
 
 module MM
   class ComputerPlayerNovice < Shared::Player
