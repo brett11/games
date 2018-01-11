@@ -1,4 +1,4 @@
-require 'games/tictactoe/computer_player_expert'
+require File.join('games', 'tictactoe', 'computer_player_expert')
 
 module Shared
   class Game

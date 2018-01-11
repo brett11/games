@@ -1,7 +1,7 @@
-require 'games/shared/players_factory'
-require 'games/tictactoe/human_player'
-require 'games/tictactoe/computer_player_expert'
-require 'games/tictactoe/computer_player_novice'
+require File.join('games', 'shared', 'players_factory')
+require File.join('games', 'tictactoe', 'human_player')
+require File.join('games', 'tictactoe', 'computer_player_expert')
+require File.join('games', 'tictactoe', 'computer_player_novice')
 
 module TTT
   class PlayersFactory < Shared::PlayersFactory

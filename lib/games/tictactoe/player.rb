@@ -1,4 +1,4 @@
-require 'games/shared/player'
+require File.join('games', 'shared', 'player')
 
 module TTT
   class Player < Shared::Player

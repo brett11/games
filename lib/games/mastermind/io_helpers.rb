@@ -1,4 +1,4 @@
-require 'games/shared/io_helpers'
+require File.join('games', 'shared', 'io_helpers')
 require 'paint'
 
 module MM

@@ -1,5 +1,5 @@
-require 'games/mastermind/pegs'
-require 'games/mastermind/peg'
+require File.join('games', 'mastermind', 'pegs')
+require File.join('games', 'mastermind', 'peg')
 
 module MM
   module PegsFactory

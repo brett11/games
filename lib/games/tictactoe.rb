@@ -1,12 +1,12 @@
 # Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'shared', '*.rb')].each {|file| require file }
 # Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'tictactoe', '*.rb')].each {|file| require file }
 
-require 'games/shared/io_terminal'
-require 'games/tictactoe/io_helpers'
-require 'games/tictactoe/board_presenter_terminal'
-require 'games/tictactoe/board_builder'
-require 'games/tictactoe/players_factory'
-require 'games/tictactoe/game'
+require File.join('games', 'shared', 'io_terminal')
+require File.join('games', 'tictactoe', 'io_helpers')
+require File.join('games', 'tictactoe', 'board_presenter_terminal')
+require File.join('games' 'tictactoe', 'board_builder')
+require File.join('games', 'tictactoe', 'players_factory')
+require File.join('games', 'tictactoe', 'game')
 
 class TicTacToe
   def self.run

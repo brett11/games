@@ -1,4 +1,4 @@
-require "games/mastermind/guess_evaluator_result"
+require File.join('games', 'mastermind', 'guess_evaluator_result')
 
 module MM
   class GuessEvaluator

@@ -1,5 +1,5 @@
-require 'games/tictactoe/squares'
-require 'games/tictactoe/square'
+require File.join('games', 'tictactoe', 'squares')
+require File.join('games', 'tictactoe', 'square')
 
 module TTT
   class SquaresFactory

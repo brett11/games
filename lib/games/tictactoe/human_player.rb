@@ -1,4 +1,4 @@
-require 'games/tictactoe/player'
+require File.join('games', 'tictactoe', 'player')
 
 module TTT
   class HumanPlayer < TTT::Player

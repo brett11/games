@@ -1,8 +1,8 @@
-require 'games/shared/game'
-require 'games/mastermind/guess_evaluator'
-require 'games/mastermind/guess_evaluator_result'
-require 'games/mastermind/human_player'
-require 'games/mastermind/secret_code'
+require File.join('games', 'shared', 'game')
+require File.join('games', 'mastermind', 'guess_evaluator')
+require File.join('games', 'mastermind', 'guess_evaluator_result')
+require File.join('games', 'mastermind', 'human_player')
+require File.join('games', 'mastermind', 'secret_code')
 require 'logger'
 
 module MM

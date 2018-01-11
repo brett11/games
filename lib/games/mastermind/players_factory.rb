@@ -1,7 +1,7 @@
-require 'games/shared/players_factory'
-require 'games/mastermind/human_player'
-require 'games/mastermind/computer_player_expert'
-require 'games/mastermind/computer_player_novice'
+require File.join('games', 'shared', 'players_factory')
+require File.join('games', 'mastermind', 'human_player')
+require File.join('games', 'mastermind', 'computer_player_expert')
+require File.join('games', 'mastermind', 'computer_player_novice')
 
 module MM
   class PlayersFactory < Shared::PlayersFactory

@@ -1,5 +1,5 @@
-require 'games/mastermind/board'
-require 'games/mastermind/pegs_factory'
+require File.join('games','mastermind', 'board')
+require File.join('games', 'mastermind', 'pegs_factory')
 
 module MM
   class BoardBuilder

@@ -1,5 +1,5 @@
-require 'games/tictactoe/player'
-require 'games/tictactoe/minimax'
+require File.join('games', 'tictactoe', 'player')
+require File.join('games', 'tictactoe', 'minimax')
 
 module TTT
   class ComputerPlayerExpert < TTT::Player

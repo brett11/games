@@ -1,12 +1,12 @@
 # Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'shared', '*.rb')].each {|file| require file }
 # Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'mastermind', '*.rb')].each {|file| require file }
 
-require 'shared/io_terminal'
-require 'mastermind/io_helpers'
-require 'mastermind/board_presenter_terminal'
-require 'mastermind/board_builder'
-require 'mastermind/players_factory'
-require 'mastermind/game'
+require File.join('shared', 'io_terminal')
+require File.join('mastermind', 'io_helpers')
+require File.join('mastermind', 'board_presenter_terminal')
+require File.join('mastermind', 'board_builder')
+require File.join('mastermind', 'players_factory')
+require File.join('mastermind', 'game')
 
 class Mastermind
   def self.run

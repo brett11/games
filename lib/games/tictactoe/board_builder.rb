@@ -1,5 +1,5 @@
-require 'games/tictactoe/board'
-require 'games/tictactoe/squares_factory'
+require File.join('games', 'tictactoe', 'board')
+require File.join('games', 'tictactoe', 'squares_factory')
 
 module TTT
   class BoardBuilder
