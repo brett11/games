@@ -30,22 +30,22 @@ RSpec.describe Shared::IOHelpers do
       describe "#get_game" do
         context "m entered" do
           before do
-            $stdin = StringIO.new("m")
+            $stdin = StringIO.new("2")
           end
 
           it "returns mastermind" do
-            game = io_helpers.get_game
+            game = io_helpers.choose_game
             expect(game).to eq(:mastermind)
           end
         end
 
         context "t entered" do
           before do
-            $stdin = StringIO.new("t")
+            $stdin = StringIO.new("1")
           end
 
           it "returns tic tac toe" do
-            game = io_helpers.get_game
+            game = io_helpers.choose_game
             expect(game).to eq(:tictactoe)
           end
         end

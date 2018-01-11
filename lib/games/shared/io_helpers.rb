@@ -67,8 +67,6 @@ module Shared
       #hook
     end
 
-    private
-
     def get_user_input(prompt, reprompt, &block_validation)
       io.present_with_new_line(prompt)
       user_choice = nil
@@ -84,6 +82,8 @@ module Shared
       end
       user_choice
     end
+
+    private
 
     def marching_dots
       sleep(0.2)
