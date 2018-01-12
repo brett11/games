@@ -58,7 +58,7 @@ module Shared
     def winner
       #each move is immediately proceeded by an increment to number_of_selections_made; therefore, need to rewind won to find winner
       if !won?
-        return nil
+        nil
       end
       current_player
     end

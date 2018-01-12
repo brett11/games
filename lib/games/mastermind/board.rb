@@ -32,12 +32,12 @@ module MM
 
     private
       def retrieve_peg(row, col)
-        return pegs.retrieve_peg(row, col)
+        pegs.retrieve_peg(row, col)
       end
 
       #result_pegs is an instance of pegs
       def retrieve_result_peg(row, col)
-        return result_pegs.retrieve_peg(row,col)
+        result_pegs.retrieve_peg(row,col)
       end
   end
 end

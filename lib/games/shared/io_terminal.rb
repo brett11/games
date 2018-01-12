@@ -11,9 +11,9 @@ module Shared
     def receive
       result = gets.chomp
       if is_int?(result)
-        return result.to_i
+        result.to_i
       else
-        return result.chomp
+        result.chomp
       end
     end
 

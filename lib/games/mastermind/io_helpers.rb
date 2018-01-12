@@ -30,9 +30,9 @@ module MM
         input == 1 || input == 2
       end
       if user_choice == 1
-        return :human
+        :human
       elsif user_choice == 2
-        return :computer
+        :computer
       end
     end
 

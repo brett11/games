@@ -12,9 +12,9 @@ module TTT
       row = (display_value - 1) / number_of_rows_cols
       col = (display_value - 1) % number_of_rows_cols
       if row >= number_of_rows_cols || col >= number_of_rows_cols
-        return nil
+        nil
       else
-        return collection_of_squares[row][col]
+        collection_of_squares[row][col]
       end
     end
 
@@ -42,7 +42,7 @@ module TTT
       collection_of_squares.each do |row|
         return false if !(row.all? { |square| square.full? })
       end
-      return true
+      true
     end
 
     def any_combination_won?

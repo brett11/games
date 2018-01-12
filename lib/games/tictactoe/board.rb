@@ -12,19 +12,19 @@ module TTT
     end
 
     def full?
-      return squares.full?
+      squares.full?
     end
 
     def won?
-      return squares.any_combination_won?
+      squares.any_combination_won?
     end
 
     def display_values
-      return squares.display_values
+      squares.display_values
     end
 
     def available_choices
-      return squares.available_choices
+      squares.available_choices
     end
 
     def number_of_rows_cols
@@ -33,7 +33,7 @@ module TTT
 
     private
     def retrieve_square(display_value)
-      return squares.retrieve_square(display_value)
+      squares.retrieve_square(display_value)
     end
   end
 end

@@ -10,9 +10,9 @@ module MM
 
     def retrieve_peg(row, col)
       if row >= number_of_rows || col >= number_of_cols
-        return nil
+        nil
       else
-        return collection_of_pegs[row][col]
+        collection_of_pegs[row][col]
       end
     end
 

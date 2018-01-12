@@ -17,9 +17,9 @@ module Shared
         input == 1 || input == 2
       end
       if user_choice == 1
-        return :tictactoe
+        :tictactoe
       elsif user_choice == 2
-        return :mastermind
+        :mastermind
       end
     end
 

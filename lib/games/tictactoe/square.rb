@@ -18,9 +18,9 @@ module TTT
 
     def full?
       if value != nil
-        return true
+        true
       else
-        return false
+        false
       end
     end
   end

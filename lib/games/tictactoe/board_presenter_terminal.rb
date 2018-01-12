@@ -1,6 +1,6 @@
 module TTT
   class BoardPresenterTerminal
-    attr_accessor :board
+    attr_reader :board
 
     def present_board(board)
       @board = board

@@ -67,7 +67,7 @@ module MM
     def won?
       #depends on evaluate_guess returning an array of all "X"s for perfect guess
       if won_flag
-        return true
+        true
       end
 
       if self.current_result.is_won

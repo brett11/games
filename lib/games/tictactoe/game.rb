@@ -38,7 +38,7 @@ module TTT
 
     def won?
       if won_flag
-        return true
+        true
       end
 
       if board.won?

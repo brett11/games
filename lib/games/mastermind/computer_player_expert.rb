@@ -2,6 +2,8 @@ require File.join('games', 'shared', 'player')
 
 module MM
   class ComputerPlayerExpert < Shared::Player
+    attr_reader :game
+
     def make_move(game)
       @game = game
       computer_choosing_graphic
@@ -17,15 +19,15 @@ module MM
     end
 
     def computer_choosing_graphic
-      @game.computer_choosing_graphic
+      game.computer_choosing_graphic
     end
 
     def current_result_partial_match_values
-      @game.current_result_partial_match_values
+      game.current_result_partial_match_values
     end
 
     def current_result_exact_match_values
-      @game.current_result_exact_match_values
+      game.current_result_exact_match_values
     end
   end
 end

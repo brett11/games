@@ -21,6 +21,7 @@ module TTT
       if board_won || board_full
         #rewind one player to see which player took last turn and therefore won the game
         self.number_of_turns_taken -= 1
+        # note: need return statement here so that method stops here if board is won or full
         return score(board_won)
       end
 
@@ -38,12 +39,12 @@ module TTT
         #https://stackoverflow.com/questions/2149802/in-ruby-what-is-the-cleanest-way-of-obtaining-the-index-of-the-largest-value-in
         max_score_index = scores.each_with_index.max[1]
         self.choice = choices[max_score_index]
-        return scores[max_score_index]
+        scores[max_score_index]
       else
         # This is the min calculation
         min_score_index = scores.each_with_index.min[1]
         self.choice = choices[min_score_index]
-        return scores[min_score_index]
+        scores[min_score_index]
       end
     end
 
