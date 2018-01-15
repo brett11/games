@@ -13,7 +13,7 @@ module Shared
     end
 
     def choose_game
-      user_choice = get_user_input("Please enter " + Paint["\"1\" ", :blue, :bold] + "if you would like to play tictactoe. Enter " + Paint["\"2\" ", :blue, :bold] + "if you would like to play mastermind.", "Invalid entry. Please enter either 1(tictactoe) or 2 (mastermind)") do |input|
+      user_choice = get_user_input("Please enter " + Paint["\"1\" ", :blue, :bold] + "if you would like to play " + Paint["tictactoe. ", :blue, :bold] + "Enter " + Paint["\"2\" ", :red, :bold] + "if you would like to play " + Paint["mastermind.", :red, :bold], "Invalid entry. Please enter either 1(tictactoe) or 2 (mastermind)") do |input|
         input == 1 || input == 2
       end
       if user_choice == 1
