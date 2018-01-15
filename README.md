@@ -12,13 +12,21 @@ To run from command line, you must install the gem on your machine:
 
     $ gem install games_bfox
 
-To play Mastermind, type the following into your command line to run the game executable :
+To play either game (choosing at run time), type the following into your command line:
+
+    $ games
+
+To play Mastermind, type the following into your command line: 
 
     $ mastermind
 
-To play Tic Tac Toe, type the following into your command line to run the game executable :
+To play Tic Tac Toe, type the following into your command line:
 
     $ tictactoe
+    
+To exit at any time, type the following into your command line:
+
+    $ exit
 
 ###...from inside the project
 
