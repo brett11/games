@@ -1,7 +1,7 @@
 # Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'shared', '*.rb')].each {|file| require file }
 # Dir[File.join(File.expand_path(File.dirname(__FILE__)), 'mastermind', '*.rb')].each {|file| require file }
 
-require File.join('shared', 'io_terminal')
+require File.join('games' ,'shared', 'io_terminal')
 require File.join('mastermind', 'io_helpers')
 require File.join('mastermind', 'board_presenter_terminal')
 require File.join('mastermind', 'board_builder')

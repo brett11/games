@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
+require File.join('bundler', 'setup')
 #below line requires tictactoe which runs program
-require "games/tictactoe"
+require File.join('games', 'tictactoe')
 
 TicTacToe.run
 
