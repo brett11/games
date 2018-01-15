@@ -7,7 +7,7 @@ Ruby 2.4.0, rbenv 1.1.1
 
 ## How to Run
 
-###...from the command line 
+### ...from the command line 
 To run from command line, you must install the gem on your machine: 
 
     $ gem install games_bfox
@@ -28,7 +28,7 @@ To exit at any time, type the following into your command line:
 
     $ exit
 
-###...from inside the project
+### ...from inside the project
 
 Clone the project, cd into the project directory, and then run the following command: 
 
