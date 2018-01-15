@@ -2,6 +2,9 @@
 
 Welcome to the games_bfox gem!
 
+## Versions
+Ruby 2.4.0, rbenv 1.1.1
+
 ## How to Run
 
 ###...from the command line 
