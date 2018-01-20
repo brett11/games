@@ -30,8 +30,9 @@ To exit at any time, type the following into your command line:
 
 ### ...from inside the project
 
-Clone the project, cd into the project directory, and then run the following command: 
-
+Clone the project, cd into the project directory, and then run the following commands:
+ 
+    $ bundle install 
     $ bundle exec ruby lib/games.rb
 
 ## How to Test
